@@ -1,0 +1,1109 @@
+<pre class='metadata'>
+Title: Threat Modeling Guide
+Status: ED
+Org: W3C
+Group: securityig
+ED: https://w3c.github.io/threat-modeling-guide
+Shortname: threat-modeling-guide
+Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
+Level: 1
+Editor: Simone Onofri, w3cid 38211, W3C Team, simone@w3.org
+Editor: Joe Andrieu, w3cid 97261, Legendary Requirements, joe@legreq.com
+Abstract:
+  This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help standards developers understand threats and countermeasures from the beginning of standard development and to document the model in the security considerations section.
+
+  This document is intended for threat modeling with the broadest definition of threat.
+Status text:
+  <p>This section describes the status of this document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</p> 
+  <p>This document has been reviewed by Interest Group members and interested parties. This is a draft document which may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress. The Interest Group's role in publishing is to draw attention to the specification and to promote its widespread deployment.</p>
+  <p>By publishing these guidelines, the Interest Group does not expect that the work produced in this specification will affect the work undertaken by other <abbr title="World Wide Web Consortium">W3C</abbr> sustainability, accessibility, or performance groups. The Interest Group will continue to track these Working, Interest, and Community Groups as appropriate.</p>
+  <p>To provide feedback regarding this specification, the preferred method is using GitHub. It is free to create a GitHub account to file issues. A list of issues filed as well as archives of previous mailing list <a id="public-name" href="mailto:public-security@w3.org">public-security@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-security/">archive</a>) discussions are publicly available.</p>         
+  <p>This document was published by the <a href="https://www.w3.org/groups/ig/security">Security Interest Group</a> as  a Group Draft Note using the <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note track</a>. </p><p>Group Draft Notes are not endorsed by <abbr title="World Wide Web Consortium">W3C</abbr> nor its Members.</p>
+  <p>This is a draft document and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress.</p>
+  <p data-deliverer="161076"> The <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
+  <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+Markup Shorthands: markdown on, biblio yes
+Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
+</pre>
+
+
+# Introduction
+
+The [mission of W3C](https://www.w3.org/mission/) is to make the Web work in accordance with the principles of accessibility, internationalization, privacy, and security. Therefore, every standard must also consider security and privacy. This consideration can be made by developing and documenting a threat model for each W3C specification.
+
+Moreover, [W3C Process](https://www.w3.org/2023/Process-20231103/#wide-review) mandates Wide Reviews, which include horizontal reviews described in [W3C Guide](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review). Among the horizontal reviews, we also find the security review. 
+
+During the security review, a key element is verifying the presence of the Security Consideration Section and the related Threat Model, which not only satisfies the security principle but also accelerates the review process. 
+
+## Terminology
+
+It is helpful to understand some basic yet often overlooked terminology. At the beginning of the threat chain is the threat actor, sometimes called an adversary. The threat actor is the entity from which the threat arises (Swiderski & Snyder, 2004). The threat actor has specific goals and underlying motivations. Understanding these motivations is essential to model correctly. In contrast to threat actors, the term adversary is used to describe vulnerabilities and dangers to users, whether or not a specific person or entity is behind the threat. (Allan & Appelcline, 2019\) “By anthropomorphizing these threats, we can consider their motivations.” Both threat actors and adversaries identify the source of the threat being modeled.
+
+Then there is the threat—a potential circumstance, event, or action that could have a negative impact, e.g., on the user (ISO, 2022)—which represents a sub-goal of the threat actor (Swiderski & Snyder, 2004). Attack is how the threat is realized (Swiderski & Snyder, 2004\) and is based on taking advantage of a vulnerability \- a weakness in an asset or control that can be exploited (ISO, 2022\) \-  to achieve a certain impact on an asset, as the asset is something valuable (ISO, 2022\) such as the elements inside a Threat Model (Swiderski & Snyder, 2004). If the impact hurts assets such as people, it is called harm (ISO, 2019\) or, to simplify, “harm is a threat with its impact” (Shostack, 2014).
+
+* **Assets**: An abstract or concrete resource that a system must protect from misuse by an adversary (Swidersky & Snyder, 2004).  
+* **System**: a collection of functionality that can span one or more components (functional areas). A system exposes certain functionality to external entities (interactors outside the system's control) and must protect one or more assets. (Swidersky & Snyder, 2004).  
+* **Threats**: something that, if it happens, has a negative impact. In the [Open Source Security Testing Methodology Manual v3 (OSSTMM)](https://www.isecom.org/OSSTMM.3.pdf) Security is considered a function of separation between what we are protecting and the threats. This separation occurs through the application of response strategies (e.g., controls or mitigations) that create a distance between the asset and the threat.   
+* **Responses**: What controls or mitigations have we put in place, and what are their limitations? And what threats do we accept?  
+* **Attacks**: An attack is a realization of a threat; a particular instance of a threat manifesting in an operational system. 
+
+## Goals of This Guides
+
+This guide should help specification developers and implementers document and understand the threats facing the World Wide Web, with the explicit goal of improving the security, privacy, and reliability of the Web.
+
+We take a security-first approach, as without reliable security, it is impossible to know if a system is working properly. To evaluate the security of the web (and potential extensions and innovations), we use a threat model to identify what we are evaluating, the threats we have considered, and any known responses to those threats.
+
+It is a goal of this work to update the way the W3C identifies, captures, and communicates the security risks of its technologies, especially by developing reusable, shareable, and extensible threat models for every technology specification developed by the organization.
+
+We provide explicit guidance on performing threat modeling and writing security considerations for specifications developed by the World Wide Web Consortium.
+
+# What is Threat Modeling at W3C
+
+Threat Modeling is a family of structured, repeatable processes that together allow you to make rational decisions to secure applications, software, and systems (Shostack, 2014). During Threat Modeling, potential threats, such as vulnerabilities or the absence of appropriate safeguards, are identified and enumerated, and countermeasures prioritized (OWASP). In general terms, threat modeling is a form of risk assessment that models aspects of the attack and defense sides of an entity (NIST SP 800-53 Rev. 5, NIST SP 800-154).   
+As a practice, Threat modeling has inspired several alternative methods for evaluating threats across various system types. Three worth highlighting are the Security Development Lifecycle (SDL) from Microsoft, Shostack’s 4 Questions from Adam Shostack, and the Auditor’s Trifecta from the Open Source Security Testing Methodology Manual (OSSTMM).
+
+Any coherent analytical framework may yield quality threats. Our approach at the W3C embraces any analytical framework that specification developers find illustrative. We provide a common strategy for performing threat modeling using any analytical framework that enables evaluating components for threats and identifying suitable responses.
+
+At the W3C, we ask specification developers to develop a formal threat model to capture known threats and responses of their specification. This guide provides detailed examples and advice for developing an effective Threat Model, tailored specifically to Threat Modeling for specifications.
+
+Groups are free to innovate in their approach to threat modeling, as long as three key elements exist:
+
+1. A **clear description of the system** under analysis, including a **visual representation**(s) of the components of the system and data flows between them, and a **dictionary** describing each component and flow. This can be a simplified *Data Flow Diagram (DFD)* as described in Shostack’s approach, a *UML Sequence Diagram* that shows the core information flow between components, swimlanes, or any other visual representation that provides adequate context for threat analysis. The point of the description is to introduce terminology for referring to system elements when discussing threats and responses.  
+2. A discussion of the **threats** identified by specification developers. Four types of threats should be considered:   
+   1. **target threats** the specification was designed to address,   
+   2. **implementation threats** that implementers should consider but which are not covered by the specification,    
+   3. **external threats** whose resolution is beyond the scope of the specification but that are nevertheless considered worthy of consideration by implementers and  
+   4. **dependency threats** are external threats that arise from specific pre-requisites or dependencies in the system, such as reliance on CSS or HTTP in a specification that relies on those technologies but does not control them.  
+3. A discussion of **responses** to the identified threats, describing how implementers could address them. Responses may include actions or controls outside the technology described by the specification itself. For example, a specification that relies on TLS/SSL encryption to avoid network surveillance might identify the threat and acknowledge that a working TLS/SSL subsystem is an expected response for implementers; it need not directly describe *how* the TLS/SSL subsystem does so.
+
+# Why Threat Model
+
+We threat model to make the Web better.
+
+Threat models are a medium for technology evaluation and communication. They provide a concrete and coherent perspective on the threats related to a set of technologies. By creating, discussing, and documenting specific threat models, stakeholders can better understand the engineering trade-offs involved in deploying innovative technologies. 
+
+At the W3C, Working Groups develop threat models to capture and document threats related to a specification as it is expected to be deployed. 
+
+Threats listed in W3C threat models should include:
+
+1. Threats in which they are explicitly addressed by specification developers.  
+2. Threats inherited from other elements of the ecosystem, and relevant to the specific use-cases.  
+3. Known real-world or systemic risks that exist for common use cases, but are recognized as out of scope for the modeled version of the specification.  
+4. Threats likely to impact implementations, but for which normative constraints are deemed too restrictive.  
+   
+
+This last category of threats is especially important when specifications offer significant extensibility or optionality. While the specification itself may introduce new threats, it is possible to know at specification time that some non-normative options and choices pose security or privacy challenges that implementers should consider when implementing the specification.
+
+This is particularly important because of the complex landscape of technologies that come together to realize the Web. W3C specifications are necessarily deployed alongside a large family of interdependent specifications maintained by other organizations, such as Ethernet, Wi-Fi, TCP/IP, HTML, ECMAScript, DNS, and SSL. Threat modeling of W3C specifications must appropriately identify threats arising from the complex interplay of independently developed technologies. We cannot “fix” threats arising from externalities, but we can identify the harms that may result from reliance on particular capabilities.
+
+By better understanding how W3C specifications address threats of the World Wide Web as deployed, we help make the Web more secure and privacy-respecting for everyone.
+
+# When to Threat Model at the W3C
+
+Threat models, as described in this guide, should be developed collaboratively by the Working Groups writing the specification, with support from the W3C team and the horizontal groups (e.g., security and privacy groups at W3C) to identify threats.
+
+The threat model should start in parallel with the specification itself, particularly when evaluating use cases and writing introductory explainers. A good threat model describes all the possible goals an adversary may have for a given set of functionality (Swiderski & Snyder, 2004, p. 29). These goals may be identified when evaluating the system from a use-case perspective, drafting an explainer, or teasing out the trade-offs of specific design choices. Whenever a threat is implicitly involved, threat modellers should capture it. Just as a discussion of the relevant use cases can evolve as a specification moves from inspiration to recommendation, a discussion of threats should start at the beginning of the process and be updated as discussions and specification text evolve. 
+
+When you start writing an explainer and have a first draft of the threat model, please share it with the review groups. Then, threat models, by their nature, are living documents that require continuous updates, such as when functionality is modified or new functionality is added (Swiderski & Snyder, 2004, p. 26).
+
+A completed threat model must be prepared before formal horizontal review. A threat model should serve as the foundation for the security considerations section of the Working Group’s specifications.
+
+If the threat model is small, it can be included directly in the Security Considerations section. If it is very large, it can be published separately (e.g., as a Group Note) and included in the Security Considerations section as an external security note (Shostack, 2014).
+
+It is a goal of this work to update the way the W3C identifies, captures, and communicates the security risks of its technologies, especially by developing reusable, shareable, and extensible risk models for every technology specification developed by the organization.
+
+# How to Threat Model
+
+Highlight the threats that most influenced the specification. Based on the discussions that led to the specification, capture the most salient threats and present them in a concise, understandable, and compelling way. 
+
+For specifications, threat modeling SHOULD focus on the idealized realization of the specification, assuming everything is implemented correctly. It SHOULD be augmented, as appropriate, with significant threats arising from common implementation errors.
+
+The point of threat modeling specifications is to help implementers understand the security trade-offs inherent in the technology, enabling them to make informed security decisions when implementing the specification. 
+
+Downstream, we anticipate that both implementers and security professionals will extend the threat models created by working groups with their own evaluations based on implementation decisions. Such implementation-specific threat models are not expected to be standardized and may be published or not. However, they provide implementers with a coherent way to evaluate the security trade-offs of their applications when integrating the specified technologies.
+
+There are different iterative processes for doing threat modeling, but they all use the same basic approach:
+
+1. Model the system  
+2. Identify & Evaluate Stakeholders  
+3. Identity & Evaluate Threats  
+4. Consider Responses  
+5. Publish for consideration  
+6. Iterate
+
+## Model the system
+
+The first step in creating a threat model is summarized in the question, “What are we working on?”. It typically involves defining the use case scenario, then creating a model—an “abstract representation of some process” (O’Neil, 2016)—and diagrams, a graphical representation of the model (Howard & Lipner, 2006, p. 110). 
+
+Creating good diagrams is fundamental, as they are the heart of a good threat model (Osterman, 2006). Diagrams should list and describe the various elements that make up the system (Osterman, 2007). Creating a diagram is a complex process; when modeling computer systems, multiple diagrams are often used. For this reason, in the threat modeling of a computer system architecture, a high-level diagram is followed by a series of detailed diagrams that detail the various elements (Howard & Lipner, 2006, p. 112). 
+
+This concept is similar to what happens when looking at a geographical map: on the one hand it can be useful to have various levels of zoom, and on the other hand, it can be useful to have different information (e.g., satellite images, street map, topographic map) and the well-known principle “the map is not the territory” (Korzybski, 1933), also applies here (Onofri, 2024b, slide 15). Not surprisingly, another well-known aphorism, “all models are wrong, some models are useful” (Box, 1976), is also used in modeling (Fenstermacher, 2004).
+
+Any visualization that clearly distinguishes the various elements of your system is acceptable. Modelers MUST use visual imagery that adheres to the W3C Accessibility Guidelines [https://www.w3.org/TR/wcag-3.0/](https://www.w3.org/TR/wcag-3.0/). Specifically, use shapes rather than colors or shading to distinguish different types of elements. 
+
+It is also RECOMMENDED that
+
+1. diagrams enumerate all components with unique short IDs (not just names),  
+2. diagrams are accompanied by a prose description of the architecture describing a common use case to give context and explanation for the diagram, and  
+3. diagrams are accompanied by dictionaries that enumerate and describe the elements in the diagrams. This dictionary also serves as a reference in subsequent discussions of threats and responses.
+
+We provide an example in the **Appendix A1 Minimalist Threat Model for the World Wide Web**.
+
+## Identify the Stakeholders
+
+When modeling the system, it is vital to include all affected stakeholders to answer the question **“Who is affected?”** or, equivalently, **“Who is impacted?”**. Focuses on identifying and analysing the people, groups, and entities that interact with or are affected by the system modeled in the first step. This work aims to shift the paradigm from viewing the user as an asset to be protected to the “weakest link” of the security chain (Schneier, 2015, preface section). Despite this integration, the user should always be treated as a protected entity.
+
+This step is inspired by the Harms Modeling process described in Microsoft (2020) and is useful for integrating Threat Modeling with Harms Modeling. 
+
+Identifying stakeholders is particularly useful when analysing **high-level models and technologies that can have a societal impact**. A thorough understanding of stakeholders ensures that the resulting systems are not only secure but also **trustworthy**, recognising and respecting **human rights as a fundamental design principle**.
+
+This includes understanding who the stakeholders are, what they value, how they might benefit from the technology, and how they could be harmed by it. Stakeholders typically include, but are not limited to:
+
+* **Customers**: direct users or adopters of the technology.  
+* **Non-customers**: individuals, groups, or organisations indirectly affected by the technology’s operation or deployment.  
+* **Developers and operators**: those who design, implement, or maintain the system.  
+* **Regulators and policymakers**: entities establishing or enforcing rules that affect the system’s design and usage.  
+* **Society at large**: communities, environments, and ecosystems influenced by the system’s broader externalities.
+
+To guide the analysis, it is RECOMMENDED to ask the following questions for each stakeholder category:
+
+1. Who are the end users for your technology?  
+   1. How should they benefit from your technology?  
+   2. How could your technology harm them?  
+2. Who are the non-user stakeholders?  
+   1. How should they benefit from your technology?  
+   2. How could your technology harm them?
+
+Asking these questions provides a deeper understanding of **what matters to stakeholders** and how these values influence their **relationship with the product or system**. This understanding forms the basis for identifying not only technical threats but also **social and cognitive harms**, ensuring that threat modeling extends beyond the system’s components to include its human and societal dimensions.
+
+* **Objective:** Identify the stakeholders and understand their interests, benefits, and potential harms.  
+* **Input:** Model and use cases.  
+* **Output:** Stakeholder list with roles, values, and potential impacts, that can be harms or threats.  
+* **Who:** Standards’ Developers alone or with Domain Experts (e.g., Human Rights, Privacy, or Ethics specialists).
+
+## Identify & Evaluate Threats
+
+The second step in creating a threat model is summarized in the question, “What can go wrong?” where threats are identified and assessed (Swiderski & Snyder, 2004, p. 111). Threats can be identified in different ways, such as experimentally, by analyzing the chain of events leading up to an attack—i.e., a kill chain —or by using a list of threats (Shostack, 2014, pp. 9, 385, 388; Penney, 2023).
+
+Threat lists, like other types of lists used in threat modeling, are particularly useful for identifying issues on a diagram. This operation can be performed: “per element” of the diagram, where the analysis starts with the first element and evaluates all threats (Osterman, 2007a); “per interaction”, where the analysis is focusing on the data flow of the diagram, focusing on the interactions between elements (FFRI, 2016, slide 4-5), “per threat”, taking one threat at a time and figuring out which element it applies (DistriNet, 2024).
+
+* **Objective**: Identify the Threats, Vulnerabilities, etc…   
+  * An inefficient but effective method is to have lists of principles or properties that need to be respected, controls that should be in place, or threats.  
+  * We can “brute-force” them:  
+    * For each component or flow, identify the threats  
+    * For each threat, identify the component(s) affected  
+  * We can also use Kill Chains, Incident Analysis…  
+* **Input:** Model and Threats/Controls/Principles/Questions.  
+* **Output**: List of identified threats in the Model.  
+* **Who**: Standards’ Developers alone or with Domain Experts
+
+## Consider Responses
+
+The third step in creating a threat model is summarized in the question, “What are we going to do about it?”. It typically involves choosing how to respond to the threats (Howard & Leblanc, 2002, p. 106).
+
+In the literature, there are several categories of responses, some specific to threat modeling and others derived from risk management (Appendix A.4), aimed at reducing or eliminating the threat or its impact (Howard & Lipner, 2006, p. 124).
+
+For the Threat Modeling Guide, these can be summarized in four response strategies using the ERTA mnemonics: **Eliminate** the threat or the asset; **Reduce** the threat by applying mitigations or countermeasures; **Transfer** to another entity or element; and **Accept**, meaning do nothing but accept that the threat can occur. 
+
+* **Objective**: understand how to address the threats, e.g.:  
+  * **Eliminate**: Remove the asset or the threat.  
+  * **Reduce**: Make it harder, e.g., adding a control, mitigation or countermeasure.  
+  * **Transfer**: To another element or component.  
+  * **Accept**: that it is not possible to mitigate (or the Group doesn't want to mitigate, for now) the threat; it is still open and needs to be monitored.  
+* **Input:** Identified Threat List  
+* **Output**: List of countermeasures for each threat and residual threats  
+* **Who**: Standards’ Developers and Threats Experts
+
+## Publish for consideration
+
+The fourth step in creating a threat model is summarized in the question, “Did we do a good job?” but threat models, by their nature, are living documents that require continuous updates (Swiderski & Snyder, 2004, p. 26). Also, the attacks are in a continuous evolution, and “Attackers simply ignore your threat model” (Onofri, 2024b, slide 38). This step serves as a reminder to pause, publish for consideration, evaluate the completed work, and determine what still needs to be done. For example, performing formal verification, additional cryptographic checks, and so on.
+
+* **Objective**: make the model visible  
+* **Input:** List of threats and countermeasures  
+* **Output**: threat model and security considerations  
+* **Who**: Standard’s Developers
+
+## Iterate
+
+Once you have a published version of the threat model, engage stakeholders to improve it. The specificity and curation of the most relevant threats will be improved by more parties contributing constructively. Through your working group and horizontal review, invite input and feedback, and integrate that feedback into a better threat model. Bring in external perspectives from expected users of the technology, including both end users and service providers.
+
+The best threat models evolve over time as the threat landscape and our understanding of threats change. We learn new details about potential threats, and new threats emerge constantly.
+
+# Curatorial Storytelling
+
+Tell a good story. That’s the priority.
+
+The most important factor in the success of threat models is whether or not developers actually read, understand, and apply them in their implementations. The principles of good storytelling can help.
+
+It’s vital that developers can quickly read and understand the threats they should consider when making engineering decisions. A threat model that is too verbose risks overwhelming readers before they capture the value of the model. Huge tables of hundreds of threats are simply hard to absorb. Instead, carefully chosen and well-ordered threats lead readers through a gradual introduction to the threats they should care about most.
+
+Modelers should focus on the most relevant threats in their work, and order them by priority to enable readers to see the big picture even if they do not have the time and inclination to read the entire document in detail. Pick the most salient threats and present them in an order that makes sense to new readers.
+
+This principle also applies to the diagrams that ground the threat modeling. Identify just those elements that matter to your particular threat model. This requires having an intention about the general scope of the system to be considered. Your diagrams define and illustrate that scope. For example, web browser devices, like a smart phone, contain dozens of different chips. Modeling the threats of a proposed CSS standard is unlikely to benefit from highlighting the fact that any one of those chips could be compromised in some way at the factory. Developers concerned about hardware security would be better served by creating a dedicated threat model that focuses on how the hardware might be compromised.
+
+Choose the elements that best represent the threats you care about. Ignore the rest. 
+
+Focus on threats that either have known responses, including accepting the threats because it is understood there are no clear alternatives. Abstract threats and “areas of concern” must be further distilled into actionable threats.   
+   
+Readers of threat models seek a coherent presentation of the threats and responses they should consider when implementing the modeled specification. As such, threat models should not be exhaustive lists of everything that might go wrong in a system, but rather tightly curated sets of threats and responses that illustrate the specification developers’ best thinking about threats at the time the specification was written. Any reader of a threat model should walk away with a clear understanding of the real threats people and organizations might face during deployment, along with guidance on how to address them. As a storytelling exercise, threat modellers should present the most salient threats clearly and compellingly, avoiding overwhelming the reader with extraneous details.
+
+# How to Write the Security Considerations Section
+
+While it is not a requirement for any given standard to be immune to all forms of threats and attacks, it is still necessary for authors to consider as many forms as possible.  Part of the purpose of the Security Considerations section is to explain what attacks are out of scope and what countermeasures can be applied to defend against them.
+
+Once you have an early version of the Threat Model, relevant threats for the standard will be documented in the Security Considerations sections of the specification.
+
+In general, the “Security Considerations” sections serve as notes on external security in a threat model, and the Threat Model document can be referred to in a Group Note. 
+
+There should be a clear description of the kinds of threats to the described technology.
+
+This should be approached as an effort to perform threat modeling, describing all known or foreseeable risks and threats to potential implementers, users, and stakeholders.
+
+Authors MUST describe:
+
+1. The use case(s) and diagram(s), which assumptions are considered  
+2. The threats both in scope and out of scope (with the justification)  
+3. The response to each threat.  
+   1. If a countermeasure is identified, the specification provides a reference, which, if accepted with justification, addresses the residual threat.  
+4. Threats the standards protect against, and threats that are accepted.  
+5. Residual risk to users, implementers, and related technologies
+
+Please note that:
+
+* If cryptography is used, please refer to the specific guidance with related threats.  
+* If some threats are “imported”, for example, from the ecosystem or other standards, these threats must be specified in the security consideration sections.  
+* If other threats are assumed to be addressed at another level of the Web Platform. This must be specified, and requirements for related technologies must be provided to keep the Web Platform secure.
+
+To understand the threats and attacks that needed to be covered, please refer to:
+
+* Appendix 4: Web APIs  
+* Appendix 5: File Formats
+
+# Acknowledgments
+
+Several individuals contributed to the document. The editor especially thanks…
+
+# Appendix 1: Minimalist Threat Model for the World Wide Web
+
+The World Wide Web (“the Web”) is built on many different technologies. Each of which is independently developed and maintained. This makes threat modeling for the Web a complex challenge (See [The Web is Unversioned](https://www.w3.org/2001/tag/doc/the-web-is-unversioned/)). 
+
+For this threat model, we think about the World Wide Web as just six independent components: three human (user, website admin, and network operator), and three in software (a browser, a DNS server, and a web server). This is an intentionally simplified view of the web so that we can focus on the threats inherent in a minimal instantiation of an SSL/TLS-secured World Wide Web. 
+
+## A1.1 Visual Language
+
+For our example in this Threat Modeling Guide, we use an intentionally simplified Data Flow Diagram (DFD) inspired by Adam Shostack (reference), which uses just six elements for clarity: external entities, processes, flows, data storage, data objects, and threat containers (which define threat boundaries).
+
+<table>
+  <tr>
+    <th>External Entity (E)</th>
+    <td>
+      An autonomous entity, external to the application, that interacts with, or drives, processes. Preferably a human user or legal person responsible for driving an interaction. Include all stakeholders, including the primary user as well as others who have designed roles in the system. Do not include attackers as they are treated as independent factors, exogenous to the model. In particular, be careful about over-characterizing attackers as it is impossible to cover all possible attacks and attackers. Assumptions about the limits of attacks and attackers can leave you open to unforeseen vulnerabilities. In contrast, we can completely characterize the system under attack in a visual diagram, no matter the nature or intention of any attacker.
+    </td>
+    <td>
+      <figure id="external-entity">
+        <img src="images/image2.png">
+        <figcaption>External Entity</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Process (P)</th>
+    <td>
+      A process within the system (e.g., feature in a component, component in an application, application in an operating system, operating system in a virtual machine).
+    </td>
+    <td>
+      <figure id="process">
+        <img src="images/image3.png">
+        <figcaption>Process</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Flow (F)</th>
+    <td>
+      The mechanism by which data flows between elements. May be uni- or bi-directional. Data can flow between an external entity and a process, between one process and another, or between a process and a data store.
+    </td>
+    <td>
+      <figure id="flow">
+        <img src="images/image4.png">
+        <figcaption>Flow</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Data Store (S)</th>
+    <td>
+      A medium for retaining information. This may be generic (e.g., local filesystem) or specific (e.g., configuration table in a database). It might be ephemeral, like a cache, or more permanent, like an archive.
+    </td>
+    <td>
+      <figure id="data-store">
+        <img src="images/image5.png">
+        <figcaption>Data Store</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Data Object (O)</th>
+    <td>
+      A self-contained data object shared over data flow or stored in a data store. Transferrable between elements without losing integrity. Often secured by cryptographic signature.
+    </td>
+    <td>
+      <figure id="data-object">
+        <img src="images/image6.png">
+        <figcaption>Data Object</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Threat Boundary (B)</th>
+    <td>
+      A boundary separating trust domains, where each trust domain is controlled by a single authority. When a threat boundary defines a closed loop, it defines a threat container.
+    </td>
+    <td>
+      <figure id="trust-boundary">
+        <img src="images/image7.png">
+        <figcaption>Threat Boundary</figcaption>
+      </figure>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Threat Container (C)</th>
+    <td>
+      A collection of elements secured by a common authority. Elements within a container are taken to be operating within a threat boundary. Communications into or out of a threat container are recognized as crossing a threat boundary.
+    </td>
+    <td>
+      <figure id="threat-container">
+        <img src="images/image7.png">
+        <figcaption>Threat Container</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
+
+
+## A1.2 Data Flow Diagram for Minimalist Web Threat Model
+
+
+<figure id="minimalist-web-threat-model"><img src="images/image4.png"><figcaption>Data Flow Diagram for Minimalist Web Threat Model</figcaption></figure>
+
+## A1.3 Data Flow Description
+
+For this diagram, consider the simplest realization of the world wide web including DNS and SSL/TLS.
+
+In the intended use, a **user** (E1) interacts (F1) with a **browser process** (P1), which operates in its own container, the **web browser** (C1). This interaction directs the browser to display a specific URL as selected by the user. The browser process (P1) starts by resolving the domain name of that URL by requesting **DNS resolution** (F2) from a **DNS resolver** (P2), which returns an IP address for HTTP requests to that domain. This information is tracked as **session data** (F3) and stored in **browser data storage** (S1). Then, the browser sends **HTTP requests** (F4) to a **server process** (P3), which is running in its own container, the **web server** (C3). These requests (F4) are encrypted using SSL/TLS protocols. In response to requests (F4), the web server returns an SSL/TLS certificate (O1) and the resource requested, using its own **server data storage** (S2) to generate an appropriate response.
+
+Supporting this operation are the Website Administrator (E2) and the (E3) Network Administrator, who keep the network-available services running. 
+
+Note: we do NOT model potential attackers, as over-characterizing attackers can lead to analysis bias that is better avoided.
+
+It is understood that the browser process (P1) is likely realized as multiple processes running as software in an operating system on a device. Threat modeling for such details would suggest breaking both the process and its container (C1) into its subcontainers and processes, identifying the flows between each. However, in this threat model, we treat the web browser as just two elements, the browser process and its data storage.
+
+Similarly, the web server (C3) is often realized not only as multiple processes, but often with data flows that communicate with multiple back-end systems in response to user requests. However, it is possible to realize the web server as a single process in a single container with its own local storage, which contains its SSL/TLS certificate. For our analysis, we choose this minimalist realization.
+
+The DNS resolver also depends on external data flows that are beyond the scope of this threat model.  
+
+We treat the DNS Server and the Web Server as essentially black box elements which provide information in response to requests, but whose internals are intentionally outside the threat model. We are not evaluating the threats of the DNS system. Nor are we evaluating the threats of any particular back-end system or web server. These are external systems which may be worth noting as sources of threats, but whose definitions are beyond this scope.
+
+## A1.4 Data Flow Dictionary
+
+<table>
+  <tr>
+    <th>Elements of Web Minimal Viable Configuration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>E1</td>
+    <td>User</td>
+    <td>Entity</td>
+    <td>The user of the Web. Designed for human users, this role can also be realized by automated software, including scripts and AI. However, we consider the user as a black box without regard to the type of user or the subprocesses and data that might be used internally. Users control a user-agent, aka a browser, for interacting with the World Wide Web.</td>
+  </tr>
+
+  <tr>
+    <td>E2</td>
+    <td>Website Administrator</td>
+    <td>Entity</td>
+    <td>The administrator of the website. Their goal is to keep the website running as intended by the website owner. It may be presumed that they have complete access to everything on the server and can monitor or manipulate all communications into and out of the website.</td>
+  </tr>
+
+  <tr>
+    <td>E3</td>
+    <td>Network Administrator</td>
+    <td>Entity</td>
+    <td>Any number of network administrators who keep the network running, including maintaining an operational DNS system. In practice, this party also has the ability to watch and manipulate activity on its services.</td>
+  </tr>
+
+  <tr>
+    <td>C1</td>
+    <td>Web Browser</td>
+    <td>Container</td>
+    <td>The collection of processes and data that realize the web browser for an individual user. Typically running in an operating system on a device, potentially alongside other processes, possibly with different threat boundaries. In this threat model, the browser is simplified to just a single process and single data store.</td>
+  </tr>
+
+  <tr>
+    <td>C2</td>
+    <td>DNS Server</td>
+    <td>Container</td>
+    <td>The collection of processes and data that perform DNS resolution. Typically running as a service on a server somewhere, we treat it and any back-end networking as a black box that simply turns domain names into IP addresses.</td>
+  </tr>
+
+  <tr>
+    <td>C3</td>
+    <td>Web Server</td>
+    <td>Container</td>
+    <td>The collection of processes, data, and data objects that perform the server role in browser interactions. Typically running as a service on a server somewhere, we treat any sub-process architecture and back-end data flows as a black box that simply responds correctly to properly formed HTTP requests using its own data store (S2) and data object (O1).</td>
+  </tr>
+
+  <tr>
+    <td>P1</td>
+    <td>Browser Process</td>
+    <td>Process</td>
+    <td>The running algorithm that processes user interaction (F1) to engage with resources requested (F4) from different web servers (C3) using its own data storage (S1) to present a coherent browsing experience.</td>
+  </tr>
+
+  <tr>
+    <td>P2</td>
+    <td>DNS Resolver</td>
+    <td>Process</td>
+    <td>Returns the IP address for interacting with a provided domain.</td>
+  </tr>
+
+  <tr>
+    <td>P3</td>
+    <td>Server Process</td>
+    <td>Process</td>
+    <td>The running process that receives and responds to HTTP requests, providing resources for display or use by web browsers.</td>
+  </tr>
+
+  <tr>
+    <td>F1</td>
+    <td>User Interaction</td>
+    <td>Data Flow</td>
+    <td>User input and display, for controlling the browser and viewing the web.</td>
+  </tr>
+
+  <tr>
+    <td>F2</td>
+    <td>DNS Resolution</td>
+    <td>Data Flow</td>
+    <td>Requests to turn a domain name into an IP address. Response includes the IP address.</td>
+  </tr>
+
+  <tr>
+    <td>F3</td>
+    <td>Session Tracking</td>
+    <td>Data Flow</td>
+    <td>Management of current browser sessions to keep track of SSL/TLS meta-data and related information.</td>
+  </tr>
+
+  <tr>
+    <td>F4</td>
+    <td>HTTP Requests &amp; Response</td>
+    <td>Data Flow</td>
+    <td>Requests from the browser to the server and their responses.</td>
+  </tr>
+
+  <tr>
+    <td>F5</td>
+    <td>Server Data Retrieval</td>
+    <td>Data Flow</td>
+    <td>Requests from the server process (P3) to server data storage (S2) for information needed to respond to HTTP requests.</td>
+  </tr>
+
+  <tr>
+    <td>F6</td>
+    <td>Website Administration</td>
+    <td>Data Flow</td>
+    <td>To set up and maintain the website, administrators engage in a number of activities, with data flows in both directions. Assume the website administrator has unlimited access to the website system.</td>
+  </tr>
+
+  <tr>
+    <td>F7</td>
+    <td>Network Administration</td>
+    <td>Data Flow</td>
+    <td>Like Website administrators, network operators engage in a number of data flows to set up and maintain the network, including running DNS servers. Assume the network administrator can see and manipulate anything on the network unless explicitly secured in some manner.</td>
+  </tr>
+
+  <tr>
+    <td>O1</td>
+    <td>SSL/TLS Certificate</td>
+    <td>Data Object</td>
+    <td>Digital object that allows systems to verify the identity &amp; subsequently establish an encrypted network connection to another system using the Secure Sockets Layer/Transport Layer Security (SSL/TLS) protocol, e.g., TLS 1.3 as defined in RFC 8446.</td>
+  </tr>
+</table>
+
+
+From this diagram and its dictionary, we can begin to model relevant threats.
+
+## A1.5 Threats
+
+The following sections describe the identified threats and potential responses to them.
+
+### A1.5.1 Target Threats
+
+The TLS/SSL addition to the Web specifically addressed a handful of known problems. 
+
+T1. Imposter Websites (URL validation)  
+T2. Network Surveillance (DH, Encryption)  
+T3. Network Corruption (MAC signature)  
+T4. Fraudulent Certificate (Signed Certificates)
+
+<table>
+  <tr>
+    <th>Threat T1. Imposter Websites</th>
+  </tr>
+  <tr>
+    <td>
+      It’s possible for a compromised network to return content that does not come from the owner of the domain. The user requests a given URL, but what is returned comes from an attacker on the network pretending to be that website.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R1. Third Party Identifying Certificates [Mitigate]</th>
+  </tr>
+  <tr>
+    <td>
+      TLS/SSL certificates inform users of the public key associated with a given domain, as cryptographically attested by a signing authority, called a Certificate Authority (CA). By comparing the domain in the certificate with the domain in the URL and verifying the network session is established using the public key in the certificate, verifying parties gain confidence that the TLS/SSL communications are with the intended party.
+      <br><br>
+      Some CAs provide further assurances regarding the entity identified in the certificate such as a legal name. However, not all CAs perform the same validation processes, making the certificates primarily an attestation of URL validation (that the cert holder has proven legitimate control over the domain) and not much more.
+      <br><br>
+      Finally, individual websites can self-attest with a self-signed TLS certificate. Distinguishing between self-signed and those signed in accordance with the CA hierarchy rooted in web browsers is easy. We consider self-signed TLS certificates only “identifying” in terms of the current session, as the website could change the certificate as frequently as desired. In contrast, third party certificates give <em>at least</em> one other party who attests to the legitimacy of a particular certificate for a particular domain.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong>, <strong>O1 SSL/TLS Certificate</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Spoofing)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T2. Network Surveillance</th>
+  </tr>
+
+  <tr>
+    <td>
+      With traditional HTTP interactions, it is possible for network observers to read the content of the request and any responses. Data sent in either direction, e.g., bank details shown to the user AND user input provided in web forms, can easily be captured and used by an attacker anywhere along the path through the network.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R2. TLS Handshake [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Before any data is exchanged, the client and server perform a Diffie-Hellman key exchange to establish session keys that cannot be seen by network observers. These keys are used to encrypt the balance of HTTPS exchanges so that the actual data shared (in both directions) is secured from outside observers.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T3. Network Corruption</th>
+  </tr>
+
+  <tr>
+    <td>
+      It is possible for data to be corrupted in transit, either intentionally or accidentally.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R3. Integrity Check [Mitigate]</th>
+  </tr>
+
+  <tr>
+    <td>
+      All messages sent via TLS/SSL are signed with a message authentication code (MAC), ensuring the recipient can verify the MAC to ensure the integrity of the data.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>F4 HTTP Requests &amp; Responses</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Tampering)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T4. Fraudulent Certificate</th>
+  </tr>
+
+  <tr>
+    <td>
+      The TLS certificate provided by a website could be faked.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R4. Signed Certificates [Mitigate]</th>
+  </tr>
+
+  <tr>
+    <td>
+      The DNS system relies on cryptographic signatures to ensure that the TLS certificate is not manipulated in transit from the website to the web browser. It is important to note that while the signature ensures the certificate has not been manipulated, the signature says nothing about the truthfulness of the contents of that certificate, which must be addressed at a different layer, e.g., with a hierarchy of certificate authorities with explicit trust relationships.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>O1. SSL/TLS Certificate</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Spoofing)</th>
+  </tr>
+</table>
+
+
+### A1.5.2 Implementation Threats
+
+T5. Key Compromise  
+T6. Library Compromise
+
+<table>
+  <tr>
+    <th>Threat T5. Key Compromise</th>
+  </tr>
+
+  <tr>
+    <td>
+      Any time a system relies on private keys for cryptographic operations, the security of those keys is a critical feature of the system. Compromising those keys would allow an attacker to perform cryptographic operations that are not authorized by the legitimate owner of those keys.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R5. Trusted Execution Environments (TEEs) [Mitigate]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Trusted execution environments allow for devices to isolate cryptographic keys from the processes that rely on them by exposing a limited set of cryptographic functions operating on private keys that, by design, can never leave the TEE. It’s worth noting that while TEEs <em>do</em> reduce the attack surface for keys, they don’t eliminate it. The chips, the device, and the platform software must all correctly implement the TEE such that different applications cannot inappropriately trigger cryptographic services using keys created for other purposes. This shifts the burden from the application developer to the platform provider, which is considered a healthy improvement given the natural alignment of incentives–the platform provider wants their platform to be trusted–and the shared value by providing that capability to all applications rather than requiring each application to secure its own keys.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R6. Hardware Wallets [Mitigate]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Hardware wallets isolate keys to separate devices, often accessed via USB. This ensures that the application platform cannot access the private keys even if they wanted to. Typically such devices are significantly restricted in functionality, without the ability to perform risky operations like sending and receiving messages over the network or installing complex applications that run simultaneously.
+      <br><br>
+      A key feature of hardware wallets is establishing that an appropriate human is in the loop for all cryptographic operations. While a user might be conned or coerced into authenticating into their device and authorizing erroneous signatures, it is not possible for the platform to trigger services without appropriate user involvement. Some platforms only check for a live human, e.g., FIDO 2FA, while others use PINs or biometrics to ensure the human is explicitly authorized to use that device.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>B1.</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Elevation of Privilege)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T6. Library Compromise</th>
+  </tr>
+
+  <tr>
+    <td>
+      Whether developed internally or licensed from others, reusable code libraries might be compromised by an attacker. This includes both dynamically linked and statically linked components.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R7. Open Source Libraries [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given library, increasing the likelihood that any given flaw might be found and fixed. This includes licensing internally developed code under an open source license to enable customers and collaborators to evaluate and report on potential compromises.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R8. Test Suites [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      <!-- Intentionally empty description as in the Markdown source -->
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components:
+      <strong>P1. Browser Process, P2. DNS Resolver, P3. Server Process</strong>
+    </th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Tampering)</th>
+  </tr>
+</table>
+
+
+### A1.5.3 External Threats
+
+T7. Quantum Cryptography Attacks  
+T8. Harvest Attacks  
+T9. Flawed Cryptosuite
+
+<table>
+  <tr>
+    <th>Threat T7. Quantum Cryptography Attacks</th>
+  </tr>
+
+  <tr>
+    <td>
+      It is expected that it is only a matter of time until the current preferred cryptographic primitives are rendered irrelevant because quantum computers can solve cryptographic problems that are unfeasible on traditional Von Neumann architectures like those realized in nearly all production computational platforms today.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R7. Quantum-secure Cryptography [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Although not yet standardized (and perhaps not even proven), there exist algorithmic approaches that are believed to be resilient to quantum cryptography attacks. In the US, NIST already recommends using such algorithms where possible.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R8. Extensible Cryptography [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>B1.</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Spoofing)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T8. Harvest Attacks</th>
+  </tr>
+
+  <tr>
+    <td>
+      Breaking cryptography is essentially a matter of time, either the time it takes traditional computers to guess the right key or the time it takes for quantum attacks to render current cryptography irrelevant. The result is a category of attacks described as “harvest now, crack later”, which allow an attacker to gather encrypted network traffic now for decrypting later.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R9. Forward Secrecy [Mitigate]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Forward secrecy (sometimes called “perfect forward secrecy”) assures that short-lived session keys cannot be compromised just because the long-term secrets used to create those keys are themselves compromised. Frequently changing the session keys in these systems means that each session is an independent cryptographic assurance that must be compromised independently. Compromising a root secret no longer gives the attacker access to the entire collection of harvested data.
+      <br><br>
+      In TLS, forward secrecy is realized by initiating a Diffie-Hellman key exchange to establish unique keys known only to the client and server and used just for that session. Even if one were to compromise the root key in the TLS certificate, the actual communications channel remains secure. Encrypted communications and sessions harvested in the past cannot be retrieved and decrypted if (when) the long-term secret keys are compromised in the future, even if the adversary actively interfered (e.g., via a man-in-the-middle attack).
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>F4. HTTPS Requests</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Threat T9. Flawed Cryptosuite</th>
+  </tr>
+
+  <tr>
+    <td>
+      The suite of functions that implement cryptographic primitives can contain errors that enable an attacker to exploit idiosyncrasies at either the algorithmic or implementation layer.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R10. Open Source Cryptosuites [Transfer]</th>
+  </tr>
+
+  <tr>
+    <td>
+      “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given cryptosuite, increasing the likelihood that any given flaw might be found and fixed.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R8. Extensible Cryptography [Mitigation] (reused response)</th>
+  </tr>
+
+  <tr>
+    <td>
+      For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R10. Vetted Standards [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Cryptosuites sometimes have flaws in the fundamental algorithms. One well-worn response to this problem is rigorous testing and evaluation performed by national standards bodies like NIST in the US and ENISA in the EU. To a lesser extent, voluntary standards bodies like ISO, IETF, and the W3C also publish vetted cryptographic standards. The standards endorsed by these organizations are more likely to be robust compared to software developed in-house or through informal collaboration and open-source licensing.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components:
+      <strong>P1. Browser Process, P3. Server Process</strong>
+    </th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Spoofing)</th>
+  </tr>
+</table>
+
+
+### A1.5.4 Dependency Threats
+
+T9. TCP/IP
+
+<table>
+  <tr>
+    <th>Threat</th>
+  </tr>
+
+  <tr>
+    <td>
+      It is expen computational platforms today..
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R7. Quantum-secure Cryptography [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      Although it recommends using such algorithms where possible.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Response R8. Extensible Cryptography [Mitigation]</th>
+  </tr>
+
+  <tr>
+    <td>
+      For quahes not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+    </td>
+  </tr>
+
+  <tr>
+    <th>Affected Components: <strong>B1.</strong></th>
+  </tr>
+
+  <tr>
+    <th>Analysis Framework: STRIDE (Spoofing)</th>
+  </tr>
+</table>
+
+
+# Appendix 2: Threat Analysis Frameworks
+
+
+Every threat is a result of thinking about the system in a particular way. Several different analytical frameworks have been developed to help think about software and software systems in terms of harms, threats, and risks. Each framework inevitably defines its own terms, which together provide a coherent way to think about threats, but which might introduce term confusion. For example, “repudiation” means different things in the STRIDE framework than in LINDUN. To understand the vocabulary, it is helpful to anchor it to a particular framework.
+
+At the W3C, we consider all variations of “threats” to be suitable for inclusion in a threat model, even if the source framework calls threats by a different name, with different nuance. This opens the aperture for threat modeling to any domain of concern the work group wants to consider. In fact, working groups should use whatever analytic frameworks most coherently describe the threats they are most concerned about.
+
+Frameworks worth considering:
+
+* Security Threats (STRIDE)  
+* Security Attacks (RFC 3552)  
+* Security/Privacy/Trust Controls (OSSTMM)  
+* Privacy Threats (LINDDUN)  
+* Privacy Threats (RFC 6973)  
+* Privacy/Security Threats (W3C Self-Review Questionnaire: Security and Privacy)  
+* Harms (Microsoft)  
+* Human Rights Considerations (RFC 9620)
+
+# Appendix 3: Web APIs
+
+For Web APIs, at least the following forms of attack or threats MUST be considered:
+
+* Abuse of functionality  
+* SOP relaxing
+
+Please refer to:
+
+* [https://github.com/w3c/threat-model-web](https://github.com/w3c/threat-model-web)  
+* [https://www.w3.org/TR/security-privacy-questionnaire/](https://www.w3.org/TR/security-privacy-questionnaire/)  
+* [https://w3c.github.io/fingerprinting-guidance/](https://w3c.github.io/fingerprinting-guidance/) 
+
+# Appendix 4 File Formats
+
+For file formats, at least the following forms of attacks or threats MUST be considered:
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonics</th>
+      <th>Threat Category</th>
+      <th>Example Attack</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>C</strong></td>
+      <td>Code (Executable / Script Injection)</td>
+      <td>Embed Executable Code (e.g., Macro, malicious JS)</td>
+    </tr>
+
+    <tr>
+      <td><strong>L</strong></td>
+      <td>Links / External Resources</td>
+      <td>Remote fetch, SSRF, exfil link, integrity while loading external resources…</td>
+    </tr>
+
+    <tr>
+      <td><strong>A</strong></td>
+      <td>Archive (Compression / Decompression)</td>
+      <td>ZIP bomb, decompression loop</td>
+    </tr>
+
+    <tr>
+      <td><strong>M</strong></td>
+      <td>Metadata Manipulation</td>
+      <td>Hidden author info, exfil in EXIF</td>
+    </tr>
+
+    <tr>
+      <td><strong>P</strong></td>
+      <td>Parsing (Loading and Serializing)</td>
+      <td>Buffer overflow, parser confusion</td>
+    </tr>
+
+    <tr>
+      <td><strong>I</strong></td>
+      <td>Integrity</td>
+      <td>Tampered payload, checksum mismatch</td>
+    </tr>
+  </tbody>
+</table>
+
+
+# Appendix 5: Cryptography
+
+Please refer to [https://w3c.github.io/security-guidelines-cryptography/](https://w3c.github.io/security-guidelines-cryptography//) 
+
+
+# References
+
+## Security and Web Platform
+
+Alcorn, Wade, Christian Frichot, and Michele Orru (2014). The Browser Hacker’s Handbook. Hoboken, NJ: John Wiley & Sons. [https://www.wiley.com/en-us/The%2BBrowser%2BHacker%27s%2BHandbook-p-9781118662090](https://www.wiley.com/en-us/The%2BBrowser%2BHacker%27s%2BHandbook-p-9781118662090) 
+
+Zalewski, Michal (2011). The Tangled Web: A Guide to Securing Modern Web Applications. San Francisco: No Starch Press. [https://nostarch.com/tangledweb](https://nostarch.com/tangledweb) 
+
+## Browsers
+
+Barth, Adam, Collin Jackson, and Charles Reis (2008). “The Security Architecture of the Chromium Browser.” Stanford University. [http://seclab.stanford.edu/websec/chromium/](http://seclab.stanford.edu/websec/chromium/) 
+
+Sutton, Tanya, ed. (2010). Web Browser Security: Evolving Threats, Safeguards, and the Road Ahead. Red Gate Software. [https://www.red-gate.com/simple-talk/devops/security/web-browser-security/](https://www.red-gate.com/simple-talk/devops/security/web-browser-security/) 
+
+Zalewski, Michal (2008). Browser Security Handbook. Google Inc. [https://code.google.com/archive/p/browsersec/](https://code.google.com/archive/p/browsersec/) 
+
+Mozilla Foundation (2024). “Firefox Privacy and Security Features.” [https://support.mozilla.org/en-US/products/firefox/privacy-and-security](https://support.mozilla.org/en-US/products/firefox/privacy-and-security) 
+
+Google Chromium Project (2023). “Secure Architecture.” [https://www.chromium.org/developers/design-documents/security-architecture/](https://www.chromium.org/developers/design-documents/security-architecture/) 
+
+Reis, Charles, and the Chrome Team (2022). “Chrome Security Architecture – Process Level Snapshot.” Google Docs. [https://docs.google.com/document/d/1uDQRGb1x3o7zIOycMqBv6zLULW8PKnA4/](https://docs.google.com/document/d/1uDQRGb1x3o7zIOycMqBv6zLULW8PKnA4/) 
+
+Google Chromium Project (2021). “Multi-Process Architecture.” [https://www.chromium.org/developers/design-documents/multi-process-architecture](https://www.chromium.org/developers/design-documents/multi-process-architecture) /
+
+Google Chromium Project (2021). “Sandboxing.” [https://chromium.googlesource.com/chromium/src/+/main/docs/design/sandbox.md](https://chromium.googlesource.com/chromium/src/+/main/docs/design/sandbox.md) 
+
+Fariello, Joaquin (2022). “How to Find Vulnerabilities in Web Browsers.” Google Docs. [https://docs.google.com/document/d/1kKryOlsn-FindBrowserBugs](https://docs.google.com/document/d/1kKryOlsn-FindBrowserBugs) 
+
+Web APIs
+
+de Rossi, Alberto (2024). “Permissions.” [https://albertofdr.github.io/permissions](https://albertofdr.github.io/permissions) 
+
+## Extensions
+
+Bianchi, Antonio, Yanick Fratantonio, Christopher Kruegel, and Giovanni Vigna (2025). “A Study on Malicious Browser Extensions in 2025.” arXiv preprint arXiv:2503.01234. [https://arxiv.org/abs/2503.01234](https://arxiv.org/abs/2503.01234) 
+
+## Threat Models
+
+Allen, C. & Appelcline S. (2019). SmartCustody: Use of Advanced Cryptographic Tools to Improve the Care, Maintenance, Control, and Protection of Digital Assets. Smart Custody [https://www.smartcustody.com/](https://www.smartcustody.com/)
+
+Grigg, Ian (2012). “The Browser Threat Model.” [https://iang.org/papers/browser\_threat\_model.html](https://iang.org/papers/browser_threat_model.html) 
+
+W3C PING Group (2023). “Target Privacy Threat Model.” [https://w3cping.github.io/privacy-threat-model/](https://w3cping.github.io/privacy-threat-model/) 
+
+W3C Web Payments Working Group (2022). “Payment Handler Privacy Threat Model.” [https://w3c.github.io/payment-handler/privacy-threat-model.html](https://w3c.github.io/payment-handler/privacy-threat-model.html) 
+
+FIDO Alliance (2017). “FIDO Security Reference (Includes Threat Analysis and a Diagram).” [https://fidoalliance.org/specs/fido-security-ref-v1.1-ps-20170202.html](https://fidoalliance.org/specs/fido-security-ref-v1.1-ps-20170202.html) 
+
+## Threats
+
+W3C (2024). “Self-Review Questionnaire: Security and Privacy.” [https://www.w3.org/TR/security-privacy-questionnaire/](https://www.w3.org/TR/security-privacy-questionnaire/) 
+
+W3C TAG (2024). “Mitigating Browser Fingerprinting in Web Specifications.” [https://www.w3.org/TR/fingerprinting-guidance/](https://www.w3.org/TR/fingerprinting-guidance/) 
+
+KeepAware Labs (2024). “Most Common Browser Threats in 2024: An Overview of Attack Mechanisms and Impacts.” [https://keepaware.com/browser-threats-2024/](https://keepaware.com/browser-threats-2024/) 
+
+Al Ani, Hasan, et al. (2023). “Fingerprinting and Tracing Shadows: The Development and Impact of Browser Fingerprinting on Digital Privacy.” arXiv preprint arXiv:2310.04567. [https://arxiv.org/abs/2310.04567](https://arxiv.org/abs/2310.04567) 
+
+XS-Leaks Project (2024). “XS-Leaks Wiki.” [https://xsleaks.dev/](https://xsleaks.dev/) 
+
+Fernandez-de-Retana, Alberto (2024). “Tracking.” [https://albertofdr.github.io/tracking](https://albertofdr.github.io/tracking)  
