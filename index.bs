@@ -26,6 +26,221 @@ Markup Shorthands: markdown on, biblio yes
 Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
 </pre>
 
+<pre class='biblio'>
+{
+  "SHOSTACK2014": {
+    "authors": [
+      "Adam Shostack"
+    ],
+    "date": "April 2014",
+    "href": "https://www.wiley.com/en-us/Threat%2BModeling%3A%2BDesigning%2Bfor%2BSecurity-p-9781118809990",
+    "id": "SHOSTACK2014",
+    "publisher": "Wiley",
+    "status": "Book",
+    "title": "Threat Modeling: Designing for Security"
+  },
+  "SWIDERSKI-SNYDER2004": {
+    "authors": [
+      "Frank Swiderski",
+      "Window Snyder"
+    ],
+    "date": "2004",
+    "id": "SWIDERSKI-SNYDER2004",
+    "publisher": "Microsoft Press",
+    "status": "Book",
+    "title": "Threat Modeling"
+  },
+  "SCHNEIER2015": {
+    "authors": [
+      "Bruce Schneier"
+    ],
+    "date": "2000 (15th anniversary ed. referenced)",
+    "href": "https://www.schneier.com/books/secrets-and-lies-pref/",
+    "id": "SCHNEIER2015",
+    "publisher": "Wiley",
+    "status": "Book",
+    "title": "Secrets and Lies: Digital Security in a Networked World (Preface excerpt)"
+  },
+  "HOWARD-LIPNER2006": {
+    "authors": [
+      "Michael Howard",
+      "Steve Lipner"
+    ],
+    "date": "2006",
+    "href": "https://download.microsoft.com/download/8/1/6/816C597A-5592-4867-A0A6-A0181703CD59/Microsoft_Press_eBook_TheSecurityDevelopmentLifecycle_PDF.pdf",
+    "id": "HOWARD-LIPNER2006",
+    "publisher": "Microsoft Press",
+    "status": "Book",
+    "title": "The Security Development Lifecycle"
+  },
+  "HOWARD-LEBLANC2002": {
+    "authors": [
+      "Michael Howard",
+      "David LeBlanc"
+    ],
+    "date": "2002",
+    "href": "https://www.microsoftpressstore.com/store/writing-secure-code-second-edition-9780735617223",
+    "id": "HOWARD-LEBLANC2002",
+    "publisher": "Microsoft Press",
+    "status": "Book",
+    "title": "Writing Secure Code (2nd Edition)"
+  },
+  "ALLEN-APPELCLINE2019": {
+    "authors": [
+      "Christopher Allen",
+      "Shannon Appelcline"
+    ],
+    "date": "2019",
+    "href": "https://github.com/BlockchainCommons/SmartCustodyBook",
+    "id": "ALLEN-APPELCLINE2019",
+    "publisher": "Blockchain Commons",
+    "status": "Book (online manuscript)",
+    "title": "#SmartCustody: The Use of Advanced Cryptographic Tools to Improve the Care, Maintenance, Control, and Protection of Digital Assets"
+  },
+  "FFRI2016": {
+    "authors": [
+      "FFRI, Inc."
+    ],
+    "date": "2016",
+    "href": "https://www.ffri.jp/en/track_record",
+    "id": "FFRI2016",
+    "publisher": "FFRI",
+    "status": "Web page",
+    "title": "FFRI track record / research materials"
+  },
+  "BOX1976": {
+    "authors": [
+      "George E. P. Box"
+    ],
+    "date": "1976",
+    "href": "https://blogs.sas.com/content/iml/2025/04/02/all-models-are-wrong.html",
+    "id": "BOX1976",
+    "publisher": "SAS (IML blog)",
+    "status": "Secondary source",
+    "title": "Discussion of the origin of the quote “All models are wrong, but some are useful”"
+  },
+  "FENSTERMACHER2004": {
+    "authors": [
+      "Gary D. Fenstermacher"
+    ],
+    "date": "2004",
+    "href": "https://korthagen.nl/wp-content/uploads/2018/06/In-search-of-the-essence-of-a-good-teacher.pdf",
+    "id": "FENSTERMACHER2004",
+    "publisher": "Teaching and Teacher Education",
+    "status": "Journal article (contains cited discussion context)",
+    "title": "In search of the essence of a good teacher"
+  },
+  "ONEIL2016": {
+    "authors": [
+      "Cathy O’Neil"
+    ],
+    "date": "2016",
+    "href": "https://www.penguinrandomhouse.ca/books/241363/weapons-of-math-destruction-by-cathy-oneil/9780553418835/excerpt",
+    "id": "ONEIL2016",
+    "publisher": "Crown",
+    "status": "Book",
+    "title": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy (excerpt)"
+  },
+  "KORZYBSKI1933": {
+    "authors": [
+      "Alfred Korzybski"
+    ],
+    "date": "1933",
+    "href": "https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation",
+    "id": "KORZYBSKI1933",
+    "publisher": "International Non-Aristotelian Library Publishing Company",
+    "status": "Book / concept reference",
+    "title": "Science and Sanity (map–territory relation overview)"
+  },
+  "DISTRINET2024": {
+    "authors": [
+      "DistriNet / KU Leuven"
+    ],
+    "date": "2024",
+    "href": "https://research.kuleuven.be/portal/en/unit/55645621",
+    "id": "DISTRINET2024",
+    "publisher": "KU Leuven",
+    "status": "Research group page",
+    "title": "DistriNet research unit"
+  },
+  "ISO2019": {
+    "authors": [
+      "ISO/IEC"
+    ],
+    "date": "2019",
+    "id": "ISO2019",
+    "publisher": "ISO/IEC",
+    "status": "Standard",
+    "title": "ISO/IEC risk management terminology"
+  },
+  "ISO2022": {
+    "authors": [
+      "ISO/IEC"
+    ],
+    "date": "2022",
+    "id": "ISO2022",
+    "publisher": "ISO/IEC",
+    "status": "Standard (secondary discussion)",
+    "title": "ISO/IEC 27001:2022 — Annex A control 5.7 Threat intelligence (explainer)"
+  },
+  "MICROSOFT-HARMS-MODELING": {
+    "authors": [
+      "Microsoft"
+    ],
+    "href": "https://learn.microsoft.com/en-us/azure/architecture/guide/responsible-innovation/harms-modeling/",
+    "id": "MICROSOFT-HARMS-MODELING",
+    "publisher": "Microsoft Learn",
+    "status": "Web guidance",
+    "title": "Foundations of Assessing Harm (Harms modeling)"
+  },
+  "ONOFRI2024-INCLUSION": {
+    "authors": [
+      "Simone Onofri"
+    ],
+    "date": "6 September 2024",
+    "href": "https://w3.org/2024/Talks/inclusion-simone.pdf",
+    "id": "ONOFRI2024-INCLUSION",
+    "publisher": "W3C",
+    "status": "Slides",
+    "title": "Threat Modeling (W3C Inclusion 2024 slides)"
+  },
+  "OSTERMAN2006": {
+    "authors": [
+      "Larry Osterman"
+    ],
+    "date": "2006",
+    "href": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/july/security-briefs-reinvigorate-your-threat-modeling-process",
+    "id": "OSTERMAN2006",
+    "publisher": "Microsoft (archived MSDN Magazine)",
+    "status": "Article",
+    "title": "Security Briefs: Reinvigorate your Threat Modeling Process (used as a proxy source for the cited guidance)"
+  },
+  "OSTERMAN2007": {
+    "authors": [
+      "Larry Osterman"
+    ],
+    "date": "2007",
+    "href": "https://www.microsoft.com/en-us/security/blog/2007/09/26/the-trouble-with-threat-modeling/",
+    "id": "OSTERMAN2007",
+    "publisher": "Microsoft Security Blog",
+    "status": "Blog post",
+    "title": "The Trouble with Threat Modeling (used as a proxy source for the cited guidance)"
+  },
+  "OSTERMAN2007A": {
+    "authors": [
+      "Larry Osterman"
+    ],
+    "date": "2007",
+    "href": "https://www.microsoft.com/en-us/security/blog/2007/09/26/the-trouble-with-threat-modeling/",
+    "id": "OSTERMAN2007A",
+    "publisher": "Microsoft Security Blog",
+    "status": "Blog post",
+    "title": "The Trouble with Threat Modeling (alternate citation instance)"
+  }
+}
+</pre>
+
+
 
 # Introduction
 
@@ -37,12 +252,12 @@ During the security review, a key element is verifying the presence of the Secur
 
 ## Terminology
 
-It is helpful to understand some basic yet often overlooked terminology. At the beginning of the threat chain is the threat actor, sometimes called an adversary. The threat actor is the entity from which the threat arises (Swiderski & Snyder, 2004). The threat actor has specific goals and underlying motivations. Understanding these motivations is essential to model correctly. In contrast to threat actors, the term adversary is used to describe vulnerabilities and dangers to users, whether or not a specific person or entity is behind the threat. (Allan & Appelcline, 2019\) “By anthropomorphizing these threats, we can consider their motivations.” Both threat actors and adversaries identify the source of the threat being modeled.
+It is helpful to understand some basic yet often overlooked terminology. At the beginning of the threat chain is the threat actor, sometimes called an adversary. The threat actor is the entity from which the threat arises [[SWIDERSKI-SNYDER2004]]. The threat actor has specific goals and underlying motivations. Understanding these motivations is essential to model correctly. In contrast to threat actors, the term adversary is used to describe vulnerabilities and dangers to users, whether or not a specific person or entity is behind the threat. [[ALLEN-APPELCLINE2019]] (\) “By anthropomorphizing these threats, we can consider their motivations.” Both threat actors and adversaries identify the source of the threat being modeled.
 
-Then there is the threat—a potential circumstance, event, or action that could have a negative impact, e.g., on the user (ISO, 2022)—which represents a sub-goal of the threat actor (Swiderski & Snyder, 2004). Attack is how the threat is realized (Swiderski & Snyder, 2004\) and is based on taking advantage of a vulnerability \- a weakness in an asset or control that can be exploited (ISO, 2022\) \-  to achieve a certain impact on an asset, as the asset is something valuable (ISO, 2022\) such as the elements inside a Threat Model (Swiderski & Snyder, 2004). If the impact hurts assets such as people, it is called harm (ISO, 2019\) or, to simplify, “harm is a threat with its impact” (Shostack, 2014).
+Then there is the threat—a potential circumstance, event, or action that could have a negative impact, e.g., on the user [[ISO2022]]—which represents a sub-goal of the threat actor [[SWIDERSKI-SNYDER2004]]. Attack is how the threat is realized [[SWIDERSKI-SNYDER2004]] (\) and is based on taking advantage of a vulnerability \- a weakness in an asset or control that can be exploited [[ISO2022]] (\) \-  to achieve a certain impact on an asset, as the asset is something valuable [[ISO2022]] (\) such as the elements inside a Threat Model [[SWIDERSKI-SNYDER2004]]. If the impact hurts assets such as people, it is called harm [[ISO2019]] (\) or, to simplify, “harm is a threat with its impact” [[SHOSTACK2014]].
 
-* **Assets**: An abstract or concrete resource that a system must protect from misuse by an adversary (Swidersky & Snyder, 2004).  
-* **System**: a collection of functionality that can span one or more components (functional areas). A system exposes certain functionality to external entities (interactors outside the system's control) and must protect one or more assets. (Swidersky & Snyder, 2004).  
+* **Assets**: An abstract or concrete resource that a system must protect from misuse by an adversary [[SWIDERSKI-SNYDER2004]].  
+* **System**: a collection of functionality that can span one or more components (functional areas). A system exposes certain functionality to external entities (interactors outside the system's control) and must protect one or more assets. [[SWIDERSKI-SNYDER2004]].  
 * **Threats**: something that, if it happens, has a negative impact. In the [Open Source Security Testing Methodology Manual v3 (OSSTMM)](https://www.isecom.org/OSSTMM.3.pdf) Security is considered a function of separation between what we are protecting and the threats. This separation occurs through the application of response strategies (e.g., controls or mitigations) that create a distance between the asset and the threat.   
 * **Responses**: What controls or mitigations have we put in place, and what are their limitations? And what threats do we accept?  
 * **Attacks**: An attack is a realization of a threat; a particular instance of a threat manifesting in an operational system. 
@@ -59,7 +274,7 @@ We provide explicit guidance on performing threat modeling and writing security 
 
 # What is Threat Modeling at W3C
 
-Threat Modeling is a family of structured, repeatable processes that together allow you to make rational decisions to secure applications, software, and systems (Shostack, 2014). During Threat Modeling, potential threats, such as vulnerabilities or the absence of appropriate safeguards, are identified and enumerated, and countermeasures prioritized (OWASP). In general terms, threat modeling is a form of risk assessment that models aspects of the attack and defense sides of an entity (NIST SP 800-53 Rev. 5, NIST SP 800-154).   
+Threat Modeling is a family of structured, repeatable processes that together allow you to make rational decisions to secure applications, software, and systems [[SHOSTACK2014]]. During Threat Modeling, potential threats, such as vulnerabilities or the absence of appropriate safeguards, are identified and enumerated, and countermeasures prioritized (OWASP). In general terms, threat modeling is a form of risk assessment that models aspects of the attack and defense sides of an entity (NIST SP 800-53 Rev. 5, NIST SP 800-154).   
 As a practice, Threat modeling has inspired several alternative methods for evaluating threats across various system types. Three worth highlighting are the Security Development Lifecycle (SDL) from Microsoft, Shostack’s 4 Questions from Adam Shostack, and the Auditor’s Trifecta from the Open Source Security Testing Methodology Manual (OSSTMM).
 
 Any coherent analytical framework may yield quality threats. Our approach at the W3C embraces any analytical framework that specification developers find illustrative. We provide a common strategy for performing threat modeling using any analytical framework that enables evaluating components for threats and identifying suitable responses.
@@ -102,13 +317,13 @@ By better understanding how W3C specifications address threats of the World Wide
 
 Threat models, as described in this guide, should be developed collaboratively by the Working Groups writing the specification, with support from the W3C team and the horizontal groups (e.g., security and privacy groups at W3C) to identify threats.
 
-The threat model should start in parallel with the specification itself, particularly when evaluating use cases and writing introductory explainers. A good threat model describes all the possible goals an adversary may have for a given set of functionality (Swiderski & Snyder, 2004, p. 29). These goals may be identified when evaluating the system from a use-case perspective, drafting an explainer, or teasing out the trade-offs of specific design choices. Whenever a threat is implicitly involved, threat modellers should capture it. Just as a discussion of the relevant use cases can evolve as a specification moves from inspiration to recommendation, a discussion of threats should start at the beginning of the process and be updated as discussions and specification text evolve. 
+The threat model should start in parallel with the specification itself, particularly when evaluating use cases and writing introductory explainers. A good threat model describes all the possible goals an adversary may have for a given set of functionality [[SWIDERSKI-SNYDER2004]] (p. 29). These goals may be identified when evaluating the system from a use-case perspective, drafting an explainer, or teasing out the trade-offs of specific design choices. Whenever a threat is implicitly involved, threat modellers should capture it. Just as a discussion of the relevant use cases can evolve as a specification moves from inspiration to recommendation, a discussion of threats should start at the beginning of the process and be updated as discussions and specification text evolve. 
 
-When you start writing an explainer and have a first draft of the threat model, please share it with the review groups. Then, threat models, by their nature, are living documents that require continuous updates, such as when functionality is modified or new functionality is added (Swiderski & Snyder, 2004, p. 26).
+When you start writing an explainer and have a first draft of the threat model, please share it with the review groups. Then, threat models, by their nature, are living documents that require continuous updates, such as when functionality is modified or new functionality is added [[SWIDERSKI-SNYDER2004]] (p. 26).
 
 A completed threat model must be prepared before formal horizontal review. A threat model should serve as the foundation for the security considerations section of the Working Group’s specifications.
 
-If the threat model is small, it can be included directly in the Security Considerations section. If it is very large, it can be published separately (e.g., as a Group Note) and included in the Security Considerations section as an external security note (Shostack, 2014).
+If the threat model is small, it can be included directly in the Security Considerations section. If it is very large, it can be published separately (e.g., as a Group Note) and included in the Security Considerations section as an external security note [[SHOSTACK2014]].
 
 It is a goal of this work to update the way the W3C identifies, captures, and communicates the security risks of its technologies, especially by developing reusable, shareable, and extensible risk models for every technology specification developed by the organization.
 
@@ -133,11 +348,11 @@ There are different iterative processes for doing threat modeling, but they all 
 
 ## Model the system
 
-The first step in creating a threat model is summarized in the question, “What are we working on?”. It typically involves defining the use case scenario, then creating a model—an “abstract representation of some process” (O’Neil, 2016)—and diagrams, a graphical representation of the model (Howard & Lipner, 2006, p. 110). 
+The first step in creating a threat model is summarized in the question, “What are we working on?”. It typically involves defining the use case scenario, then creating a model—an “abstract representation of some process” [[ONEIL2016]]—and diagrams, a graphical representation of the model [[HOWARD-LIPNER2006]] (p. 110). 
 
-Creating good diagrams is fundamental, as they are the heart of a good threat model (Osterman, 2006). Diagrams should list and describe the various elements that make up the system (Osterman, 2007). Creating a diagram is a complex process; when modeling computer systems, multiple diagrams are often used. For this reason, in the threat modeling of a computer system architecture, a high-level diagram is followed by a series of detailed diagrams that detail the various elements (Howard & Lipner, 2006, p. 112). 
+Creating good diagrams is fundamental, as they are the heart of a good threat model [[OSTERMAN2006]]. Diagrams should list and describe the various elements that make up the system [[OSTERMAN2007]]. Creating a diagram is a complex process; when modeling computer systems, multiple diagrams are often used. For this reason, in the threat modeling of a computer system architecture, a high-level diagram is followed by a series of detailed diagrams that detail the various elements [[HOWARD-LIPNER2006]] (p. 112). 
 
-This concept is similar to what happens when looking at a geographical map: on the one hand it can be useful to have various levels of zoom, and on the other hand, it can be useful to have different information (e.g., satellite images, street map, topographic map) and the well-known principle “the map is not the territory” (Korzybski, 1933), also applies here (Onofri, 2024b, slide 15). Not surprisingly, another well-known aphorism, “all models are wrong, some models are useful” (Box, 1976), is also used in modeling (Fenstermacher, 2004).
+This concept is similar to what happens when looking at a geographical map: on the one hand it can be useful to have various levels of zoom, and on the other hand, it can be useful to have different information (e.g., satellite images, street map, topographic map) and the well-known principle “the map is not the territory” [[KORZYBSKI1933]], also applies here [[ONOFRI2024-INCLUSION]] (slide 15). Not surprisingly, another well-known aphorism, “all models are wrong, some models are useful” [[BOX1976]], is also used in modeling [[FENSTERMACHER2004]].
 
 Any visualization that clearly distinguishes the various elements of your system is acceptable. Modelers MUST use visual imagery that adheres to the W3C Accessibility Guidelines [https://www.w3.org/TR/wcag-3.0/](https://www.w3.org/TR/wcag-3.0/). Specifically, use shapes rather than colors or shading to distinguish different types of elements. 
 
@@ -151,9 +366,9 @@ We provide an example in the **Appendix A1 Minimalist Threat Model for the World
 
 ## Identify the Stakeholders
 
-When modeling the system, it is vital to include all affected stakeholders to answer the question **“Who is affected?”** or, equivalently, **“Who is impacted?”**. Focuses on identifying and analysing the people, groups, and entities that interact with or are affected by the system modeled in the first step. This work aims to shift the paradigm from viewing the user as an asset to be protected to the “weakest link” of the security chain (Schneier, 2015, preface section). Despite this integration, the user should always be treated as a protected entity.
+When modeling the system, it is vital to include all affected stakeholders to answer the question **“Who is affected?”** or, equivalently, **“Who is impacted?”**. Focuses on identifying and analysing the people, groups, and entities that interact with or are affected by the system modeled in the first step. This work aims to shift the paradigm from viewing the user as an asset to be protected to the “weakest link” of the security chain [[SCHNEIER2015]] (preface section). Despite this integration, the user should always be treated as a protected entity.
 
-This step is inspired by the Harms Modeling process described in Microsoft (2020) and is useful for integrating Threat Modeling with Harms Modeling. 
+This step is inspired by the Harms Modeling process described in Microsoft [[MICROSOFT-HARMS-MODELING]] and is useful for integrating Threat Modeling with Harms Modeling. 
 
 Identifying stakeholders is particularly useful when analysing **high-level models and technologies that can have a societal impact**. A thorough understanding of stakeholders ensures that the resulting systems are not only secure but also **trustworthy**, recognising and respecting **human rights as a fundamental design principle**.
 
@@ -183,9 +398,9 @@ Asking these questions provides a deeper understanding of **what matters to stak
 
 ## Identify & Evaluate Threats
 
-The second step in creating a threat model is summarized in the question, “What can go wrong?” where threats are identified and assessed (Swiderski & Snyder, 2004, p. 111). Threats can be identified in different ways, such as experimentally, by analyzing the chain of events leading up to an attack—i.e., a kill chain —or by using a list of threats (Shostack, 2014, pp. 9, 385, 388; Penney, 2023).
+The second step in creating a threat model is summarized in the question, “What can go wrong?” where threats are identified and assessed [[SWIDERSKI-SNYDER2004]] (p. 111). Threats can be identified in different ways, such as experimentally, by analyzing the chain of events leading up to an attack—i.e., a kill chain —or by using a list of threats [[SHOSTACK2014]] (pp. 9, 385, 388; Penney, 2023).
 
-Threat lists, like other types of lists used in threat modeling, are particularly useful for identifying issues on a diagram. This operation can be performed: “per element” of the diagram, where the analysis starts with the first element and evaluates all threats (Osterman, 2007a); “per interaction”, where the analysis is focusing on the data flow of the diagram, focusing on the interactions between elements (FFRI, 2016, slide 4-5), “per threat”, taking one threat at a time and figuring out which element it applies (DistriNet, 2024).
+Threat lists, like other types of lists used in threat modeling, are particularly useful for identifying issues on a diagram. This operation can be performed: “per element” of the diagram, where the analysis starts with the first element and evaluates all threats [[OSTERMAN2007A]]; “per interaction”, where the analysis is focusing on the data flow of the diagram, focusing on the interactions between elements [[FFRI2016]] (slide 4-5), “per threat”, taking one threat at a time and figuring out which element it applies [[DISTRINET2024]].
 
 * **Objective**: Identify the Threats, Vulnerabilities, etc…   
   * An inefficient but effective method is to have lists of principles or properties that need to be respected, controls that should be in place, or threats.  
@@ -199,9 +414,9 @@ Threat lists, like other types of lists used in threat modeling, are particularl
 
 ## Consider Responses
 
-The third step in creating a threat model is summarized in the question, “What are we going to do about it?”. It typically involves choosing how to respond to the threats (Howard & Leblanc, 2002, p. 106).
+The third step in creating a threat model is summarized in the question, “What are we going to do about it?”. It typically involves choosing how to respond to the threats [[HOWARD-LEBLANC2002]] (p. 106).
 
-In the literature, there are several categories of responses, some specific to threat modeling and others derived from risk management (Appendix A.4), aimed at reducing or eliminating the threat or its impact (Howard & Lipner, 2006, p. 124).
+In the literature, there are several categories of responses, some specific to threat modeling and others derived from risk management (Appendix A.4), aimed at reducing or eliminating the threat or its impact [[HOWARD-LIPNER2006]] (p. 124).
 
 For the Threat Modeling Guide, these can be summarized in four response strategies using the ERTA mnemonics: **Eliminate** the threat or the asset; **Reduce** the threat by applying mitigations or countermeasures; **Transfer** to another entity or element; and **Accept**, meaning do nothing but accept that the threat can occur. 
 
@@ -216,7 +431,7 @@ For the Threat Modeling Guide, these can be summarized in four response strategi
 
 ## Publish for consideration
 
-The fourth step in creating a threat model is summarized in the question, “Did we do a good job?” but threat models, by their nature, are living documents that require continuous updates (Swiderski & Snyder, 2004, p. 26). Also, the attacks are in a continuous evolution, and “Attackers simply ignore your threat model” (Onofri, 2024b, slide 38). This step serves as a reminder to pause, publish for consideration, evaluate the completed work, and determine what still needs to be done. For example, performing formal verification, additional cryptographic checks, and so on.
+The fourth step in creating a threat model is summarized in the question, “Did we do a good job?” but threat models, by their nature, are living documents that require continuous updates [[SWIDERSKI-SNYDER2004]] (p. 26). Also, the attacks are in a continuous evolution, and “Attackers simply ignore your threat model” [[ONOFRI2024-INCLUSION]] (slide 38). This step serves as a reminder to pause, publish for consideration, evaluate the completed work, and determine what still needs to be done. For example, performing formal verification, additional cryptographic checks, and so on.
 
 * **Objective**: make the model visible  
 * **Input:** List of threats and countermeasures  
@@ -1045,65 +1260,3 @@ For file formats, at least the following forms of attacks or threats MUST be con
 
 Please refer to [https://w3c.github.io/security-guidelines-cryptography/](https://w3c.github.io/security-guidelines-cryptography//) 
 
-
-# References
-
-## Security and Web Platform
-
-Alcorn, Wade, Christian Frichot, and Michele Orru (2014). The Browser Hacker’s Handbook. Hoboken, NJ: John Wiley & Sons. [https://www.wiley.com/en-us/The%2BBrowser%2BHacker%27s%2BHandbook-p-9781118662090](https://www.wiley.com/en-us/The%2BBrowser%2BHacker%27s%2BHandbook-p-9781118662090) 
-
-Zalewski, Michal (2011). The Tangled Web: A Guide to Securing Modern Web Applications. San Francisco: No Starch Press. [https://nostarch.com/tangledweb](https://nostarch.com/tangledweb) 
-
-## Browsers
-
-Barth, Adam, Collin Jackson, and Charles Reis (2008). “The Security Architecture of the Chromium Browser.” Stanford University. [http://seclab.stanford.edu/websec/chromium/](http://seclab.stanford.edu/websec/chromium/) 
-
-Sutton, Tanya, ed. (2010). Web Browser Security: Evolving Threats, Safeguards, and the Road Ahead. Red Gate Software. [https://www.red-gate.com/simple-talk/devops/security/web-browser-security/](https://www.red-gate.com/simple-talk/devops/security/web-browser-security/) 
-
-Zalewski, Michal (2008). Browser Security Handbook. Google Inc. [https://code.google.com/archive/p/browsersec/](https://code.google.com/archive/p/browsersec/) 
-
-Mozilla Foundation (2024). “Firefox Privacy and Security Features.” [https://support.mozilla.org/en-US/products/firefox/privacy-and-security](https://support.mozilla.org/en-US/products/firefox/privacy-and-security) 
-
-Google Chromium Project (2023). “Secure Architecture.” [https://www.chromium.org/developers/design-documents/security-architecture/](https://www.chromium.org/developers/design-documents/security-architecture/) 
-
-Reis, Charles, and the Chrome Team (2022). “Chrome Security Architecture – Process Level Snapshot.” Google Docs. [https://docs.google.com/document/d/1uDQRGb1x3o7zIOycMqBv6zLULW8PKnA4/](https://docs.google.com/document/d/1uDQRGb1x3o7zIOycMqBv6zLULW8PKnA4/) 
-
-Google Chromium Project (2021). “Multi-Process Architecture.” [https://www.chromium.org/developers/design-documents/multi-process-architecture](https://www.chromium.org/developers/design-documents/multi-process-architecture) /
-
-Google Chromium Project (2021). “Sandboxing.” [https://chromium.googlesource.com/chromium/src/+/main/docs/design/sandbox.md](https://chromium.googlesource.com/chromium/src/+/main/docs/design/sandbox.md) 
-
-Fariello, Joaquin (2022). “How to Find Vulnerabilities in Web Browsers.” Google Docs. [https://docs.google.com/document/d/1kKryOlsn-FindBrowserBugs](https://docs.google.com/document/d/1kKryOlsn-FindBrowserBugs) 
-
-Web APIs
-
-de Rossi, Alberto (2024). “Permissions.” [https://albertofdr.github.io/permissions](https://albertofdr.github.io/permissions) 
-
-## Extensions
-
-Bianchi, Antonio, Yanick Fratantonio, Christopher Kruegel, and Giovanni Vigna (2025). “A Study on Malicious Browser Extensions in 2025.” arXiv preprint arXiv:2503.01234. [https://arxiv.org/abs/2503.01234](https://arxiv.org/abs/2503.01234) 
-
-## Threat Models
-
-Allen, C. & Appelcline S. (2019). SmartCustody: Use of Advanced Cryptographic Tools to Improve the Care, Maintenance, Control, and Protection of Digital Assets. Smart Custody [https://www.smartcustody.com/](https://www.smartcustody.com/)
-
-Grigg, Ian (2012). “The Browser Threat Model.” [https://iang.org/papers/browser\_threat\_model.html](https://iang.org/papers/browser_threat_model.html) 
-
-W3C PING Group (2023). “Target Privacy Threat Model.” [https://w3cping.github.io/privacy-threat-model/](https://w3cping.github.io/privacy-threat-model/) 
-
-W3C Web Payments Working Group (2022). “Payment Handler Privacy Threat Model.” [https://w3c.github.io/payment-handler/privacy-threat-model.html](https://w3c.github.io/payment-handler/privacy-threat-model.html) 
-
-FIDO Alliance (2017). “FIDO Security Reference (Includes Threat Analysis and a Diagram).” [https://fidoalliance.org/specs/fido-security-ref-v1.1-ps-20170202.html](https://fidoalliance.org/specs/fido-security-ref-v1.1-ps-20170202.html) 
-
-## Threats
-
-W3C (2024). “Self-Review Questionnaire: Security and Privacy.” [https://www.w3.org/TR/security-privacy-questionnaire/](https://www.w3.org/TR/security-privacy-questionnaire/) 
-
-W3C TAG (2024). “Mitigating Browser Fingerprinting in Web Specifications.” [https://www.w3.org/TR/fingerprinting-guidance/](https://www.w3.org/TR/fingerprinting-guidance/) 
-
-KeepAware Labs (2024). “Most Common Browser Threats in 2024: An Overview of Attack Mechanisms and Impacts.” [https://keepaware.com/browser-threats-2024/](https://keepaware.com/browser-threats-2024/) 
-
-Al Ani, Hasan, et al. (2023). “Fingerprinting and Tracing Shadows: The Development and Impact of Browser Fingerprinting on Digital Privacy.” arXiv preprint arXiv:2310.04567. [https://arxiv.org/abs/2310.04567](https://arxiv.org/abs/2310.04567) 
-
-XS-Leaks Project (2024). “XS-Leaks Wiki.” [https://xsleaks.dev/](https://xsleaks.dev/) 
-
-Fernandez-de-Retana, Alberto (2024). “Tracking.” [https://albertofdr.github.io/tracking](https://albertofdr.github.io/tracking)  
