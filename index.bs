@@ -26,6 +26,8 @@ Markup Shorthands: markdown on, biblio yes
 Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
 </pre>
 
+<link src="threat-model.css" />
+
 <pre class='biblio'>
 {
   "SHOSTACK2014": {
