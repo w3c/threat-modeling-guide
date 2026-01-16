@@ -9,6 +9,7 @@ Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
 Level: 1
 Editor: Simone Onofri, w3cid 38211, W3C Team, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements, joe@legreq.com
+Indent: 2
 Abstract:
   This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help standards developers understand threats and countermeasures from the beginning of standard development and to document the model in the security considerations section.
 
@@ -393,10 +394,10 @@ To guide the analysis, it is RECOMMENDED to ask the following questions for each
 
 Asking these questions provides a deeper understanding of **what matters to stakeholders** and how these values influence their **relationship with the product or system**. This understanding forms the basis for identifying not only technical threats but also **social and cognitive harms**, ensuring that threat modeling extends beyond the system’s components to include its human and societal dimensions.
 
-* **Objective:** Identify the stakeholders and understand their interests, benefits, and potential harms.  
-* **Input:** Model and use cases.  
-* **Output:** Stakeholder list with roles, values, and potential impacts, that can be harms or threats.  
-* **Who:** Standards’ Developers alone or with Domain Experts (e.g., Human Rights, Privacy, or Ethics specialists).
+* **Objective**: Identify the stakeholders and understand their interests, benefits, and potential harms.  
+* **Input**: Model and use cases.  
+* **Output**: Stakeholder list with roles, values, and potential impacts, that can be harms or threats.  
+* **Who**: Standards’ Developers alone or with Domain Experts (e.g., Human Rights, Privacy, or Ethics specialists).
 
 ## Identify & Evaluate Threats
 
@@ -410,7 +411,7 @@ Threat lists, like other types of lists used in threat modeling, are particularl
     * For each component or flow, identify the threats  
     * For each threat, identify the component(s) affected  
   * We can also use Kill Chains, Incident Analysis…  
-* **Input:** Model and Threats/Controls/Principles/Questions.  
+* **Input**: Model and Threats/Controls/Principles/Questions.  
 * **Output**: List of identified threats in the Model.  
 * **Who**: Standards’ Developers alone or with Domain Experts
 
@@ -427,7 +428,7 @@ For the Threat Modeling Guide, these can be summarized in four response strategi
   * **Reduce**: Make it harder, e.g., adding a control, mitigation or countermeasure.  
   * **Transfer**: To another element or component.  
   * **Accept**: that it is not possible to mitigate (or the Group doesn't want to mitigate, for now) the threat; it is still open and needs to be monitored.  
-* **Input:** Identified Threat List  
+* **Input**: Identified Threat List  
 * **Output**: List of countermeasures for each threat and residual threats  
 * **Who**: Standards’ Developers and Threats Experts
 
@@ -436,7 +437,7 @@ For the Threat Modeling Guide, these can be summarized in four response strategi
 The fourth step in creating a threat model is summarized in the question, “Did we do a good job?” but threat models, by their nature, are living documents that require continuous updates [[SWIDERSKI-SNYDER2004]] (p. 26). Also, the attacks are in a continuous evolution, and “Attackers simply ignore your threat model” [[ONOFRI2024-INCLUSION]] (slide 38). This step serves as a reminder to pause, publish for consideration, evaluate the completed work, and determine what still needs to be done. For example, performing formal verification, additional cryptographic checks, and so on.
 
 * **Objective**: make the model visible  
-* **Input:** List of threats and countermeasures  
+* **Input**: List of threats and countermeasures  
 * **Output**: threat model and security considerations  
 * **Who**: Standard’s Developers
 
@@ -772,407 +773,154 @@ The following sections describe the identified threats and potential responses t
 
 ### A1.5.1 Target Threats
 
-The TLS/SSL addition to the Web specifically addressed a handful of known problems. 
+The TLS/SSL addition to the Web specifically addressed a handful of known problems: 
 
-T1. Imposter Websites (URL validation)  
-T2. Network Surveillance (DH, Encryption)  
-T3. Network Corruption (MAC signature)  
-T4. Fraudulent Certificate (Signed Certificates)
+* T1. Imposter Websites (URL validation)  
+* T2. Network Surveillance (DH, Encryption)  
+* T3. Network Corruption (MAC signature)  
+* T4. Fraudulent Certificate (Signed Certificates)
 
-<table>
-  <tr>
-    <th>Threat T1. Imposter Websites</th>
-  </tr>
-  <tr>
-    <td>
-      It’s possible for a compromised network to return content that does not come from the owner of the domain. The user requests a given URL, but what is returned comes from an attacker on the network pretending to be that website.
-    </td>
-  </tr>
+<div>
+  : Threat T1. Imposter Websites
+  :: It’s possible for a compromised network to return content that does not come from the owner of the domain. The user requests a given URL, but what is returned comes from an attacker on the network pretending to be that website.
+  : Response R1. Third Party Identifying Certificates [Mitigate]
+  :: TLS/SSL certificates inform users of the public key associated with a given domain, as cryptographically attested by a signing authority, called a Certificate Authority (CA). By comparing the domain in the certificate with the domain in the URL and verifying the network session is established using the public key in the certificate, verifying parties gain confidence that the TLS/SSL communications are with the intended party.
+  :: Some CAs provide further assurances regarding the entity identified in the certificate such as a legal name. However, not all CAs perform the same validation processes, making the certificates primarily an attestation of URL validation (that the cert holder has proven legitimate control over the domain) and not much more.
+  :: Finally, individual websites can self-attest with a self-signed TLS certificate. Distinguishing between self-signed and those signed in accordance with the CA hierarchy rooted in web browsers is easy. We consider self-signed TLS certificates only “identifying” in terms of the current session, as the website could change the certificate as frequently as desired. In contrast, third party certificates give <em>at least</em> one other party who attests to the legitimacy of a particular certificate for a particular domain.
+  : Affected Components
+  :: F4. HTTP(S) Requests<br>O1. SSL/TLS Certificate
+  : Analysis Framework
+  :: STRIDE (Spoofing)
+</div>
 
-  <tr>
-    <th>Response R1. Third Party Identifying Certificates [Mitigate]</th>
-  </tr>
-  <tr>
-    <td>
-      TLS/SSL certificates inform users of the public key associated with a given domain, as cryptographically attested by a signing authority, called a Certificate Authority (CA). By comparing the domain in the certificate with the domain in the URL and verifying the network session is established using the public key in the certificate, verifying parties gain confidence that the TLS/SSL communications are with the intended party.
-      <br><br>
-      Some CAs provide further assurances regarding the entity identified in the certificate such as a legal name. However, not all CAs perform the same validation processes, making the certificates primarily an attestation of URL validation (that the cert holder has proven legitimate control over the domain) and not much more.
-      <br><br>
-      Finally, individual websites can self-attest with a self-signed TLS certificate. Distinguishing between self-signed and those signed in accordance with the CA hierarchy rooted in web browsers is easy. We consider self-signed TLS certificates only “identifying” in terms of the current session, as the website could change the certificate as frequently as desired. In contrast, third party certificates give <em>at least</em> one other party who attests to the legitimacy of a particular certificate for a particular domain.
-    </td>
-  </tr>
+<div>
+  : Threat T2. Network Surveillance
+  :: With traditional HTTP interactions, it is possible for network observers to read the content of the request and any responses. Data sent in either direction, e.g., bank details shown to the user AND user input provided in web forms, can easily be captured and used by an attacker anywhere along the path through the network.
+  : Response R2. TLS Handshake [Mitigation]
+  :: Before any data is exchanged, the client and server perform a Diffie-Hellman key exchange to establish session keys that cannot be seen by network observers. These keys are used to encrypt the balance of HTTPS exchanges so that the actual data shared (in both directions) is secured from outside observers.
+  : Affected Components
+  :: F4. HTTP(S) Requests
+  : Analysis Framework
+  :: STRIDE (Information Disclosure)
+</div>
 
-  <tr>
-    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong>, <strong>O1 SSL/TLS Certificate</strong></th>
-  </tr>
+<div>
+  : Threat T3. Network Corruption
+  :: It is possible for data to be corrupted in transit, either intentionally or accidentally.
+  : Response R3. Integrity Check [Mitigate]
+  :: All messages sent via TLS/SSL are signed with a message authentication code (MAC), ensuring the recipient can verify the MAC to ensure the integrity of the data.
+  : Affected Components
+  :: F4 HTTP Requests &amp; Responses
+  : Analysis Framework
+  :: STRIDE (Tampering)
+</div>
 
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T2. Network Surveillance</th>
-  </tr>
-
-  <tr>
-    <td>
-      With traditional HTTP interactions, it is possible for network observers to read the content of the request and any responses. Data sent in either direction, e.g., bank details shown to the user AND user input provided in web forms, can easily be captured and used by an attacker anywhere along the path through the network.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R2. TLS Handshake [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Before any data is exchanged, the client and server perform a Diffie-Hellman key exchange to establish session keys that cannot be seen by network observers. These keys are used to encrypt the balance of HTTPS exchanges so that the actual data shared (in both directions) is secured from outside observers.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T3. Network Corruption</th>
-  </tr>
-
-  <tr>
-    <td>
-      It is possible for data to be corrupted in transit, either intentionally or accidentally.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R3. Integrity Check [Mitigate]</th>
-  </tr>
-
-  <tr>
-    <td>
-      All messages sent via TLS/SSL are signed with a message authentication code (MAC), ensuring the recipient can verify the MAC to ensure the integrity of the data.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>F4 HTTP Requests &amp; Responses</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Tampering)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T4. Fraudulent Certificate</th>
-  </tr>
-
-  <tr>
-    <td>
-      The TLS certificate provided by a website could be faked.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R4. Signed Certificates [Mitigate]</th>
-  </tr>
-
-  <tr>
-    <td>
-      The DNS system relies on cryptographic signatures to ensure that the TLS certificate is not manipulated in transit from the website to the web browser. It is important to note that while the signature ensures the certificate has not been manipulated, the signature says nothing about the truthfulness of the contents of that certificate, which must be addressed at a different layer, e.g., with a hierarchy of certificate authorities with explicit trust relationships.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>O1. SSL/TLS Certificate</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
+<div>
+  : Threat T4. Fraudulent Certificate
+  :: The TLS certificate provided by a website could be faked.
+  : Response R4. Signed Certificates [Mitigate]
+  :: The DNS system relies on cryptographic signatures to ensure that the TLS certificate is not manipulated in transit from the website to the web browser. It is important to note that while the signature ensures the certificate has not been manipulated, the signature says nothing about the truthfulness of the contents of that certificate, which must be addressed at a different layer, e.g., with a hierarchy of certificate authorities with explicit trust relationships.
+  : Affected Components
+  :: O1. SSL/TLS Certificate
+  : Analysis Framework
+  :: STRIDE (Spoofing)
+</div>
 
 
 ### A1.5.2 Implementation Threats
 
-T5. Key Compromise  
-T6. Library Compromise
+* T5. Key Compromise  
+* T6. Library Compromise
 
-<table>
-  <tr>
-    <th>Threat T5. Key Compromise</th>
-  </tr>
+<div>
+  : Threat T5. Key Compromise
+  :: Any time a system relies on private keys for cryptographic operations, the security of those keys is a critical feature of the system. Compromising those keys would allow an attacker to perform cryptographic operations that are not authorized by the legitimate owner of those keys.
+  : Response R5. Trusted Execution Environments (TEEs) [Mitigate]
+  :: Trusted execution environments allow for devices to isolate cryptographic keys from the processes that rely on them by exposing a limited set of cryptographic functions operating on private keys that, by design, can never leave the TEE. It’s worth noting that while TEEs <em>do</em> reduce the attack surface for keys, they don’t eliminate it. The chips, the device, and the platform software must all correctly implement the TEE such that different applications cannot inappropriately trigger cryptographic services using keys created for other purposes. This shifts the burden from the application developer to the platform provider, which is considered a healthy improvement given the natural alignment of incentives–the platform provider wants their platform to be trusted–and the shared value by providing that capability to all applications rather than requiring each application to secure its own keys.
+  : Response R6. Hardware Wallets [Mitigate]
+  :: Hardware wallets isolate keys to separate devices, often accessed via USB. This ensures that the application platform cannot access the private keys even if they wanted to. Typically such devices are significantly restricted in functionality, without the ability to perform risky operations like sending and receiving messages over the network or installing complex applications that run simultaneously.
+  :: A key feature of hardware wallets is establishing that an appropriate human is in the loop for all cryptographic operations. While a user might be conned or coerced into authenticating into their device and authorizing erroneous signatures, it is not possible for the platform to trigger services without appropriate user involvement. Some platforms only check for a live human, e.g., FIDO 2FA, while others use PINs or biometrics to ensure the human is explicitly authorized to use that device.
+  : Affected Components
+  :: B1.
+  : Analysis Framework
+  :: STRIDE (Elevation of Privilege)
+</div>
 
-  <tr>
-    <td>
-      Any time a system relies on private keys for cryptographic operations, the security of those keys is a critical feature of the system. Compromising those keys would allow an attacker to perform cryptographic operations that are not authorized by the legitimate owner of those keys.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R5. Trusted Execution Environments (TEEs) [Mitigate]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Trusted execution environments allow for devices to isolate cryptographic keys from the processes that rely on them by exposing a limited set of cryptographic functions operating on private keys that, by design, can never leave the TEE. It’s worth noting that while TEEs <em>do</em> reduce the attack surface for keys, they don’t eliminate it. The chips, the device, and the platform software must all correctly implement the TEE such that different applications cannot inappropriately trigger cryptographic services using keys created for other purposes. This shifts the burden from the application developer to the platform provider, which is considered a healthy improvement given the natural alignment of incentives–the platform provider wants their platform to be trusted–and the shared value by providing that capability to all applications rather than requiring each application to secure its own keys.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R6. Hardware Wallets [Mitigate]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Hardware wallets isolate keys to separate devices, often accessed via USB. This ensures that the application platform cannot access the private keys even if they wanted to. Typically such devices are significantly restricted in functionality, without the ability to perform risky operations like sending and receiving messages over the network or installing complex applications that run simultaneously.
-      <br><br>
-      A key feature of hardware wallets is establishing that an appropriate human is in the loop for all cryptographic operations. While a user might be conned or coerced into authenticating into their device and authorizing erroneous signatures, it is not possible for the platform to trigger services without appropriate user involvement. Some platforms only check for a live human, e.g., FIDO 2FA, while others use PINs or biometrics to ensure the human is explicitly authorized to use that device.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>B1.</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Elevation of Privilege)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T6. Library Compromise</th>
-  </tr>
-
-  <tr>
-    <td>
-      Whether developed internally or licensed from others, reusable code libraries might be compromised by an attacker. This includes both dynamically linked and statically linked components.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R7. Open Source Libraries [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given library, increasing the likelihood that any given flaw might be found and fixed. This includes licensing internally developed code under an open source license to enable customers and collaborators to evaluate and report on potential compromises.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R8. Test Suites [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      <!-- Intentionally empty description as in the Markdown source -->
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components:
-      <strong>P1. Browser Process, P2. DNS Resolver, P3. Server Process</strong>
-    </th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Tampering)</th>
-  </tr>
-</table>
+<div>
+  : Threat T6. Library Compromise
+  :: Whether developed internally or licensed from others, reusable code libraries might be compromised by an attacker. This includes both dynamically linked and statically linked components.
+  : Response R7. Open Source Libraries [Mitigation]
+  :: “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given library, increasing the likelihood that any given flaw might be found and fixed. This includes licensing internally developed code under an open source license to enable customers and collaborators to evaluate and report on potential compromises.
+  : Response R8. Test Suites [Mitigation]
+  : Affected Components
+  :: P1. Browser Process<br>P2. DNS Resolver<br>P3. Server Process
+  : Analysis Framework
+  :: STRIDE (Tampering)
+</div>
 
 
 ### A1.5.3 External Threats
 
-T7. Quantum Cryptography Attacks  
-T8. Harvest Attacks  
-T9. Flawed Cryptosuite
+* T7. Quantum Cryptography Attacks  
+* T8. Harvest Attacks  
+* T9. Flawed Cryptosuite
 
-<table>
-  <tr>
-    <th>Threat T7. Quantum Cryptography Attacks</th>
-  </tr>
+<div>
+  : Threat T7. Quantum Cryptography Attacks
+  :: It is expected that it is only a matter of time until the current preferred cryptographic primitives are rendered irrelevant because quantum computers can solve cryptographic problems that are unfeasible on traditional Von Neumann architectures like those realized in nearly all production computational platforms today.
+  : Response R7. Quantum-secure Cryptography [Mitigation]
+  :: Although not yet standardized (and perhaps not even proven), there exist algorithmic approaches that are believed to be resilient to quantum cryptography attacks. In the US, NIST already recommends using such algorithms where possible.
+  : Response R8. Extensible Cryptography [Mitigation]
+  :: For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+  : Affected Components
+  :: B1.
+  : Analysis Framework
+  :: STRIDE (Spoofing)
+</div>
 
-  <tr>
-    <td>
-      It is expected that it is only a matter of time until the current preferred cryptographic primitives are rendered irrelevant because quantum computers can solve cryptographic problems that are unfeasible on traditional Von Neumann architectures like those realized in nearly all production computational platforms today.
-    </td>
-  </tr>
+<div>
+  : Threat T8. Harvest Attacks
+  :: Breaking cryptography is essentially a matter of time, either the time it takes traditional computers to guess the right key or the time it takes for quantum attacks to render current cryptography irrelevant. The result is a category of attacks described as “harvest now, crack later”, which allow an attacker to gather encrypted network traffic now for decrypting later.
+  : Response R9. Forward Secrecy [Mitigate]
+  :: Forward secrecy (sometimes called “perfect forward secrecy”) assures that short-lived session keys cannot be compromised just because the long-term secrets used to create those keys are themselves compromised. Frequently changing the session keys in these systems means that each session is an independent cryptographic assurance that must be compromised independently. Compromising a root secret no longer gives the attacker access to the entire collection of harvested data.
+  :: In TLS, forward secrecy is realized by initiating a Diffie-Hellman key exchange to establish unique keys known only to the client and server and used just for that session. Even if one were to compromise the root key in the TLS certificate, the actual communications channel remains secure. Encrypted communications and sessions harvested in the past cannot be retrieved and decrypted if (when) the long-term secret keys are compromised in the future, even if the adversary actively interfered (e.g., via a man-in-the-middle attack).
+  : Affected Components
+  :: F4. HTTPS Requests
+  : Analysis Framework
+  :: STRIDE (Information Disclosure)
+</div>
 
-  <tr>
-    <th>Response R7. Quantum-secure Cryptography [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Although not yet standardized (and perhaps not even proven), there exist algorithmic approaches that are believed to be resilient to quantum cryptography attacks. In the US, NIST already recommends using such algorithms where possible.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R8. Extensible Cryptography [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>B1.</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T8. Harvest Attacks</th>
-  </tr>
-
-  <tr>
-    <td>
-      Breaking cryptography is essentially a matter of time, either the time it takes traditional computers to guess the right key or the time it takes for quantum attacks to render current cryptography irrelevant. The result is a category of attacks described as “harvest now, crack later”, which allow an attacker to gather encrypted network traffic now for decrypting later.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R9. Forward Secrecy [Mitigate]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Forward secrecy (sometimes called “perfect forward secrecy”) assures that short-lived session keys cannot be compromised just because the long-term secrets used to create those keys are themselves compromised. Frequently changing the session keys in these systems means that each session is an independent cryptographic assurance that must be compromised independently. Compromising a root secret no longer gives the attacker access to the entire collection of harvested data.
-      <br><br>
-      In TLS, forward secrecy is realized by initiating a Diffie-Hellman key exchange to establish unique keys known only to the client and server and used just for that session. Even if one were to compromise the root key in the TLS certificate, the actual communications channel remains secure. Encrypted communications and sessions harvested in the past cannot be retrieved and decrypted if (when) the long-term secret keys are compromised in the future, even if the adversary actively interfered (e.g., via a man-in-the-middle attack).
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>F4. HTTPS Requests</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T9. Flawed Cryptosuite</th>
-  </tr>
-
-  <tr>
-    <td>
-      The suite of functions that implement cryptographic primitives can contain errors that enable an attacker to exploit idiosyncrasies at either the algorithmic or implementation layer.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R10. Open Source Cryptosuites [Transfer]</th>
-  </tr>
-
-  <tr>
-    <td>
-      “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given cryptosuite, increasing the likelihood that any given flaw might be found and fixed.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R8. Extensible Cryptography [Mitigation] (reused response)</th>
-  </tr>
-
-  <tr>
-    <td>
-      For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R10. Vetted Standards [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Cryptosuites sometimes have flaws in the fundamental algorithms. One well-worn response to this problem is rigorous testing and evaluation performed by national standards bodies like NIST in the US and ENISA in the EU. To a lesser extent, voluntary standards bodies like ISO, IETF, and the W3C also publish vetted cryptographic standards. The standards endorsed by these organizations are more likely to be robust compared to software developed in-house or through informal collaboration and open-source licensing.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components:
-      <strong>P1. Browser Process, P3. Server Process</strong>
-    </th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
-
+<div>
+  : Threat T9. Flawed Cryptosuite
+  :: The suite of functions that implement cryptographic primitives can contain errors that enable an attacker to exploit idiosyncrasies at either the algorithmic or implementation layer.
+  :: Response R10. Open Source Cryptosuites [Transfer]
+  :: “Many eyes” is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given cryptosuite, increasing the likelihood that any given flaw might be found and fixed.
+  : Response R8. Extensible Cryptography [Mitigation] (reused response)
+  :: For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+  : Response R11. Vetted Standards [Mitigation]
+  :: Cryptosuites sometimes have flaws in the fundamental algorithms. One well-worn response to this problem is rigorous testing and evaluation performed by national standards bodies like NIST in the US and ENISA in the EU. To a lesser extent, voluntary standards bodies like ISO, IETF, and the W3C also publish vetted cryptographic standards. The standards endorsed by these organizations are more likely to be robust compared to software developed in-house or through informal collaboration and open-source licensing.
+  : Affected Components
+  :: P1. Browser Process<br>P3. Server Process
+  : Analysis Framework
+  :: STRIDE (Spoofing)
+</div>
 
 ### A1.5.4 Dependency Threats
 
-T9. TCP/IP
+* T10. TCP/IP
 
-<table>
-  <tr>
-    <th>Threat</th>
-  </tr>
-
-  <tr>
-    <td>
-      It is expen computational platforms today..
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R7. Quantum-secure Cryptography [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Although it recommends using such algorithms where possible.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R8. Extensible Cryptography [Mitigation]</th>
-  </tr>
-
-  <tr>
-    <td>
-      For quahes not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components: <strong>B1.</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
-
+<div>
+  : Threat T10. TCP/IP
+  :: It is expen computational platforms today..
+  : Response R7. Quantum-secure Cryptography [Mitigation]
+  :: Although it recommends using such algorithms where possible.
+  :: Response R8. Extensible Cryptography [Mitigation]
+  : For quahes not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+  : Affected Components
+  :: B1.
+  : Analysis Framework
+  :: STRIDE (Spoofing)
+</div>
 
 # Appendix 2: Threat Analysis Frameworks
 
