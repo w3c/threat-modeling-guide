@@ -518,7 +518,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="external-entity">
-        <img src="images/image2.png">
+        <img src="images/image7.png">
         <figcaption>External Entity</figcaption>
       </figure>
     </td>
@@ -544,7 +544,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="flow">
-        <img src="images/image4.png">
+        <img src="images/image5.png">
         <figcaption>Flow</figcaption>
       </figure>
     </td>
@@ -557,7 +557,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="data-store">
-        <img src="images/image5.png">
+        <img src="images/image1.png">
         <figcaption>Data Store</figcaption>
       </figure>
     </td>
@@ -570,7 +570,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="data-object">
-        <img src="images/image6.png">
+        <img src="images/image2.png">
         <figcaption>Data Object</figcaption>
       </figure>
     </td>
@@ -583,7 +583,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="trust-boundary">
-        <img src="images/image7.png">
+        <img src="images/image6.png">
         <figcaption>Threat Boundary</figcaption>
       </figure>
     </td>
@@ -596,7 +596,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="threat-container">
-        <img src="images/image7.png">
+        <img src="images/image8.png">
         <figcaption>Threat Container</figcaption>
       </figure>
     </td>
