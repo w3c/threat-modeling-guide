@@ -7,6 +7,7 @@ ED: https://w3c.github.io/threat-modeling-guide/
 Prepare for TR: yes
 TR: https://www.w3.org/TR/threat-modeling-guide/
 Shortname: threat-modeling-guide
+Level: none
 Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
 Mailing List: public-security@w3.org
 Mailing List Archives: https://lists.w3.org/Archives/Public/public-security/
