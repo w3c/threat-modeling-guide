@@ -13,6 +13,7 @@ Mailing List: public-security@w3.org
 Mailing List Archives: https://lists.w3.org/Archives/Public/public-security/
 Editor: Simone Onofri, w3cid 38211, W3C Team, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements, joe@legreq.com
+Indent: 2
 Abstract:
   This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help standards developers understand threats and countermeasures from the beginning of standard development and to document the model in the security considerations section.
 
@@ -396,10 +397,10 @@ To guide the analysis, it is RECOMMENDED to ask the following questions for each
 
 Asking these questions provides a deeper understanding of **what matters to stakeholders** and how these values influence their **relationship with the product or system**. This understanding forms the basis for identifying not only technical threats but also **social and cognitive harms**, ensuring that threat modeling extends beyond the system’s components to include its human and societal dimensions.
 
-* **Objective:** Identify the stakeholders and understand their interests, benefits, and potential harms.  
-* **Input:** Model and use cases.  
-* **Output:** Stakeholder list with roles, values, and potential impacts, that can be harms or threats.  
-* **Who:** Standards’ Developers alone or with Domain Experts (e.g., Human Rights, Privacy, or Ethics specialists).
+* **Objective**: Identify the stakeholders and understand their interests, benefits, and potential harms.  
+* **Input**: Model and use cases.  
+* **Output**: Stakeholder list with roles, values, and potential impacts, that can be harms or threats.  
+* **Who**: Standards’ Developers alone or with Domain Experts (e.g., Human Rights, Privacy, or Ethics specialists).
 
 ## Identify & Evaluate Threats
 
@@ -413,7 +414,7 @@ Threat lists, like other types of lists used in threat modeling, are particularl
     * For each component or flow, identify the threats  
     * For each threat, identify the component(s) affected  
   * We can also use Kill Chains, Incident Analysis…  
-* **Input:** Model and Threats/Controls/Principles/Questions.  
+* **Input**: Model and Threats/Controls/Principles/Questions.  
 * **Output**: List of identified threats in the Model.  
 * **Who**: Standards’ Developers alone or with Domain Experts
 
@@ -430,7 +431,7 @@ For the Threat Modeling Guide, these can be summarized in four response strategi
   * **Reduce**: Make it harder, e.g., adding a control, mitigation or countermeasure.  
   * **Transfer**: To another element or component.  
   * **Accept**: that it is not possible to mitigate (or the Group doesn't want to mitigate, for now) the threat; it is still open and needs to be monitored.  
-* **Input:** Identified Threat List  
+* **Input**: Identified Threat List  
 * **Output**: List of countermeasures for each threat and residual threats  
 * **Who**: Standards’ Developers and Threats Experts
 
@@ -439,7 +440,7 @@ For the Threat Modeling Guide, these can be summarized in four response strategi
 The fourth step in creating a threat model is summarized in the question, “Did we do a good job?” but threat models, by their nature, are living documents that require continuous updates [[SWIDERSKI-SNYDER2004]] (p. 26). Also, the attacks are in a continuous evolution, and “Attackers simply ignore your threat model” [[ONOFRI2024-INCLUSION]] (slide 38). This step serves as a reminder to pause, publish for consideration, evaluate the completed work, and determine what still needs to be done. For example, performing formal verification, additional cryptographic checks, and so on.
 
 * **Objective**: make the model visible  
-* **Input:** List of threats and countermeasures  
+* **Input**: List of threats and countermeasures  
 * **Output**: threat model and security considerations  
 * **Who**: Standard’s Developers
 
@@ -1175,7 +1176,6 @@ T9. TCP/IP
     <th>Analysis Framework: STRIDE (Spoofing)</th>
   </tr>
 </table>
-
 
 # Appendix 2: Threat Analysis Frameworks
 
