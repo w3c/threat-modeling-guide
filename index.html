@@ -4,13 +4,10 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Threat Modeling Guide</title>
   <meta content="ED" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version 3c53a5b02, updated Thu Nov 27 17:03:30 2025 +0000" name="generator">
-  <link href="https://w3c.github.io/threat-modeling-guide" rel="canonical">
-  <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="c3ca46bb35e8140388ba9c90016c25c30be538a8" name="revision">
+  <link href="https://www.w3.org/TR/threat-modeling-guide/" rel="canonical">
+  <meta content="90dcba5ae679d24f301d5d86aed3e5df5d789cf7" name="revision">
   <meta content="dark light" name="color-scheme">
-  <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="threat-model.css" rel="stylesheet">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -410,6 +407,8 @@ a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }
 </style>
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/">
@@ -424,8 +423,11 @@ dfn > a.self-link::before      { content: "#"; }
     <div data-fill-with="spec-metadata">
      <dl>
       <dt>This version:
-      <dd><a class="u-url" href="https://w3c.github.io/threat-modeling-guide">https://w3c.github.io/threat-modeling-guide</a>
-      <dt>Issue Tracking:
+      <dd><a class="u-url" href="https://w3c.github.io/threat-modeling-guide/">https://w3c.github.io/threat-modeling-guide/</a>
+      <dt>Latest published version:
+      <dd><a href="https://www.w3.org/TR/threat-modeling-guide/">https://www.w3.org/TR/threat-modeling-guide/</a>
+      <dt>Feedback:
+      <dd><span><a href="mailto:public-security@w3.org?subject=%5Bthreat-modeling-guide%5D%20YOUR%20TOPIC%20HERE">public-security@w3.org</a> with subject line “<kbd>[threat-modeling-guide] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-security/" rel="discussion">archives</a>)</span>
       <dd><a href="https://github.com/w3c/threat-modeling-guide/issues">GitHub</a>
       <dt class="editor">Editors:
       <dd class="editor h-card p-author vcard" data-editor-id="38211"><a class="email fn p-name u-email" href="mailto:simone@w3.org">Simone Onofri</a> (<span class="org p-org">W3C Team</span>)
@@ -446,11 +448,10 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="heading no-num no-ref no-toc settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
    <p></p>
-   <p>This section describes the status of this document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</p>
-   <p>This document has been reviewed by Interest Group members and interested parties. This is a draft document which may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress. The Interest Group’s role in publishing is to draw attention to the specification and to promote its widespread deployment.</p>
-   <p>By publishing these guidelines, the Interest Group does not expect that the work produced in this specification will affect the work undertaken by other <abbr title="World Wide Web Consortium">W3C</abbr> sustainability, accessibility, or performance groups. The Interest Group will continue to track these Working, Interest, and Community Groups as appropriate.</p>
+   <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C standards and drafts index</a>.</em></p>
+   <p>This Group Note Draft is endorsed by the Security Interest Group, but is not endorsed by W3C itself nor its Members.</p>
    <p>To provide feedback regarding this specification, the preferred method is using GitHub. It is free to create a GitHub account to file issues. A list of issues filed as well as archives of previous mailing list <a href="mailto:public-security@w3.org" id="public-name">public-security@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-security/">archive</a>) discussions are publicly available.</p>
-   <p>This document was published by the <a href="https://www.w3.org/groups/ig/security">Security Interest Group</a> as  a Group Draft Note using the <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note track</a>. </p>
+   <p>This document was published by the <a href="https://www.w3.org/groups/ig/security">Security Interest Group</a> as a Group Note Draft using the <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note track</a>. </p>
    <p>Group Draft Notes are not endorsed by <abbr title="World Wide Web Consortium">W3C</abbr> nor its Members.</p>
    <p>This is a draft document and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress.</p>
    <p data-deliverer="49310"> The <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
