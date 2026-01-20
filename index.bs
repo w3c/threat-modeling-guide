@@ -3,10 +3,14 @@ Title: Threat Modeling Guide
 Status: ED
 Org: W3C
 Group: securityig
-ED: https://w3c.github.io/threat-modeling-guide
+ED: https://w3c.github.io/threat-modeling-guide/
+Prepare for TR: yes
+TR: https://www.w3.org/TR/threat-modeling-guide/
 Shortname: threat-modeling-guide
+Level: none
 Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
-Level: 1
+Mailing List: public-security@w3.org
+Mailing List Archives: https://lists.w3.org/Archives/Public/public-security/
 Editor: Simone Onofri, w3cid 38211, W3C Team, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements, joe@legreq.com
 Abstract:
@@ -14,11 +18,10 @@ Abstract:
 
   This document is intended for threat modeling with the broadest definition of threat.
 Status text:
-  <p>This section describes the status of this document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</p> 
-  <p>This document has been reviewed by Interest Group members and interested parties. This is a draft document which may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress. The Interest Group's role in publishing is to draw attention to the specification and to promote its widespread deployment.</p>
-  <p>By publishing these guidelines, the Interest Group does not expect that the work produced in this specification will affect the work undertaken by other <abbr title="World Wide Web Consortium">W3C</abbr> sustainability, accessibility, or performance groups. The Interest Group will continue to track these Working, Interest, and Community Groups as appropriate.</p>
+  <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C standards and drafts index</a>.</em></p>
+  <p>This Group Note Draft is endorsed by the Security Interest Group, but is not endorsed by W3C itself nor its Members.</p>
   <p>To provide feedback regarding this specification, the preferred method is using GitHub. It is free to create a GitHub account to file issues. A list of issues filed as well as archives of previous mailing list <a id="public-name" href="mailto:public-security@w3.org">public-security@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-security/">archive</a>) discussions are publicly available.</p>         
-  <p>This document was published by the <a href="https://www.w3.org/groups/ig/security">Security Interest Group</a> as  a Group Draft Note using the <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note track</a>. </p><p>Group Draft Notes are not endorsed by <abbr title="World Wide Web Consortium">W3C</abbr> nor its Members.</p>
+  <p>This document was published by the <a href="https://www.w3.org/groups/ig/security">Security Interest Group</a> as a Group Note Draft using the <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note track</a>. </p><p>Group Draft Notes are not endorsed by <abbr title="World Wide Web Consortium">W3C</abbr> nor its Members.</p>
   <p>This is a draft document and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress.</p>
   <p data-deliverer="49310"> The <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
   <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
@@ -26,7 +29,7 @@ Markup Shorthands: markdown on, biblio yes
 Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
 </pre>
 
-<link src="threat-model.css" />
+<link rel="stylesheet" href="threat-model.css" />
 
 <pre class='biblio'>
 {
@@ -516,7 +519,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="external-entity">
-        <img src="images/image2.png">
+        <img src="images/image7.png">
         <figcaption>External Entity</figcaption>
       </figure>
     </td>
@@ -542,7 +545,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="flow">
-        <img src="images/image4.png">
+        <img src="images/image5.png">
         <figcaption>Flow</figcaption>
       </figure>
     </td>
@@ -555,7 +558,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="data-store">
-        <img src="images/image5.png">
+        <img src="images/image1.png">
         <figcaption>Data Store</figcaption>
       </figure>
     </td>
@@ -568,7 +571,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="data-object">
-        <img src="images/image6.png">
+        <img src="images/image2.png">
         <figcaption>Data Object</figcaption>
       </figure>
     </td>
@@ -581,7 +584,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="trust-boundary">
-        <img src="images/image7.png">
+        <img src="images/image6.png">
         <figcaption>Threat Boundary</figcaption>
       </figure>
     </td>
@@ -594,7 +597,7 @@ For our example in this Threat Modeling Guide, we use an intentionally simplifie
     </td>
     <td>
       <figure id="threat-container">
-        <img src="images/image7.png">
+        <img src="images/image8.png">
         <figcaption>Threat Container</figcaption>
       </figure>
     </td>
