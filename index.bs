@@ -34,9 +34,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
 <pre class='biblio'>
 {
   "SHOSTACK2014": {
-    "authors": [
-      "Adam Shostack"
-    ],
+    "authors": ["Adam Shostack"],
     "date": "April 2014",
     "href": "https://www.wiley.com/en-us/Threat%2BModeling%3A%2BDesigning%2Bfor%2BSecurity-p-9781118809990",
     "id": "SHOSTACK2014",
@@ -45,10 +43,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Threat Modeling: Designing for Security"
   },
   "SWIDERSKI-SNYDER2004": {
-    "authors": [
-      "Frank Swiderski",
-      "Window Snyder"
-    ],
+    "authors": ["Frank Swiderski", "Window Snyder"],
     "date": "2004",
     "id": "SWIDERSKI-SNYDER2004",
     "publisher": "Microsoft Press",
@@ -56,9 +51,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Threat Modeling"
   },
   "SCHNEIER2015": {
-    "authors": [
-      "Bruce Schneier"
-    ],
+    "authors": ["Bruce Schneier"],
     "date": "2000 (15th anniversary ed. referenced)",
     "href": "https://www.schneier.com/books/secrets-and-lies-pref/",
     "id": "SCHNEIER2015",
@@ -67,10 +60,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Secrets and Lies: Digital Security in a Networked World (Preface excerpt)"
   },
   "HOWARD-LIPNER2006": {
-    "authors": [
-      "Michael Howard",
-      "Steve Lipner"
-    ],
+    "authors": ["Michael Howard", "Steve Lipner"],
     "date": "2006",
     "href": "https://download.microsoft.com/download/8/1/6/816C597A-5592-4867-A0A6-A0181703CD59/Microsoft_Press_eBook_TheSecurityDevelopmentLifecycle_PDF.pdf",
     "id": "HOWARD-LIPNER2006",
@@ -79,10 +69,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "The Security Development Lifecycle"
   },
   "HOWARD-LEBLANC2002": {
-    "authors": [
-      "Michael Howard",
-      "David LeBlanc"
-    ],
+    "authors": ["Michael Howard", "David LeBlanc"],
     "date": "2002",
     "href": "https://www.microsoftpressstore.com/store/writing-secure-code-second-edition-9780735617223",
     "id": "HOWARD-LEBLANC2002",
@@ -91,10 +78,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Writing Secure Code (2nd Edition)"
   },
   "ALLEN-APPELCLINE2019": {
-    "authors": [
-      "Christopher Allen",
-      "Shannon Appelcline"
-    ],
+    "authors": ["Christopher Allen", "Shannon Appelcline"],
     "date": "2019",
     "href": "https://github.com/BlockchainCommons/SmartCustodyBook",
     "id": "ALLEN-APPELCLINE2019",
@@ -103,9 +87,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "#SmartCustody: The Use of Advanced Cryptographic Tools to Improve the Care, Maintenance, Control, and Protection of Digital Assets"
   },
   "FFRI2016": {
-    "authors": [
-      "FFRI, Inc."
-    ],
+    "authors": ["FFRI, Inc."],
     "date": "2016",
     "href": "https://www.ffri.jp/en/track_record",
     "id": "FFRI2016",
@@ -114,20 +96,16 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "FFRI track record / research materials"
   },
   "BOX1976": {
-    "authors": [
-      "George E. P. Box"
-    ],
+    "authors": ["George E. P. Box"],
     "date": "1976",
     "href": "https://blogs.sas.com/content/iml/2025/04/02/all-models-are-wrong.html",
     "id": "BOX1976",
     "publisher": "SAS (IML blog)",
     "status": "Secondary source",
-    "title": "Discussion of the origin of the quote "All models are wrong, but some are useful""
+    "title": "Discussion of the origin of the quote \"All models are wrong, but some are useful\""
   },
   "FENSTERMACHER2004": {
-    "authors": [
-      "Gary D. Fenstermacher"
-    ],
+    "authors": ["Gary D. Fenstermacher"],
     "date": "2004",
     "href": "https://korthagen.nl/wp-content/uploads/2018/06/In-search-of-the-essence-of-a-good-teacher.pdf",
     "id": "FENSTERMACHER2004",
@@ -136,9 +114,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "In search of the essence of a good teacher"
   },
   "ONEIL2016": {
-    "authors": [
-      "Cathy O'Neil"
-    ],
+    "authors": ["Cathy O'Neil"],
     "date": "2016",
     "href": "https://www.penguinrandomhouse.ca/books/241363/weapons-of-math-destruction-by-cathy-oneil/9780553418835/excerpt",
     "id": "ONEIL2016",
@@ -147,20 +123,16 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy (excerpt)"
   },
   "KORZYBSKI1933": {
-    "authors": [
-      "Alfred Korzybski"
-    ],
+    "authors": ["Alfred Korzybski"],
     "date": "1933",
     "href": "https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation",
     "id": "KORZYBSKI1933",
     "publisher": "International Non-Aristotelian Library Publishing Company",
     "status": "Book / concept reference",
-    "title": "Science and Sanity (map&mdash;territory relation overview)"
+    "title": "Science and Sanity (map–territory relation overview)"
   },
   "DISTRINET2024": {
-    "authors": [
-      "DistriNet / KU Leuven"
-    ],
+    "authors": ["DistriNet / KU Leuven"],
     "date": "2024",
     "href": "https://research.kuleuven.be/portal/en/unit/55645621",
     "id": "DISTRINET2024",
@@ -169,9 +141,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "DistriNet research unit"
   },
   "ISO2019": {
-    "authors": [
-      "ISO/IEC"
-    ],
+    "authors": ["ISO/IEC"],
     "date": "2019",
     "id": "ISO2019",
     "publisher": "ISO/IEC",
@@ -179,9 +149,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "ISO/IEC risk management terminology"
   },
   "ISO2022": {
-    "authors": [
-      "ISO/IEC"
-    ],
+    "authors": ["ISO/IEC"],
     "date": "2022",
     "id": "ISO2022",
     "publisher": "ISO/IEC",
@@ -189,9 +157,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "ISO/IEC 27001:2022 — Annex A control 5.7 Threat intelligence (explainer)"
   },
   "MICROSOFT-HARMS-MODELING": {
-    "authors": [
-      "Microsoft"
-    ],
+    "authors": ["Microsoft"],
     "href": "https://learn.microsoft.com/en-us/azure/architecture/guide/responsible-innovation/harms-modeling/",
     "id": "MICROSOFT-HARMS-MODELING",
     "publisher": "Microsoft Learn",
@@ -199,9 +165,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Foundations of Assessing Harm (Harms modeling)"
   },
   "ONOFRI2024-INCLUSION": {
-    "authors": [
-      "Simone Onofri"
-    ],
+    "authors": ["Simone Onofri"],
     "date": "6 September 2024",
     "href": "https://w3.org/2024/Talks/inclusion-simone.pdf",
     "id": "ONOFRI2024-INCLUSION",
@@ -210,9 +174,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Threat Modeling (W3C Inclusion 2024 slides)"
   },
   "OSTERMAN2006": {
-    "authors": [
-      "Larry Osterman"
-    ],
+    "authors": ["Larry Osterman"],
     "date": "2006",
     "href": "https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/july/security-briefs-reinvigorate-your-threat-modeling-process",
     "id": "OSTERMAN2006",
@@ -221,9 +183,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "Security Briefs: Reinvigorate your Threat Modeling Process (used as a proxy source for the cited guidance)"
   },
   "OSTERMAN2007": {
-    "authors": [
-      "Larry Osterman"
-    ],
+    "authors": ["Larry Osterman"],
     "date": "2007",
     "href": "https://www.microsoft.com/en-us/security/blog/2007/09/26/the-trouble-with-threat-modeling/",
     "id": "OSTERMAN2007",
@@ -232,9 +192,7 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "title": "The Trouble with Threat Modeling (used as a proxy source for the cited guidance)"
   },
   "OSTERMAN2007A": {
-    "authors": [
-      "Larry Osterman"
-    ],
+    "authors": ["Larry Osterman"],
     "date": "2007",
     "href": "https://www.microsoft.com/en-us/security/blog/2007/09/26/the-trouble-with-threat-modeling/",
     "id": "OSTERMAN2007A",
@@ -267,7 +225,7 @@ Then there is the threat—a potential circumstance, event, or action that could
 * **Responses**: What controls or mitigations have we put in place, and what are their limitations? And what threats do we accept?  
 * **Attacks**: An attack is a realization of a threat; a particular instance of a threat manifesting in an operational system. 
 
-## Goals of This Guides
+## Goals of This Guide
 
 This guide should help specification developers and implementers document and understand the threats facing the World Wide Web, with the explicit goal of improving the security, privacy, and reliability of the Web.
 
@@ -511,13 +469,13 @@ For this threat model, we think about the World Wide Web as just six independent
 
 For our example in this Threat Modeling Guide, we use an intentionally simplified Data Flow Diagram (DFD) inspired by Adam Shostack [[SHOSTACK2014]], which uses just six elements for clarity: external entities, processes, flows, data storage, data objects, and threat containers (which define threat boundaries).
 
-<table>
+<table class="visual-terminology">
   <tr>
-    <th>External Entity (E)</th>
-    <td>
+    <th >External Entity (E)</th>
+    <td class="term-def">
       An autonomous entity, external to the application, that interacts with, or drives, processes. Preferably a human user or legal person responsible for driving an interaction. Include all stakeholders, including the primary user as well as others who have designed roles in the system. Do not include attackers as they are treated as independent factors, exogenous to the model. In particular, be careful about over-characterizing attackers as it is impossible to cover all possible attacks and attackers. Assumptions about the limits of attacks and attackers can leave you open to unforeseen vulnerabilities. In contrast, we can completely characterize the system under attack in a visual diagram, no matter the nature or intention of any attacker.
     </td>
-    <td>
+    <td class="term-img">
       <figure id="external-entity">
         <img src="images/image7.png">
         <figcaption>External Entity</figcaption>
@@ -620,7 +578,7 @@ Supporting this operation are the Website Administrator (E2) and the (E3) Networ
 
 Additional stakeholders include the legal entities running websites (E4 Website Application Providers) as well as those legal persons running Internet infrastructure (E5 Internet Service Providers). Finally, public servants of various kinds have both legitimate interests in making sure everything is running according to the law and public policy (E6 Public Sector Officials).
 
-Note: we do NOT model potential attackers, as over-characterizing attackers can lead to analysis bias that is better avoided.
+note:We do NOT model potential attackers, as over-characterizing attackers can lead to analysis bias that is better avoided.
 
 It is understood that the browser process (P1) is likely realized as multiple processes running as software in an operating system on a device. Threat modeling for such details would suggest breaking both the process and its container (C1) into its subcontainers and processes, identifying the flows between each. However, in this threat model, we treat the web browser as just two elements, the browser process and its data storage.
 
@@ -631,14 +589,8 @@ The DNS resolver also depends on external data flows that are beyond the scope o
 We treat the DNS Server and the Web Server as essentially black box elements which provide information in response to requests, but whose internals are intentionally outside the threat model. We are not evaluating the threats of the DNS system. Nor are we evaluating the threats of any particular back-end system or web server. These are external systems which may be worth noting as sources of threats, but whose definitions are beyond this scope.
 
 ## A1.4 Data Flow Dictionary
-
-<table>
-  <tr>
-    <th>Elements of Web Minimal Viable Configuration</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+Elements of Minimalist Web Threat Model
+<table class="dfd-dictionary">
   <tr>
     <th>ID</th>
     <th>Name</th>
@@ -647,119 +599,119 @@ We treat the DNS Server and the Web Server as essentially black box elements whi
   </tr>
 
   <tr>
-    <td>E1</td>
-    <td>User</td>
-    <td>Entity</td>
-    <td>The user of the Web. Designed for human users, this role can also be realized by automated software, including scripts and AI. However, we consider the user as a black box without regard to the type of user or the subprocesses and data that might be used internally. Users control a user-agent, aka a browser, for interacting with the World Wide Web.</td>
+    <td class="dfd-id">E1</td>
+    <td class="dfd-name">User</td>
+    <td class="dfd-type">Entity</td>
+    <td class="dfd-description">The user of the Web. Designed for human users, this role can also be realized by automated software, including scripts and AI. However, we consider the user as a black box without regard to the type of user or the subprocesses and data that might be used internally. Users control a user-agent, aka a browser, for interacting with the World Wide Web.</td>
   </tr>
 
   <tr>
-    <td>E2</td>
+    <td class="dfd-id">E2</td>
     <td>Website Administrator</td>
     <td>Entity</td>
     <td>The administrator of the website. Their goal is to keep the website running as intended by the website owner. It may be presumed that they have complete access to everything on the server and can monitor or manipulate all communications into and out of the website.</td>
   </tr>
 
   <tr>
-    <td>E3</td>
+    <td class="dfd-id">E3</td>
     <td>Network Administrator</td>
     <td>Entity</td>
     <td>Any number of network administrators who keep the network running, including maintaining an operational DNS system. In practice, this party also has the ability to watch and manipulate activity on its services.</td>
   </tr>
 
   <tr>
-    <td>C1</td>
+    <td class="dfd-id">C1</td>
     <td>Web Browser</td>
     <td>Container</td>
     <td>The collection of processes and data that realize the web browser for an individual user. Typically running in an operating system on a device, potentially alongside other processes, possibly with different threat boundaries. In this threat model, the browser is simplified to just a single process and single data store.</td>
   </tr>
 
   <tr>
-    <td>C2</td>
+    <td class="dfd-id">C2</td>
     <td>DNS Server</td>
     <td>Container</td>
     <td>The collection of processes and data that perform DNS resolution. Typically running as a service on a server somewhere, we treat it and any back-end networking as a black box that simply turns domain names into IP addresses.</td>
   </tr>
 
   <tr>
-    <td>C3</td>
+    <td class="dfd-id">C3</td>
     <td>Web Server</td>
     <td>Container</td>
     <td>The collection of processes, data, and data objects that perform the server role in browser interactions. Typically running as a service on a server somewhere, we treat any sub-process architecture and back-end data flows as a black box that simply responds correctly to properly formed HTTP requests using its own data store (S2) and data object (O1).</td>
   </tr>
 
   <tr>
-    <td>P1</td>
+    <td class="dfd-id">P1</td>
     <td>Browser Process</td>
     <td>Process</td>
     <td>The running algorithm that processes user interaction (F1) to engage with resources requested (F4) from different web servers (C3) using its own data storage (S1) to present a coherent browsing experience.</td>
   </tr>
 
   <tr>
-    <td>P2</td>
+    <td class="dfd-id">P2</td>
     <td>DNS Resolver</td>
     <td>Process</td>
     <td>Returns the IP address for interacting with a provided domain.</td>
   </tr>
 
   <tr>
-    <td>P3</td>
+    <td class="dfd-id">P3</td>
     <td>Server Process</td>
     <td>Process</td>
     <td>The running process that receives and responds to HTTP requests, providing resources for display or use by web browsers.</td>
   </tr>
 
   <tr>
-    <td>F1</td>
+    <td class="dfd-id">F1</td>
     <td>User Interaction</td>
     <td>Data Flow</td>
     <td>User input and display, for controlling the browser and viewing the web.</td>
   </tr>
 
   <tr>
-    <td>F2</td>
+    <td class="dfd-id">F2</td>
     <td>DNS Resolution</td>
     <td>Data Flow</td>
     <td>Requests to turn a domain name into an IP address. Response includes the IP address.</td>
   </tr>
 
   <tr>
-    <td>F3</td>
+    <td class="dfd-id">F3</td>
     <td>Session Tracking</td>
     <td>Data Flow</td>
     <td>Management of current browser sessions to keep track of SSL/TLS meta-data and related information.</td>
   </tr>
 
   <tr>
-    <td>F4</td>
+    <td class="dfd-id">F4</td>
     <td>HTTP Requests &amp; Response</td>
     <td>Data Flow</td>
     <td>Requests from the browser to the server and their responses.</td>
   </tr>
 
   <tr>
-    <td>F5</td>
+    <td class="dfd-id">F5</td>
     <td>Server Data Retrieval</td>
     <td>Data Flow</td>
     <td>Requests from the server process (P3) to server data storage (S2) for information needed to respond to HTTP requests.</td>
   </tr>
 
   <tr>
-    <td>F6</td>
+    <td class="dfd-id">F6</td>
     <td>Website Administration</td>
     <td>Data Flow</td>
     <td>To set up and maintain the website, administrators engage in a number of activities, with data flows in both directions. Assume the website administrator has unlimited access to the website system.</td>
   </tr>
 
   <tr>
-    <td>F7</td>
+    <td class="dfd-id">F7</td>
     <td>Network Administration</td>
     <td>Data Flow</td>
     <td>Like Website administrators, network operators engage in a number of data flows to set up and maintain the network, including running DNS servers. Assume the network administrator can see and manipulate anything on the network unless explicitly secured in some manner.</td>
   </tr>
 
   <tr>
-    <td>O1</td>
+    <td class="dfd-id">O1</td>
     <td>SSL/TLS Certificate</td>
     <td>Data Object</td>
     <td>Digital object that allows systems to verify the identity &amp; subsequently establish an encrypted network connection to another system using the Secure Sockets Layer/Transport Layer Security (SSL/TLS) protocol, e.g., TLS 1.3 as defined in RFC 8446.</td>
@@ -825,165 +777,203 @@ The goal of public sector officials is to ensure that rules and regulations are 
 
 The following sections describe the identified threats and potential responses to them.
 
+### Threat Index
+
+<ol class="threat-index">
+  <li class="section-title">Target Threats</li>
+
+  <li value="1"> <a href="#threat-t1-imposter-websites">  
+  Imposter Websites (URL validation)</a>  </li>
+  <li value="2"> <a href="#threat-t2-network-surveillance"> Network Surveillance (DH, Encryption)</a></li>
+  <li value="3"> <a href="#threat-t3-network-corruption"> Network Corruption (MAC signature)</a></li>
+  <li value="4"> <a href="#threat-t4-fraudulent-certificate"> Fraudulent Certificate (Signed Certificates)</a></li>
+  
+  <li class="section-title">Implementation Threats</li>
+  <li value="5"><a href="#threat-t5-key-compromise">Key Compromise</a></li>
+  <li value="6"><a href="#threat-t6-library-compromise">Library Compromise</a></li>
+
+  <li class="section-title">External Threats</li>
+  <li value="7"> <a href="#threat-t7-quantum-cryptography-attacks">Quantum Cryptography Attacks</a> </li>
+  <li value="8"> <a href="#threat-t8-harvest-attacks">Harvest Attacks</a></li>
+  <li value="9"> <a href="#threat-t9-flawed-cryptosuite">Flawed Cryptosuite</a></li>
+  
+  <li class="section-title">Dependency Threats</li>
+  <li value="10"> <a href="#threat-t10-the-internet-protocol-suite-tcp-ip">The Internet protocol suite (TCP/IP)</a></li>
+  </ol>
 ### A1.6.1 Target Threats
 
 The TLS addition to the Web specifically addressed a handful of known problems. 
 
-T1. Imposter Websites (URL validation)  
-T2. Network Surveillance (DH, Encryption)  
-T3. Network Corruption (MAC signature)  
-T4. Fraudulent Certificate (Signed Certificates)
+<ol class="threat-index">
+  <li value="1"> <a href="#threat-t1-imposter-websites">  
+  Imposter Websites (URL validation)</a>  </li>
+  <li value="2"> <a href="#threat-t2-network-surveillance"> Network Surveillance (DH, Encryption)</a></li>
+  <li value="3"> <a href="#threat-t3-network-corruption"> Network Corruption (MAC signature)</a></li>
+  <li value="4"> <a href="#threat-t4-fraudulent-certificate"> Fraudulent Certificate (Signed Certificates)</a></li>
+</ol>
 
-<table>
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T1. Imposter Websites</th>
+    <td class="threat-name"><h5>Threat T1. Imposter Websites</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span>
+    </td>
   </tr>
   <tr>
-    <td>
+    <td class="threat-desc">
       It's possible for a compromised network to return content that does not come from the owner of the domain. The user requests a given URL, but what is returned comes from an attacker on the network pretending to be that website.
     </td>
   </tr>
 
   <tr>
-    <th>Response R1. Third Party Identifying Certificates [Reduce]</th>
+    <td class="response-name">Response R1. Third Party Identifying Certificates [Reduce]</td>
   </tr>
   <tr>
-    <td>
+    <td class="response-desc">
       TLS certificates inform users of the public key associated with a given domain, as cryptographically attested by a signing authority, called a Certificate Authority (CA). By comparing the domain in the certificate with the domain in the URL and verifying the network session is established using the public key in the certificate, verifying parties gain confidence that the TLS communications are with the intended party.  <br/>
 
 Some CAs provide further assurances regarding the entity identified in the certificate such as a legal name. However, not all CAs perform the same validation processes, making the certificates primarily an attestation of URL validation (that the cert holder has proven legitimate control over the domain) and not much more.  <br/>
 
-Finally, individual websites can self-attest with a self-signed TLS certificate. Distinguishing between self-signed and those signed in accordance with the CA hierarchy rooted in web browsers is easy. We consider self-signed TLS certificates only "identifying" in terms of the current session, as the website could change the certificate as frequently as desired. In contrast, third party certificates give at least one other party who attests to the legitimacy of a particular certificate for a particular domain.<br/>
+Finally, individual websites can self-attest with a self-signed TLS certificate. Distinguishing between self-signed and those signed in accordance with the CA hierarchy rooted in web browsers is easy. We consider self-signed TLS certificates only "identifying" in terms of the current session, as the website could change the certificate as frequently as desired. In contrast, third party certificates give at least one other party who attests to the legitimacy of a particular certificate for a particular domain.
     </td>
   </tr>
-
   <tr>
-    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong>, <strong>O1 SSL/TLS Certificate</strong></th>
+    <td class="affected-component">Affected Components: <span class="component-entry">F4. HTTP(S) Requests</span>, <span class="component-entry">O1 SSL/TLS Certificate</span></td>
   </tr>
 
   <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Spoofing)</td>
   </tr>
 </table>
 
+</section>
 
-<table>
+
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T2. Network Surveillance</th>
+    <td class="threat-name"><h5>Threat T2. Network Surveillance</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
   </tr>
-
   <tr>
-    <td>
-      With traditional HTTP interactions, it is possible for network observers to read the content of the request and any responses. Data sent in either direction, e.g., bank details shown to the user AND user input provided in web forms, can easily be captured and used by an attacker anywhere along the path through the network.
+    <td class="threat-desc">
+    With traditional HTTP interactions, it is possible for network observers to read the content of the request and any responses. Data sent in either direction, e.g., bank details shown to the user AND user input provided in web forms, can easily be captured and used by an attacker anywhere along the path through the network.
     </td>
   </tr>
 
   <tr>
-    <th>Response R2. TLS Handshake [Mitigation]</th>
+    <td class="response-name">Response R2. TLS Handshake [Transfer]
+    </td>
   </tr>
-
   <tr>
-    <td>
-      Before any data is exchanged, the client and server perform a Diffie-Hellman key exchange to establish session keys that cannot be seen by network observers. These keys are used to encrypt the balance of HTTPS exchanges so that the actual data shared (in both directions) is secured from outside observers.
+    <td class="response-desc">
+          Before any data is exchanged, the client and server perform a Diffie-Hellman key exchange to establish session keys that cannot be seen by network observers. These keys are used to encrypt the balance of HTTPS exchanges so that the actual data shared (in both directions) is secured from outside observers.
+    </td>
+  </tr>
+  <tr>
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">F4. HTTP(S) Requests</span>
     </td>
   </tr>
 
   <tr>
-    <th>Affected Components: <strong>F4. HTTP(S) Requests</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
+    <td class="analysis-framework">STRIDE (Information Disclosure)</td>
   </tr>
 </table>
 
-
-<table>
+</section>
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T3. Network Corruption</th>
+    <td class="threat-name"><h5>Threat T3. Network Corruption</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
   </tr>
-
   <tr>
-    <td>
-      It is possible for data to be corrupted in transit, either intentionally or accidentally.
+    <td class="threat-desc">
+    It is possible for data to be corrupted in transit, either intentionally or accidentally.
     </td>
   </tr>
 
   <tr>
-    <th>Response R3. Integrity Check [Mitigate]</th>
+    <td class="response-name">Response R3. Integrity Check [Reduce]
+    </td>
   </tr>
-
   <tr>
-    <td>
-      All payload messages sent via TLS are signed with a message authentication code (MAC), ensuring the recipient can verify the MAC to ensure the integrity of the data.
+    <td class="response-desc">
+          All payload messages sent via TLS are signed with a message authentication code (MAC), ensuring the recipient can verify the MAC to ensure the integrity of the data.
+    </td>
+  </tr>
+  <tr>
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">F4 HTTP Requests &amp; Responses</span>
     </td>
   </tr>
 
   <tr>
-    <th>Affected Components: <strong>F4 HTTP Requests &amp; Responses</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Tampering)</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Tampering)</td>
   </tr>
 </table>
 
+</section>
 
-<table>
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T4. Fraudulent Certificate</th>
+    <td class="threat-name"><h5>Threat T4. Fraudulent Certificate</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
   </tr>
-
   <tr>
-    <td>
-      The TLS certificate provided by a website could be faked.
+    <td class="threat-desc">
+    The TLS certificate provided by a website could be faked.
     </td>
   </tr>
 
   <tr>
-    <th>Response R4. Signed Certificates [Reduce]</th>
+    <td class="response-name">Response R4. Signed Certificates [Reduce]
+    </td>
   </tr>
-
   <tr>
-    <td>
-      The DNS system relies on cryptographic signatures to ensure that the TLS certificate is not manipulated in transit from the website to the web browser. <br/>
+    <td class="response-desc">
+      TLS system relies on cryptographic signatures to ensure that the TLS certificate is not manipulated in transit from the website to the web browser. <br/>
 
       It is important to note that while the signature ensures the certificate has not been manipulated, the signature says nothing about the truthfulness of the contents of that certificate, which must be addressed at a different layer, e.g., with a hierarchy of certificate authorities with explicit trust relationships.
     </td>
   </tr>
-
   <tr>
-    <th>Affected Components: <strong>O1. SSL/TLS Certificate</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
-  </tr>
-</table>
-
-
-### A1.6.2 Implementation Threats
-
-T5. Key Compromise  
-T6. Library Compromise
-
-<table>
-  <tr>
-    <th>Threat T5. Key Compromise</th>
-  </tr>
-
-  <tr>
-    <td>
-      Any time a system relies on private keys for cryptographic operations, the security of those keys is a critical feature of the system. Compromising those keys would allow an attacker to perform cryptographic operations that are not authorized by the legitimate owner of those keys.
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">O1. SSL/TLS Certificate</span>
     </td>
   </tr>
 
   <tr>
-    <th>Response R5. Hardware Security Modules (HSMs) [Reduce and Transfer]</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Spoofing)</td>
+  </tr>
+</table>
+
+</section>
+
+
+### A1.6.2 Implementation Threats
+
+<ol class="threat-index">
+  <li value="5"><a href="#threat-t5-key-compromise">Key Compromise</a></li>
+  <li value="6"><a href="#threat-t6-library-compromise">Library Compromise</a></li>
+</ol>
+
+<section>
+<table class="threat">
+  <tr>
+    <td class="threat-name"><h5>Threat T5. Key Compromise</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
+  </tr>
+  <tr>
+    <td class="threat-desc">
+      Any time a system relies on private keys for cryptographic operations, the security of those keys is a critical feature of the system. Compromising those keys would allow an attacker to perform cryptographic operations that are not authorized by the legitimate owner of those keys.
+
+    </td>
   </tr>
 
   <tr>
-    <td>
+    <td class="response-name">Response R5. Hardware Security Modules (HSMs) [Reduce and Transfer]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
       Hardware Security Modules (HSM) allow for isolation of cryptographic keys from the processes that rely on them, by exposing a limited set of cryptographic functions operating on private keys that, by design, can never leave the HSM.<br/>
 
 It's worth noting that while HSMs do reduce the attack surface for keys, they don't eliminate it. The chips, the device, and the platform software must all correctly and use the HSM such that different applications cannot inappropriately trigger cryptographic services using keys created for other purposes. This shifts the burden from the application developer to the platform provider, which is considered a healthy improvement given the natural alignment of incentives&mdash;the platform provider wants their platform to be trusted&mdash;and the shared value by providing that capability to all applications rather than requiring each application to secure its own keys.<br/>
@@ -992,212 +982,223 @@ From a risk perspective, some of the threat is reduced (keys are not used in sha
 
     </td>
   </tr>
-
+  
   <tr>
-    <th>Response R6. Hardware Wallets [Reduce]</th>
+    <td class="response-name">Response R6. Hardware Wallets [Reduce]
+    </td>
   </tr>
-
   <tr>
-    <td>
-      Hardware wallets isolate keys to separate devices, often accessed via USB. This ensures that the application platform cannot access the private keys even if they wanted to. Typically such devices are significantly restricted in functionality, without the ability to perform risky operations like sending and receiving messages over the network or installing complex applications that run simultaneously.
-      <br><br>
+    <td class="response-desc">
+          Hardware wallets isolate keys to separate devices, often accessed via USB. This ensures that the application platform cannot access the private keys even if they wanted to. Typically such devices are significantly restricted in functionality, without the ability to perform risky operations like sending and receiving messages over the network or installing complex applications that run simultaneously.
+      <br/>
       A key feature of hardware wallets is establishing that an appropriate human is in the loop for all cryptographic operations. While a user might be conned or coerced into authenticating into their device and authorizing erroneous signatures, it is not possible for the platform to trigger services without appropriate user involvement. Some platforms only check for a live human, e.g., FIDO 2FA, while others use PINs or biometrics to ensure the human is explicitly authorized to use that device.
     </td>
   </tr>
-
   <tr>
-    <th>Affected Components: <strong>C3 Web Server</strong> (An HSM  would add a component the webserver interacts with)</th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Elevation of Privilege)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T6. Library Compromise</th>
-  </tr>
-
-  <tr>
-    <td>
-      Whether developed internally or licensed from others, reusable code libraries might be compromised by an attacker. This includes both dynamically linked and statically linked components.
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">C3 Web Server</span>
+ (An HSM  would add a component the webserver interacts with)
     </td>
   </tr>
 
   <tr>
-    <th>Response R7. Open Source Libraries [Mitigation]</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Elevation of Privilege)</td>
+  </tr>
+</table>
+
+</section>
+<section>
+<table class="threat">
+  <tr>
+    <td class="threat-name"><h5>Threat T6. Library Compromise</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
+  </tr>
+  <tr>
+    <td class="threat-desc">
+    Whether developed internally or licensed from others, reusable code libraries might be compromised by an attacker. This includes both dynamically linked and statically linked components.
+    </td>
   </tr>
 
   <tr>
-    <td>
-      "Many eyes" is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given library, increasing the likelihood that any given flaw might be found and fixed. <br/>
-      
+    <td class="response-name">Response R7. Open Source Libraries [Trahsfer]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
+      "Many eyes" is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open 
+      source projects enable anyone to view the code for a given library, increasing the likelihood that any given flaw might be found and fixed. <br/>
+
       This includes licensing internally developed code under an open source license to enable customers and collaborators to evaluate and report on potential compromises.
     </td>
   </tr>
-
+  
   <tr>
-    <th>Response R8. Test Suites [Reduce]</th>
+    <td class="response-name">Response R8. Test Suites [Reduce]
+    </td>
   </tr>
-
   <tr>
-    <td>
-      Test suites let you verify the codebase works as intended for a particular set of test vectors. While no set of tests can guarantee the library is not compromised, libraries with good coverage in their tests are more likely to identify and fix compromises at the repo before any developers download the library.
+    <td class="response-desc">
+          Test suites let you verify the codebase works as intended for a particular set of test vectors. While no set of tests can guarantee the library is not compromised, libraries with good coverage in their tests are more likely to identify and fix compromises at the repo before any developers download the library.
+    </td>
+  </tr>
+  <tr>
+    <td class="affected-component">
+ Affected Components: 
+  <span class="component-entry">P1. Browser Process</span>, 
+  <span class="component-entry">P2. DNS Resolver</span>, 
+  <span class="component-entry">P3. Server Process</span>
     </td>
   </tr>
 
   <tr>
-    <th>Affected Components:
-      <strong>P1. Browser Process, P2. DNS Resolver, P3. Server Process</strong>
-    </th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Tampering)</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Tampering)</td>
   </tr>
 </table>
 
+</section>
 
 ### A1.6.3 External Threats
 
-T7. Quantum Cryptography Attacks  
-T8. Harvest Attacks  
-T9. Flawed Cryptosuite
+<ol class="threat-index">
+  <li value="7"> <a href="#threat-t7-quantum-cryptography-attacks">Quantum Cryptography Attacks</a> </li>
+  <li value="8"> <a href="#threat-t8-harvest-attacks">Harvest Attacks</a></li>
+  <li value="9"> <a href="#threat-t9-flawed-cryptosuite">Flawed Cryptosuite</a></li>
+</ol>
 
-<table>
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T7. Quantum Cryptography Attacks</th>
+    <td class="threat-name"><h5>Threat T7. Quantum Cryptography Attacks</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
   </tr>
-
   <tr>
-    <td>
-      It is expected that it is only a matter of time until the current preferred cryptographic primitives are rendered irrelevant because quantum computers can solve cryptographic problems that are unfeasible on traditional Von Neumann architectures like those realized in nearly all production computational platforms today.
+    <td class="threat-desc">
+          It is expected that it is only a matter of time until the current preferred cryptographic primitives are rendered irrelevant because quantum computers can solve cryptographic problems that are unfeasible on traditional Von Neumann architectures like those realized in nearly all production computational platforms today.
     </td>
   </tr>
 
   <tr>
-    <th>Response R7. Quantum-secure Cryptography [Reduce]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Although not yet standardized (and perhaps not even proven), there exist algorithmic approaches that are believed to be resilient to quantum cryptography attacks. In the US, NIST already recommends using such algorithms where possible.
+    <td class="response-name">Response R7. Quantum-secure Cryptography [Reduce]
     </td>
   </tr>
-
   <tr>
-    <th>Response R8. Extensible Cryptography [Transfer]</th>
+    <td class="response-desc">
+          Although not yet standardized (and perhaps not even proven), there exist algorithmic approaches that are believed to be resilient to quantum cryptography attacks. In the US, NIST already recommends using such algorithms where possible.
+    </td>
   </tr>
-
   <tr>
-    <td>
-      For quantum threats, extensible cryptography allows systems to adopt new standards. For ineffective cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available. <br/>
+    <td class="response-name">Response R8. Extensible Cryptography [Transfer]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
+          For quantum threats, extensible cryptography allows systems to adopt new standards. For ineffective cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available. <br/>
 
       By transferring the threat to future extensions, developers can later address the threat through new technologies, when and if those technologies become available.
     </td>
   </tr>
 
   <tr>
-    <th>Affected Components: <strong>F4. HTTP(S) Requests.</strong></th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Tampering)</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Threat T8. Harvest Attacks</th>
-  </tr>
-
-  <tr>
-    <td>
-      Breaking cryptography is essentially a matter of time, either the time it takes traditional computers to guess the right key or the time it takes for quantum attacks to render current cryptography irrelevant. The result is a category of attacks described as "harvest now, crack later", which allow an attacker to gather encrypted network traffic now for decrypting later.
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">F4. HTTP(S) Requests</span>
     </td>
   </tr>
 
   <tr>
-    <th>Response R9. Forward Secrecy [Reduce]</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Tampering)</td>
+  </tr>
+</table>
+
+</section>
+
+<section>
+<table class="threat">
+  <tr>
+    <td class="threat-name"><h5>Threat T8. Harvest Attacks</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
+  </tr>
+  <tr>
+    <td class="threat-desc">
+    Breaking cryptography is essentially a matter of time, either the time it takes traditional computers to guess the right key or the time it takes for quantum attacks to render current cryptography irrelevant. The result is a category of attacks described as "harvest now, crack later", which allow an attacker to gather encrypted network traffic now for decrypting later.
+    </td>
   </tr>
 
   <tr>
-    <td>
+    <td class="response-name">Response R9. Forward Secrecy [Reduce]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
       Forward secrecy (sometimes called "perfect forward secrecy") assures that short-lived session keys cannot be compromised just because the long-term secrets used to create those keys are themselves compromised. Frequently changing the session keys in these systems means that each session is an independent cryptographic assurance that must be compromised independently. Compromising a root secret no longer gives the attacker access to the entire collection of harvested data.
-      <br><br>
+      <br/>
       In TLS, forward secrecy is realized by initiating a Diffie-Hellman key exchange to establish unique keys known only to the client and server and used just for that session. Even if one were to compromise the root key in the TLS certificate, the actual communications channel remains secure. Encrypted communications and sessions harvested in the past cannot be retrieved and decrypted if (when) the long-term secret keys are compromised in the future, even if the adversary actively interfered (e.g., via a man-in-the-middle attack).
     </td>
   </tr>
-
   <tr>
-    <th>Affected Components: <strong>F4. HTTPS Requests</strong></th>
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">F4. HTTPS Requests</span>
+    </td>
   </tr>
 
   <tr>
-    <th>Analysis Framework: STRIDE (Information Disclosure)</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Information Disclosure)</td>
   </tr>
 </table>
 
+</section>
 
-<table>
+<section>
+<table class="threat">
   <tr>
-    <th>Threat T9. Flawed Cryptosuite</th>
+    <td class="threat-name"><h5>Threat T9. Flawed Cryptosuite</h5><span class="index-link">[<a href="#threat-index">Threat Index</a>]</span></td>
   </tr>
-
   <tr>
-    <td>
-      The suite of functions that implement cryptographic primitives can contain errors that enable an attacker to exploit idiosyncrasies at either the algorithmic or implementation layer.
+    <td class="threat-desc">
+          The suite of functions that implement cryptographic primitives can contain errors that enable an attacker to exploit idiosyncrasies at either the algorithmic or implementation layer.
     </td>
   </tr>
 
   <tr>
-    <th>Response R10. Open Source Cryptosuites [Transfer]</th>
+    <td class="response-name">Response R10. Open Source Cryptosuites [Transfer]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
+    "Many eyes" is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given cryptosuite, increasing the likelihood that any given flaw might be found and fixed.
+    </td>
   </tr>
 
+    <tr>
+    <td class="response-name">Response R8. Extensible Cryptography [Reduce] (reused response)
+    </td>
+  </tr>
   <tr>
-    <td>
-      "Many eyes" is a cryptography principle that the more experts you have able to evaluate and test a system, the more likely it is to identify its flaws. Open source projects enable anyone to view the code for a given cryptosuite, increasing the likelihood that any given flaw might be found and fixed.
+    <td class="response-desc">
+    For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
+    </td>
+  </tr>
+  <tr>
+    <td class="response-name">Response R10. Vetted Standards [Reduce]
+    </td>
+  </tr>
+  <tr>
+    <td class="response-desc">
+          Cryptosuites sometimes have flaws in the fundamental algorithms. One well-worn response to this problem is rigorous testing and evaluation performed by national standards bodies like NIST in the US and ENISA in the EU. To a lesser extent, voluntary standards bodies like ISO, IETF, and the W3C also publish vetted cryptographic standards. The standards endorsed by these organizations are more likely to be robust compared to software developed in-house or through informal collaboration and open-source licensing.
+    </td>
+  </tr>
+  <tr>
+    <td class="affected-component">
+ Affected Components: <span class="component-entry">P1. Browser Process</span>, <span class="component-entry">P3. Server Process</span>
     </td>
   </tr>
 
   <tr>
-    <th>Response R8. Extensible Cryptography [Reduce] (reused response)</th>
-  </tr>
-
-  <tr>
-    <td>
-      For quantum threats, extensible cryptography allows systems to adopt new standards. For bad cryptosuites, extensible cryptography allows systems to swap out compromised technologies. This is done by providing an explicit mechanism for specifying and using cryptographic approaches not yet standardized with minimal retooling. If the API is flexible, implementers can move more quickly to adopt next-generation capabilities as they become available.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Response R10. Vetted Standards [Reduce]</th>
-  </tr>
-
-  <tr>
-    <td>
-      Cryptosuites sometimes have flaws in the fundamental algorithms. One well-worn response to this problem is rigorous testing and evaluation performed by national standards bodies like NIST in the US and ENISA in the EU. To a lesser extent, voluntary standards bodies like ISO, IETF, and the W3C also publish vetted cryptographic standards. The standards endorsed by these organizations are more likely to be robust compared to software developed in-house or through informal collaboration and open-source licensing.
-    </td>
-  </tr>
-
-  <tr>
-    <th>Affected Components:
-      <strong>P1. Browser Process, P3. Server Process</strong>
-    </th>
-  </tr>
-
-  <tr>
-    <th>Analysis Framework: STRIDE (Spoofing)</th>
+    <td class="analysis-framework">Analysis Framework: STRIDE (Spoofing)</td>
   </tr>
 </table>
 
+</section>
 
 ### A1.6.4 Dependency Threats
 
-#### T9. The Internet protocol suite (TCP/IP)
+#### Threat T10. The Internet protocol suite (TCP/IP)
 
 A secure Web relies on a large family of interrelated components, commonly referred to as the Internet Protocol Suite, plus web content standards. The specifications that affect usage discussed in this threat model include BGP, DHCP, DNS, HTTP, HTTPS, TLS, X.509 TCP, IP, ARP, PPP, MAC, HTML, CSS, ECMASCRIPT, CORS, Wi-Fi, and Ethernet.
 
@@ -1206,7 +1207,6 @@ Implementers should investigate the threat models of related technologies to ful
 This threat model is an intentionally simplified example, leaving a more thorough analysis to be addressed on a specification by specification basis moving forward.
 
 # Appendix 2: Threat Analysis Frameworks
-
 
 Every threat is a result of thinking about the system in a particular way. Several different analytical frameworks have been developed to help think about software and software systems in terms of harms, threats, and risks. Each framework inevitably defines its own terms, which together provide a coherent way to think about threats, but which might introduce term confusion. For example, "repudiation" means different things in the STRIDE framework than in LINDUN. To understand the vocabulary, it is helpful to anchor it to a particular framework.
 

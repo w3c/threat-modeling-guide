@@ -1,0 +1,130 @@
+table.visual-terminology,
+table.dfd-dictionary  {
+  padding: 1em;
+  border: 1px solid black;
+}
+
+table.visual-terminology th,
+table.visual-terminology td,
+table.dfd-dictionary th,
+table.dfd-dictionary td {
+  border-bottom: 1px solid black;
+    border-collapse: collapse;
+      padding: .5em;
+}
+
+table.visual-terminology tr {
+  border-collapse: collapse;
+}
+
+table.visual-terminology th {
+  width:11em;
+  font-weight: bold;
+}
+
+table.visual-terminology td.term-def {
+
+}
+
+
+table.visual-terminology td.term-img {
+  width: 11em;
+}
+
+
+table.dfd-dictionary {
+}
+
+
+table.dfd-dictionary td.dfd-id {
+  width: 3em;
+  font-weight: bold;
+
+}
+table.dfd-dictionary td.dfd-name {
+  width: 10em;
+}
+table.dfd-dictionary td.dfd-type {
+  width: 6em;
+}
+table.dfd-dictionary td.dfd-description {
+}
+
+ol.threat-index {
+  list-style: none;
+  counter-reset: threat;
+}
+
+ol.threat-index li::before {
+  counter-increment: threat;
+  content: "T" counter(threat) ". ";
+  font-weight: bold;
+}
+
+ol.threat-index li.section-title::before {
+  font-weight: bold;
+  counter-increment: none;
+  content: "";
+}
+
+ol.threat-index li.section-title {
+  font-weight: bold;
+  font-style: italic;
+}
+
+table.threat td.threat-name span.index-link {
+  position:absolute;
+  right: 10px;
+  height: 1em;
+  font-size: small;
+  margin-top: -0.7em;
+  top: 50%;
+}
+ol.threat-index h5 {
+  margin:0;
+}
+
+table.threat {
+  border: thin solid black;
+  border-collapse:collapse;
+  margin: 1em 0 4em 0;
+}
+table.threat h5 {
+  color:black;
+  margin:0 0 0 1em;
+  font-weight: bold;
+  font-style:normal;
+}
+table.threat td {
+  padding: 1em;
+  position:relative;
+}
+
+table.threat td.threat-name {
+  font-weight:bold;
+  border-bottom: thin solid black;
+  background-color: #c9daf7;
+}
+
+table.threat td.threat-desc {
+  border-bottom: thin solid black;
+}
+table.threat td.response-name {
+  font-weight:bold;
+  border-bottom: thin solid black;
+  background-color: #d9ead4;
+}
+
+table.threat td.response-desc {
+  border-bottom: thin solid black;
+}
+table.threat td.affected-component {
+  border-bottom: thin solid black;
+  background-color: #fff2ce;
+}
+table.threat span.component-entry {
+  font-weight:bold;
+}
+table.threat td.analysis-framework {
+  background-color: #fce5ce;
+}
