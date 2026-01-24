@@ -27,7 +27,7 @@ Status text:
   <p data-deliverer="49310"> The <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
   <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
 Markup Shorthands: markdown on, biblio yes
-Boilerplate: omit issues-index, repository-issue-tracking off
+Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
 </pre>
 
 <link rel="stylesheet" href="threat-model.css" />
