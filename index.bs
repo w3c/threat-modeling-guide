@@ -11,6 +11,7 @@ Level: none
 Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
 Mailing List: public-security@w3.org
 Mailing List Archives: https://lists.w3.org/Archives/Public/public-security/
+Indent: 2
 Editor: Simone Onofri, w3cid 38211, W3C Team, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements https://legreq.com, joe@legreq.com
 Abstract:
@@ -26,7 +27,7 @@ Status text:
   <p data-deliverer="49310"> The <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
   <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
 Markup Shorthands: markdown on, biblio yes
-Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
+Boilerplate: omit issues-index, repository-issue-tracking off
 </pre>
 
 <link rel="stylesheet" href="threat-model.css" />
@@ -355,7 +356,7 @@ It is also RECOMMENDED that
 
 We provide an example in the [[#appendix-1-minimalist-threat-model-for-the-world-wide-web]].
 
-## Identify and Describe the Stakeholders
+### Identify and Describe the Stakeholders
 
 When modeling the system, it is vital to include all affected stakeholders to answer the question **"Who is affected?"** or, equivalently, **"Who is impacted?"** Focus on identifying and analyzing the people, groups, and entities that interact with or are affected by the system modeled in the first step. This work aims to shift the paradigm from viewing the user as an asset to be protected to the "weakest link" of the security chain [[SCHNEIER2015]] (preface section). Systems that represent only technical components often miss critical threats related to human error and malfeasance. By including both human and legal persons in your threat model, you increase the likelihood of including threats related to both.
 
@@ -408,7 +409,7 @@ For the threat modeling Guide, these can be summarized in four response strategi
 * **Eliminate** the threat or the asset; 
 * **Reduce** the threat by applying mitigations or countermeasures;
 * **Transfer** to another entity or element; and 
-* **Accept**, meaning do nothing but accept that the threat can occur. 
+* **Accept** the threat; do nothing but acknowledge that the threat can occur.
 
 These four map directly to the four risk responses embraced by the Project Management Institute's Guide to the Project Management Body of Knowledge: avoid, mitigate, transfer, and accept. We prefer the use of "reduce" instead of "mitigate" because risk responses are often called mitigations in common conversation, even if risk professionals use the more restrictive definitions. Sometimes professionals use these terms with subtly different meanings. For example, Shostack [[SHOSTACK2014]] uses "mitigations" to discuss any response to a threat, while the PMI defines "mitigations" as one particular form of response. The **ERTA** set of threat responses avoids this problem. So, as we embrace both "threats" and "risks", we recommend using ERTA.
 
