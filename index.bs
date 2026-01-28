@@ -43,7 +43,6 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "status": "Book",
     "title": "Threat Modeling: Designing for Security"
   },
-{
   "PENNEY2023": {
     "authors": ["Heather R. Penney"],
     "date": "May 2003",
