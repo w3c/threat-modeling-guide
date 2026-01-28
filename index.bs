@@ -43,6 +43,14 @@ Boilerplate: omit issues-index, omit conformance, repository-issue-tracking off
     "status": "Book",
     "title": "Threat Modeling: Designing for Security"
   },
+{
+  "PENNEY2023": {
+    "authors": ["Heather R. Penney"],
+    "date": "May 2003",
+    "href": "https://web.archive.org/web/20230926022210/https://mitchellaerospacepower.org/wp-content/uploads/2023/05/Scale_Scope_Speed_Survivability_-KillChain_-Policy_Paper_40-New.pdf",
+    "id": "PENNEY2023",
+    "title": "Scale Scope Speed Survivability - KillChain"
+  },
   "SWIDERSKI-SNYDER2004": {
     "authors": ["Frank Swiderski", "Window Snyder"],
     "date": "2004",
