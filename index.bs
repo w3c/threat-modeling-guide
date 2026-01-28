@@ -677,7 +677,7 @@ wrong?" where threats are identified and assessed [[SWIDERSKI-SNYDER2004]]
 (p. 111). Threats can be identified in different ways, such as
 experimentally, by analyzing the chain of events leading up to an
 attack—i.e., a kill chain —or by using a list of threats [[SHOSTACK2014]]
-(pp. 9, 385, 388; Penney, 2023).
+(pp. 9, 385, 388) [[PENNEY2023]]
 
 Threat lists, like other types of lists used in threat modeling, are
 particularly useful for identifying issues on a diagram. This operation can
