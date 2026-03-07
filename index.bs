@@ -1012,7 +1012,7 @@ many of which are independently developed and maintained. This makes threat
 modeling for the Web a complex challenge (See [The Web is
 Unversioned](https://www.w3.org/2001/tag/doc/the-web-is-unversioned/)).
 
-For this threat model, we think about the World Wide Web as just nince
+For this threat model, we think about the World Wide Web as just nine
 independent components: three human (user, website admin, and network
 operator), three in software (a browser, a DNS server, and a web server),
 and three legal persons (Website Application Providers, Internet Service
