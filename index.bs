@@ -336,6 +336,15 @@ table.threat td.analysis-framework {
     "publisher": "Microsoft Security Blog",
     "status": "Blog post",
     "title": "The Trouble with Threat Modeling (alternate citation instance)"
+  },
+  "OSSTMM3": {
+    "authors": ["Pete Herzog"],
+    "date": "2010",
+    "href": "https://www.isecom.org/OSSTMM.3.pdf",
+    "id": "OSSTMM3",
+    "publisher": "ISECOM",
+    "status": "Blog post",
+    "title": "Open Source Security Testing Methodology Manual v3"
   }
 }
 </pre>
@@ -390,20 +399,30 @@ hurts assets such as people, it is called harm [[ISO2019]] or, to simplify,
   attack.
 * **Attacks**: An attack is a realization of a threat; a particular
   instance of a threat manifesting in an operational system.
+* **Harms**: In general, harms can be viewed as the negative impact of a 
+  threat, which is the cause. In the case of Harms Modeling, however, 
+  the term specifically refers to the negative impact on people 
+  [[MICROSOFT-HARMS-MODELING]].
+* **Bug**: a bug is an issue in the code, design, or configuration that 
+  generates a unusual behavior that could be abused or misused.
+* ***Exploit**: an exploit is a code or a procedure that allows someone
+   to take advantage of one or more vulnerabilities, and exploitation is the
+   term used to describe this process.
 * **Responses**: Controls or mitigations that can be (or have been) put in
   place for specific threats, including the limitations of such responses
   and accepting threats outside the scope of the specification.
+* **Security**: Security is considered a function of separation between 
+  what we are protecting and the threats. This separation occurs through 
+  the application of response strategies (e.g., controls or mitigations) 
+  that create a distance between the assets and the threat. This definition
+  is tied to the OSSTMM v3 [[OSSTMM3]].
 * **System**: a collection of functionality that can span one or more
   components (functional areas). A system exposes certain functionality to
   external entities (interactors outside the system's control) and must
   protect one or more assets. [[SWIDERSKI-SNYDER2004]].  
-* **Threats**: something that, if it happens, has a negative impact. In the
-  [Open Source Security Testing Methodology Manual v3
-  (OSSTMM)](https://www.isecom.org/OSSTMM.3.pdf) Security is considered a
-  function of separation between what we are protecting and the threats.
-  This separation occurs through the application of response strategies
-  (e.g., controls or mitigations) that create a distance between the asset
-  and the threat.
+* **Threat**: something that, if it happens, has a negative impact.
+* **Vulnerability**: it is a bug that is potentially exploitable.
+
 
 ## Goals of This Guide
 
