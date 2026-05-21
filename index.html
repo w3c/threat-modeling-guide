@@ -4,9 +4,9 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Threat Modeling Guide</title>
   <meta content="ED" name="w3c-status">
-  <meta content="Bikeshed version 3c53a5b02, updated Thu Nov 27 17:03:30 2025 +0000" name="generator">
+  <meta content="Bikeshed version 0a3d88311, updated Mon May 4 18:07:03 2026 +0000" name="generator">
   <link href="https://www.w3.org/TR/threat-modeling-guide/" rel="canonical">
-  <meta content="fb6d28012e1a311ef2fc2327684419c3cad71dc6" name="revision">
+  <meta content="8e3143d123e9f31dbf2344cc2ab27707e9f31695" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
 table.visual-terminology,
@@ -433,7 +433,7 @@ pre .property::before, pre .property::after {
 </style>
 <style>/* Boilerplate: style-counters */
 body {
-    counter-reset: example figure issue;
+    counter-reset: example figure issue table;
 }
 .issue {
     counter-increment: issue;
@@ -458,6 +458,13 @@ figcaption {
 }
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
+}
+
+figure.table figcaption {
+    counter-increment: table;
+}
+figure.table figcaption:not(.no-marker)::before {
+    content: "Table " counter(table) " ";
 }
 </style>
 <style>/* Boilerplate: style-issues */
@@ -548,7 +555,7 @@ dfn > a.self-link::before      { content: "#"; }
 </p>
    <h1 class="no-ref p-name" id="title">Threat Modeling Guide</h1>
    <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>,
-    <time class="dt-updated" datetime="2026-02-09">9 February 2026</time></p>
+    <time class="dt-updated" datetime="2026-05-21">21 May 2026</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -675,7 +682,7 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
-      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Non-Normative References</span></a>
      </ol>
    </ol>
   </nav>
@@ -1622,7 +1629,7 @@ to end-users. These include for-profit organizations, whose offering
 necessarily supports their money-making agenda, as well as mission-driven
 public-sector and non-profit organizations for whom the website may serve a
 social benefit other than profit generation.</p>
-   <p>The goal of website application providers is to be reliably accessible to
+   <p>The goal of website application providers is to be reliably available to
 their constituents and to realize their intended functional goals, such as
 selling products or managing conversations. Focused on just their own
 applications, these providers rely on the Web as a medium for interacting
@@ -1639,7 +1646,7 @@ invisible.</p>
    <p>The goal of Internet service providers is for users on both ends of the
 network (end-users and services) to be able to reach the other end, as
 designed and implemented by application providers. Hosting providers want
-their clients' websites to stay up and be accessible in a reliable way;
+their clients' websites to stay up and be available in a reliable way;
 connectivity providers want their clients to have reliable, uninterrupted,
 and unfettered access to the services (or users) they want to reach online.</p>
    <h4 class="heading settled" id="a156-e6-public-sector-officials"><span class="content">A1.5.6 E6 Public Sector Officials</span><a class="self-link" href="#a156-e6-public-sector-officials"></a></h4>
@@ -1693,7 +1700,6 @@ problems.</p>
     <li value="4"> <a href="#threat-t4-fraudulent-certificate"> Fraudulent Certificate (Signed Certificates)</a>
    </ol>
    <section>
-    <p></p>
     <table class="threat">
      <tbody>
       <tr>
@@ -2127,7 +2133,7 @@ Privacy)</p>
   </main>
   <script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="heading no-num no-ref settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
-  <h3 class="heading no-num no-ref settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <h3 class="heading no-num no-ref settled" id="informative"><span class="content">Non-Normative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-allen-appelcline2019">[ALLEN-APPELCLINE2019]
    <dd>Christopher Allen; Shannon Appelcline. <a href="https://github.com/BlockchainCommons/SmartCustodyBook"><cite>#SmartCustody: The Use of Advanced Cryptographic Tools to Improve the Care, Maintenance, Control, and Protection of Digital Assets</cite></a>. 2019. Book (online manuscript). URL: <a href="https://github.com/BlockchainCommons/SmartCustodyBook">https://github.com/BlockchainCommons/SmartCustodyBook</a>
