@@ -336,6 +336,138 @@ table.threat td.analysis-framework {
     "publisher": "Microsoft Security Blog",
     "status": "Blog post",
     "title": "The Trouble with Threat Modeling (alternate citation instance)"
+  },
+  "NIST-SP800-30R1": {
+    "authors": ["Joint Task Force Transformation Initiative"],
+    "date": "September 2012",
+    "href": "https://doi.org/10.6028/NIST.SP.800-30r1",
+    "id": "NIST-SP800-30R1",
+    "publisher": "National Institute of Standards and Technology",
+    "status": "NIST Special Publication",
+    "title": "Guide for Conducting Risk Assessments"
+  },
+  "RFC1392": {
+    "authors": ["G. Malkin", "T. LaQuey Parker"],
+    "date": "January 1993",
+    "href": "https://www.rfc-editor.org/rfc/rfc1392.html",
+    "id": "RFC1392",
+    "publisher": "RFC Editor",
+    "status": "Informational RFC",
+    "title": "Internet Users' Glossary"
+  },
+  "RFC3552": {
+    "authors": ["E. Rescorla", "B. Korver"],
+    "date": "July 2003",
+    "href": "https://www.rfc-editor.org/rfc/rfc3552.html",
+    "id": "RFC3552",
+    "publisher": "RFC Editor",
+    "status": "Best Current Practice",
+    "title": "Guidelines for Writing RFC Text on Security Considerations"
+  },
+  "RFC6973": {
+    "authors": ["A. Cooper", "H. Tschofenig", "B. Aboba", "J. Peterson", "J. Morris", "M. Hansen", "R. Smith"],
+    "date": "July 2013",
+    "href": "https://www.rfc-editor.org/rfc/rfc6973.html",
+    "id": "RFC6973",
+    "publisher": "RFC Editor",
+    "status": "Informational RFC",
+    "title": "Privacy Considerations for Internet Protocols"
+  },
+  "RFC9620": {
+    "authors": ["G. Grover", "N. ten Oever"],
+    "date": "September 2024",
+    "href": "https://www.rfc-editor.org/rfc/rfc9620.html",
+    "id": "RFC9620",
+    "publisher": "RFC Editor",
+    "status": "Informational RFC",
+    "title": "Guidelines for Human Rights Protocol and Architecture Considerations"
+  },
+  "RFC6454": {
+    "authors": ["A. Barth"],
+    "date": "December 2011",
+    "href": "https://www.rfc-editor.org/rfc/rfc6454.html",
+    "id": "RFC6454",
+    "publisher": "RFC Editor",
+    "status": "Proposed Standard",
+    "title": "The Web Origin Concept"
+  },
+  "FETCH": {
+    "authors": ["WHATWG"],
+    "href": "https://fetch.spec.whatwg.org/",
+    "id": "FETCH",
+    "publisher": "WHATWG",
+    "status": "Living Standard",
+    "title": "Fetch Standard"
+  },
+  "CORS-FOR-DEVELOPERS": {
+    "authors": ["W3C Web Application Security Working Group"],
+    "href": "https://w3c.github.io/webappsec-cors-for-developers/",
+    "id": "CORS-FOR-DEVELOPERS",
+    "publisher": "W3C",
+    "status": "Editor's Draft",
+    "title": "CORS for Developers"
+  },
+  "SECURITY-PRIVACY-QUESTIONNAIRE": {
+    "authors": ["W3C Privacy Working Group", "W3C Security Interest Group"],
+    "date": "18 April 2025",
+    "href": "https://www.w3.org/TR/security-privacy-questionnaire/",
+    "id": "SECURITY-PRIVACY-QUESTIONNAIRE",
+    "publisher": "W3C",
+    "status": "W3C Note",
+    "title": "Self-Review Questionnaire: Security and Privacy"
+  },
+  "PRIVACY-PRINCIPLES": {
+    "authors": ["W3C Technical Architecture Group"],
+    "date": "15 May 2025",
+    "href": "https://www.w3.org/TR/privacy-principles/",
+    "id": "PRIVACY-PRINCIPLES",
+    "publisher": "W3C",
+    "status": "W3C Statement",
+    "title": "Privacy Principles"
+  },
+  "SOCIETAL-IMPACT-QUESTIONNAIRE": {
+    "authors": ["W3C Technical Architecture Group"],
+    "date": "19 March 2026",
+    "href": "https://www.w3.org/TR/societal-impact-questionnaire/",
+    "id": "SOCIETAL-IMPACT-QUESTIONNAIRE",
+    "publisher": "W3C",
+    "status": "W3C Group Draft Note",
+    "title": "Self-Review Questionnaire: Societal Impact"
+  },
+  "OSSTMM3": {
+    "authors": ["Pete Herzog"],
+    "date": "14 December 2010",
+    "href": "https://www.isecom.org/OSSTMM.3.pdf",
+    "id": "OSSTMM3",
+    "publisher": "ISECOM",
+    "status": "Methodology manual",
+    "title": "OSSTMM 3: The Open Source Security Testing Methodology Manual"
+  },
+  "LINDDUN": {
+    "authors": ["LINDDUN"],
+    "href": "https://linddun.org/",
+    "id": "LINDDUN",
+    "publisher": "LINDDUN",
+    "status": "Methodology website",
+    "title": "LINDDUN Privacy Threat Modeling Framework"
+  },
+  "PRINCE2-RISK": {
+    "authors": ["PRINCE2"],
+    "date": "25 August 2023",
+    "href": "https://www.prince2.com/eur/blog/the-power-of-prince2-in-effective-risk-management",
+    "id": "PRINCE2-RISK",
+    "publisher": "PRINCE2",
+    "status": "Web guidance",
+    "title": "The power of PRINCE2 in effective risk management"
+  },
+  "ONOFRI-ONOFRI2023": {
+    "authors": ["Simone Onofri", "Donato Onofri"],
+    "date": "August 2023",
+    "href": "https://www.packtpub.com/en-us/product/attacking-and-exploiting-modern-web-applications-9781801816298",
+    "id": "ONOFRI-ONOFRI2023",
+    "publisher": "Packt Publishing",
+    "status": "Book",
+    "title": "Attacking and Exploiting Modern Web Applications: Discover the mindset, techniques, and tools to perform modern web attacks and exploitation"
   }
 }
 </pre>
@@ -362,48 +494,200 @@ satisfies security principles but also accelerates the review process.
 
 ## Terminology
 
-At the beginning of the threat chain is the threat actor, sometimes called
-an adversary. The threat actor is the entity from which the threat arises
-[[SWIDERSKI-SNYDER2004]]. The threat actor has specific goals and
-underlying motivations. Understanding these motivations is essential to
-model correctly. In contrast to threat actors, the term adversary is used
-to describe vulnerabilities and dangers to users, whether or not a specific
-person or entity is behind the threat. [[ALLEN-APPELCLINE2019]] "By
-anthropomorphizing these threats, we can consider their motivations." Both
-threat actors and adversaries identify the source of the threat being
-modeled.
+## Terminology ## {#terminology}
 
-Then there is the threat—a potential circumstance, event, or action that
-could have a negative impact, e.g., on the user [[ISO2022]]—which
-represents a sub-goal of the threat actor [[SWIDERSKI-SNYDER2004]]. Attack
-is how the threat is realized [[SWIDERSKI-SNYDER2004]] and is based on
-taking advantage of a vulnerability &mdash; a weakness in an asset or
-control that can be exploited [[ISO2022]] &mdash;  to achieve a certain
-impact on an asset which is something valuable [[ISO2022]], e.g., the
-elements inside a Threat Model [[SWIDERSKI-SNYDER2004]]. If the impact
-hurts assets such as people, it is called harm [[ISO2019]] or, to simplify,
-"harm is a threat with its impact" [[SHOSTACK2014]].
+The following terms are used to describe concepts in this specification.
 
-* **Assets**: An abstract or concrete resource that a system must protect
-  from misuse by an attacker [[SWIDERSKI-SNYDER2004]].  
-* **Attacker**: A threat actor or adversary, capable of triggering an
-  attack.
-* **Attacks**: An attack is a realization of a threat; a particular
-  instance of a threat manifesting in an operational system.
-* **Responses**: Controls or mitigations that can be (or have been) put in
-  place for specific threats, including the limitations of such responses
-  and accepting threats outside the scope of the specification.
-* **System**: a collection of functionality that can span one or more
-  components (functional areas). A system exposes certain functionality to
-  external entities (interactors outside the system's control) and must
-  protect one or more assets. [[SWIDERSKI-SNYDER2004]].  
-* **Threats**: something that, if it happens, has a negative impact. In the
-  [Open Source Security Testing Methodology Manual v3
-  (OSSTMM)](https://www.isecom.org/OSSTMM.3.pdf) Security is considered a
-  function of separation between what we are protecting and the threats.
-  This separation occurs through the application of response strategies
-  (e.g., controls or mitigations) that create a distance between the asset
-  and the threat.
+This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with NIST SP 800-30 Rev. 1. Where the W3C context requires it, the terms are adapted to specifications, implementers, deployers, users, and the wider Web ecosystem. This is especially important for harms, because some concerns are not only about systems failing, but about systems affecting people, communities, and society, sometimes even when the system works as designed. [[NIST-SP800-30R1]]
+
+<dl dfn-type="dfn">
+
+<dt><dfn>threat modeling</dfn></dt>
+<dd>
+A structured and repeatable activity used to identify, discuss, and document what can go wrong in a system, and to support decisions about how to respond. At the W3C, threat modeling is used during specification development to make explicit what is being evaluated, which threats have been considered, which assumptions are being made, and where the response is documented.
+</dd>
+
+<dt><dfn>threat model</dfn></dt>
+<dd>
+The artifact produced by [=threat modeling=]. A threat model describes the [=system under analysis=], the relevant [=scope=], [=stakeholders=], [=threats=], [=assumptions=], [=impacts=], [=harms=], and [=responses=]. In W3C specifications, a threat model can inform the [=Security Considerations=] section, the [=Privacy Considerations=] section, or a separate document referenced by the specification.
+</dd>
+
+<dt><dfn>system under analysis</dfn></dt>
+<dd>
+The specification feature, protocol, API, behavior, data flow, ecosystem interaction, or deployment pattern being analyzed. In this Guide, the system under analysis is not necessarily a deployed product. It may be a capability introduced, enabled, constrained, or assumed by a Web specification.
+</dd>
+
+<dt><dfn>scope</dfn></dt>
+<dd>
+The part of the system, ecosystem, or specification behavior considered by the [=threat model=]. Scope should make clear what is included, what is excluded, and which [=assumptions=] are being made.
+</dd>
+
+<dt><dfn>Security Considerations</dfn></dt>
+<dd>
+The section of a specification that documents security-relevant issues that implementers, deployers, reviewers, and other stakeholders should consider. In this Guide, the Security Considerations section should be informed by the [=threat model=], including the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=residual risks=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]]
+</dd>
+
+<dt><dfn>Privacy Considerations</dfn></dt>
+<dd>
+The section, or related analysis, that documents privacy-relevant issues associated with a specification. In this Guide, the Privacy Considerations section may be informed by the same [=threat model=], or by a related privacy analysis, and should describe relevant privacy [=threats=], [=assumptions=], [=impacts=], [=harms=], [=responses=], and [=residual risks=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC6973]]
+</dd>
+
+<dt><dfn>stakeholder</dfn></dt>
+<dd>
+A person, group, organization, implementer, deployer, user, user agent, service provider, reviewer, or other party that can affect or be affected by the [=system under analysis=].
+</dd>
+
+<dt><dfn>asset</dfn></dt>
+<dd>
+Something of value to one or more [=stakeholders=]. Assets may include data, credentials, keys, capabilities, services, infrastructure, availability, integrity, confidentiality, privacy, user agency, safety, reputation, or other properties that stakeholders value. In this Guide, assets are useful for understanding [=impact=] and prioritization, but [=threat modeling=] should not depend only on enumerating assets.
+</dd>
+
+<dt><dfn>threat source</dfn></dt>
+<dd>
+A person, group, organization, condition, circumstance, failure, dependency, or event that can cause, enable, or contribute to an [=attack=], and therefore to the realization of a [=threat=]. A threat source may be adversarial, accidental, structural, environmental, organizational, or external to the [=system under analysis=]. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>threat actor</dfn></dt>
+<dd>
+A [=threat source=] that is a person, group, or organization. A threat actor may be malicious, negligent, coerced, misinformed, or simply operating under incentives that conflict with the interests of other [=stakeholders=]. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>adversary</dfn></dt>
+<dd>
+A [=threat actor=] that intentionally attempts to cause, exploit, or benefit from an [=attack=]. This Guide uses “adversary” only when intentional adversarial behavior is relevant.
+</dd>
+
+<dt><dfn>threat</dfn></dt>
+<dd>
+Something that may happen and that, if it happens, can produce an adverse [=impact=]. In this Guide, threats are the negative side of [=risk=]: the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>attack</dfn></dt>
+<dd>
+The concrete way in which a [=threat=] is realized or attempted. It describes how the threat can happen in practice, for example by exploiting a [=vulnerability=], abusing a legitimate capability, or misusing intended functionality. In this Guide, “attack” is used in this practical sense, not only for intentional adversarial behavior.
+</dd>
+
+<dt><dfn>vulnerability</dfn></dt>
+<dd>
+A security-relevant issue in a specification design, implementation, configuration, [=control=], procedure, [=assumption=], or dependency that can make a [=threat=] possible, easier, more likely, or more harmful. Not every issue is a vulnerability. An issue becomes a vulnerability when it creates a practical path for compromise, abuse, misuse, failure, or other adverse [=impact=]. In this Guide, a vulnerability may be a specification ambiguity, an unsafe default, an underspecified responsibility, an overbroad capability, a weak assumption, or a dependency that makes the system behave in a way the specification did not intend or did not adequately address. [[NIST-SP800-30R1]] [[ONOFRI-ONOFRI2023]]
+</dd>
+
+<dt><dfn>impact</dfn></dt>
+<dd>
+The adverse consequence produced by an [=attack=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>harm</dfn></dt>
+<dd>
+Used in this Guide primarily for adverse [=impacts=] experienced by people, groups, communities, or society as a result of the [=system under analysis=]. This includes harms that arise from [=attacks=], failures, misuse, or abuse, but also harms that arise when the system works as designed, for example through exclusion, loss of autonomy, discrimination, surveillance pressure, chilling effects, psychological distress, denial of meaningful access, or erosion of social structures. More generally, harm can also be understood as the negative [=impact=] produced by an attack. In that broader sense, the [=threat=] or the [=threat source=] is not itself the harm. The harm is the adverse outcome experienced by affected [=stakeholders=]. [[MICROSOFT-HARMS-MODELING]] [[SOCIETAL-IMPACT-QUESTIONNAIRE]] [[PRIVACY-PRINCIPLES]]
+</dd>
+
+<dt><dfn>risk</dfn></dt>
+<dd>
+Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=], [=impacts=], and [=harms=] that may affect the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively. [[NIST-SP800-30R1]] [[PRINCE2-RISK]]
+</dd>
+
+<dt><dfn>response</dfn></dt>
+<dd>
+What the specification, Working Group, implementer, deployer, user agent, user, or another actor is expected to do about a [=threat=], [=impact=], [=harm=], or [=risk=]. A response may be a requirement, a [=mitigation=], an implementation note, an [=assumption=], a transfer of responsibility, an acceptance of [=residual risk=], or an explicit statement that something is out of scope.
+</dd>
+
+<dt><dfn>response strategy</dfn></dt>
+<dd>
+A classification of [=responses=] to a [=threat=], [=impact=], [=harm=], or [=risk=]. This Guide uses four common response strategies with the ERTA mnemonic: Eliminate the threat or the condition that enables it, also known as Avoid; Reduce the likelihood or impact through [=controls=] or [=mitigations=], also known as Mitigation; Transfer responsibility to another actor, layer, dependency, or the user; or Accept the threat and document the rationale. When responsibility is transferred to the user, the relevant usability and accessibility safeguards should be considered. When a threat is reduced through mitigation, the threat is not eliminated; rather, a [=residual threat=] or [=residual risk=] remains and should be accepted or otherwise addressed.
+</dd>
+
+<dt><dfn>mitigation</dfn></dt>
+<dd>
+A [=response=] that reduces the likelihood or [=impact=] of a [=threat=], [=risk=], or [=harm=].
+</dd>
+
+<dt><dfn>control</dfn></dt>
+<dd>
+A safeguard, requirement, mechanism, process, or practice that modifies [=risk=] by preventing, detecting, limiting, or recovering from an [=attack=] or its adverse consequences. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>assumption</dfn></dt>
+<dd>
+A condition believed to be true for the [=threat model=] to hold. Assumptions should be explicit, especially when responsibility is left to implementers, deployers, users, operating systems, browsers, infrastructure providers, or other parts of the ecosystem.
+</dd>
+
+<dt><dfn>residual risk</dfn> / <dfn>residual threat</dfn></dt>
+<dd>
+The [=risk=] or [=threat=] that remains after [=responses=] have been applied, after responsibility has been transferred, or after the Working Group has decided that no further response is appropriate within the specification. Residual risks and residual threats should be documented when they are relevant to implementers, deployers, reviewers, users, or other [=stakeholders=]. [[NIST-SP800-30R1]]
+</dd>
+
+<dt><dfn>visual representation</dfn> / <dfn>diagram</dfn></dt>
+<dd>
+A simplified visual model of the [=system under analysis=], used to identify and discuss system [=elements=], [=flows=], boundaries, [=stakeholders=], [=threats=], and [=responses=]. A visual representation may be a simplified Data Flow Diagram, a UML sequence diagram, swimlanes, or another diagram that gives enough context for threat analysis. The diagram is not the system itself. It is a model used to reason about what can go wrong.
+</dd>
+
+<dt><dfn>element</dfn></dt>
+<dd>
+Any item represented in a [=threat model=] diagram or otherwise referenced by the threat model. Elements may include external entities, [=processes=], [=flows=], [=data stores=], [=data objects=], boundaries, [=trust domains=], or containers.
+</dd>
+
+<dt><dfn>process</dfn></dt>
+<dd>
+In the context of a [=threat model=] diagram, an active [=element=] that receives, transforms, stores, sends, validates, authorizes, or otherwise acts on data. A process may represent a feature, component, application, service, protocol step, user agent behavior, operating system process, or other active part of the [=system under analysis=].
+</dd>
+
+<dt><dfn>flow</dfn> / <dfn>data flow</dfn></dt>
+<dd>
+The path, mechanism, or interaction by which data moves between [=elements=]. A flow may be uni-directional or bi-directional, and may connect external entities, [=processes=], [=data stores=], [=data objects=], or other elements.
+</dd>
+
+<dt><dfn>data store</dfn> / <dfn>data object</dfn></dt>
+<dd>
+Describes data either where it is retained, or as an object that moves through the system. A data store is an [=element=] that retains information, such as a filesystem, database, cache, archive, configuration table, local storage, log, wallet, or other storage mechanism. A data object is a self-contained unit of data that can be shared over a [=flow=], retained in a data store, or acted on by a [=process=]. Data stores and data objects are related, but they are not always equivalent for threat analysis. A data object in transit may be analyzed like a [=data flow=]. A data object at rest may be analyzed like a data store. If the data object carries evidence, logs, credentials, proofs, signatures, or other security-relevant state, then repudiation, spoofing, tampering, information disclosure, denial of service, and elevation of privilege concerns may need to be considered according to the context in which the object is used.
+</dd>
+
+<dt><dfn>threat boundary</dfn> / <dfn>trust boundary</dfn> / <dfn>threat container</dfn></dt>
+<dd>
+Describes where different authorities, [=trust domains=], privilege levels, operational responsibilities, or [=assumptions=] meet. This Guide treats “threat boundary” and “trust boundary” as closely related terms. A threat container is a collection of [=elements=] treated as being within the same boundary because they are secured, controlled, operated, or trusted under a common [=authority=] or set of assumptions. Communications crossing a threat or trust boundary usually deserve particular attention during threat analysis.
+</dd>
+
+<dt><dfn>trust domain</dfn></dt>
+<dd>
+A set of [=elements=] that share a common [=authority=], privilege model, operational responsibility, or set of security [=assumptions=]. A trust domain is usually represented by, or separated from other trust domains by, a [=threat boundary=] or [=trust boundary=].
+</dd>
+
+<dt><dfn>authority</dfn></dt>
+<dd>
+The entity that controls, operates, authorizes, or is responsible for a [=trust domain=], [=element=], [=data object=], security decision, or capability. On the Web, authority is often related to origins and origin-based security boundaries: for example, Same Origin Policy and CORS use origins to decide when one resource may read from, send to, or otherwise interact with another resource. Authority in this Guide should be understood in the security sense, not merely as the syntactic URL authority component. [[RFC6454]] [[FETCH]] [[CORS-FOR-DEVELOPERS]]
+</dd>
+
+<dt><dfn>analysis framework</dfn></dt>
+<dd>
+A structured way to analyze a model, in particular to understand what can go wrong from a specific point of view. Different frameworks help with different questions: for example, STRIDE, OSSTMM, and RFC 3552 can support security analysis; LINDDUN and RFC 6973 can support privacy analysis; harms modeling, human-rights due diligence, societal-impact analysis, and RFC 9620 can support broader socio-technical analysis. This Guide does not treat any framework as mandatory. What matters is whether the framework helps the group turn a broad concern into something that can be discussed, documented, and answered: a concrete [=threat=], [=assumption=], [=impact=], [=harm=], or [=response=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]] [[RFC6973]] [[RFC9620]] [[OSSTMM3]] [[LINDDUN]] [[MICROSOFT-HARMS-MODELING]]
+</dd>
+
+<dt><dfn>target threat</dfn></dt>
+<dd>
+A [=threat=] to the specific behavior, feature, API, protocol, or capability that the specification is designed to address.
+</dd>
+
+<dt><dfn>implementation threat</dfn></dt>
+<dd>
+A [=threat=] that arises from how the specification may be implemented, even if the specification text is correct.
+</dd>
+
+<dt><dfn>deployment threat</dfn></dt>
+<dd>
+A [=threat=] that arises from how an implementation is configured, operated, integrated, monitored, updated, or governed in a real deployment.
+</dd>
+
+<dt><dfn>external threat</dfn></dt>
+<dd>
+A [=threat=] that arises from actors, systems, incentives, legal obligations, operational practices, or ecosystem behavior outside the specification, but that remains relevant to understanding the consequences of the specification.
+</dd>
+
+<dt><dfn>dependency threat</dfn></dt>
+<dd>
+A [=threat=] that arises from reliance on another technology, service, component, standard, policy, or operational assumption.
+</dd>
+
+</dl>
 
 ## Goals of This Guide
 
