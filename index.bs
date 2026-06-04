@@ -344,21 +344,17 @@ table.threat td.analysis-framework {
 
 # Introduction
 
-The [mission of W3C](https://www.w3.org/mission/) is to make the Web work
-in accordance with the principles of accessibility, internationalization,
-privacy, and security. Therefore, every standard must also consider
-security and privacy. This consideration can be made by developing and
-documenting a threat model for each W3C specification.
+W3C specifications are developed in the context of the [[ethical-web-principles]]: the Web should work for people, including accessibility, internationalization, privacy, and security as part of platform design. This Guide helps W3C Groups make explicit their reasoning about what can go wrong in a specification, especially where those issues affect principles such as security and privacy, and to do so while the specification is still being designed, when decisions can still be changed with minimal effort.
 
-Moreover, [W3C
-Process](https://www.w3.org/2023/Process-20231103/#wide-review) mandates
-Wide Reviews, which include horizontal reviews described in [W3C
-Guide](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review).
-Among the horizontal reviews, we also find the security review.
+Security and privacy considerations are most useful when the reasoning behind them is visible. A reader should be able to understand what capability or behavior the specification introduces, what risks follow from it, how the specification addresses them, and which assumptions or responsibilities remain elsewhere: with implementers, deployers, users, or other parts of the ecosystem. Making this reasoning explicit helps Working Groups make better design decisions. It also helps implementers understand the risks they need to manage, and makes the specification easier to review and maintain.
 
-During the security review, a key element is verifying the presence of the
-Security Consideration Section and the related Threat Model, which not only
-satisfies security principles but also accelerates the review process.
+This Guide is primarily for specification developers, Working Groups, and editors. It explains how threat modeling can be used as a practical part of specification development, rather than as a separate compliance exercise. In that sense, threat modeling helps a group answer a small set of questions: what is being specified, what can go wrong, how the specification addresses those threats, and whether the analysis is sufficient for the current stage of work.
+
+This means making clear: what is in scope and what is out-of-scope, which are the assumptions, which are the relevant threats, and where the response is documented.The response may be: a normative requirement, informative guidance, an implementation requirement, an assumption, or an explicit out-of-scope rationale. It is important that these distinctions are visible.
+A security threat model should inform the Security Considerations section of a specification. The same approach can also support Privacy Considerations, where a Working Group develops a privacy threat model or other privacy analysis. The analysis may be included directly in the specification, or published separately when it is large, or when several related specifications share common assumptions and threats. In either case, the specification should make the relevant threats, assumptions, and ways of addressing them easy to find, including where each identified threat is addressed through specification text, implementation responsibilities, deployment assumptions, or an explicit out-of-scope rationale.
+
+Because W3C specifications undergo [Wide Review](https://www.w3.org/2023/Process-20231103/#wide-review), including [horizontal review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review), this mapping also makes the review easier.
+
 
 ## Terminology
 
