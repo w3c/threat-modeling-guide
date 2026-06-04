@@ -494,8 +494,6 @@ satisfies security principles but also accelerates the review process.
 
 ## Terminology
 
-## Terminology ## {#terminology}
-
 The following terms are used to describe concepts in this specification.
 
 This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with NIST SP 800-30 Rev. 1. Where the W3C context requires it, the terms are adapted to specifications, implementers, deployers, users, and the wider Web ecosystem. This is especially important for harms, because some concerns are not only about systems failing, but about systems affecting people, communities, and society, sometimes even when the system works as designed. [[NIST-SP800-30R1]]
