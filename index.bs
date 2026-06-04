@@ -401,27 +401,6 @@ hurts assets such as people, it is called harm [[ISO2019]] or, to simplify,
   (e.g., controls or mitigations) that create a distance between the asset
   and the threat.
 
-## Goals of This Guide
-
-This guide helps specification developers and implementers document and
-understand the threats facing the World Wide Web, with the explicit goal of
-improving the security, privacy, and reliability of the Web.
-
-We take a security-first approach, as without reliable security, it is
-impossible to know if a system is working properly. To evaluate the
-security of the web (and potential extensions and innovations), we use a
-threat model to identify what we are evaluating, the threats we have
-considered, and any known responses to those threats.
-
-It is a goal of this work to update the way the W3C identifies, captures,
-and communicates the security risks of its technologies, especially by
-developing reusable, shareable, and extensible threat models for every
-technology specification developed by the organization.
-
-We provide explicit guidance on performing threat modeling and writing
-security considerations for specifications developed by the World Wide Web
-Consortium.
-
 # What is Threat Modeling at W3C
 
 Threat modeling is a family of structured, repeatable processes that
