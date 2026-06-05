@@ -560,7 +560,7 @@ Note: A threat model may use risk-based language, but it does not need to score 
 
 Threat modeling can be performed throughout the entire lifecycle of a specification, but the sooner you start, the better, because the sooner you understand the risks, the more cost-effective it is to implement mitigations and make adjustments. Just like a specification, a threat model is an iterative, incremental process, and its maturity and level of detail are directly related to the specification.
 
-Threat models should be developed collaboratively by the Working Group, with support from the W3C Team and horizontal groups where appropriate.
+Threat models should be developed collaboratively by the Working Group, with support from the W3C Team and horizontal groups, and iteratively at different times during the lifecycle of a group and specification:
 
 Significant threats known at the time of chartering should be captured in the charter when they help clarify the scope of the work. For example, a group working on digital credentials may already know that tampering, spoofing, and information disclosure are important concerns, even before a complete threat model has been developed.
 
