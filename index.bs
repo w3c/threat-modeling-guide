@@ -484,7 +484,7 @@ The [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should inclu
 
 Because W3C specifications are implemented in different products and deployed in different environments, a threat model should also make visible the assumptions and responsibilities that remain outside the specification itself. Some threats arise from implementation choices, deployment choices, ecosystem behavior, or dependencies on other technologies. A specification might not be able to address those threats directly, but it can identify them, explain the assumptions being made, and help implementers and reviewers understand the remaining risks.
 
-Threat modeling helps tell that story. It is not only a list of threats, but also a way to explain the security and privacy trade-offs of a specification so that editors, Working Groups, implementers, reviewers, and the broader Web community can understand the decisions being made.
+Threat modeling helps tell that story. It is not only a list of threats, but also a way to explain the security and privacy trade-offs of different choices, so that editors, Working Groups, implementers, reviewers, and the broader Web community can understand and justify the decisions that shape the specification.
 
 This Guide is primarily for specification developers, Working Groups, chairs, and editors. It also helps implementers understand the risks they need to manage, helps reviewers evaluate a specification with more context, and helps the wider community understand what was considered, what was addressed, and what remains out of scope.
 
