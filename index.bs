@@ -476,59 +476,75 @@ table.threat td.analysis-framework {
 
 # Introduction
 
-W3C specifications are developed in the context of the \[\[ethical-web-principles\]\]: the Web should work for people, including accessibility, internationalization, privacy, and security as part of platform design.
+W3C specifications are developed in the context of the [[ethical-web-principles]]: the Web should work for people, including accessibility, internationalization, privacy, and security as part of platform design.
 
-Any capability that exists can be used, misused, or abused, and it can also become part of an attack surface. A capability that enables useful behavior can also create new ways for people, systems, or organizations to cause an adverse impact, intentionally or not. This Guide helps W3C Groups reason systematically about the risk and abuse potential of those capabilities while the specification is still being designed, when decisions can still be changed with minimal effort.
+Any capability that exists can be used, misused, or abused, and it can also become part of an attack surface. A capability that enables useful behavior can also create new ways for people, systems, or organizations to cause harm, intentionally or not. This Guide helps W3C Groups reason systematically about the risk and abuse potential of those capabilities while the specification is still being designed, when decisions can still be changed with minimal effort.
 
-The \[\[security-privacy-questionnaire\]\] explains that specifications should include Security Considerations and Privacy Considerations sections so that implementers and web developers can understand the risks a feature presents and the mitigations that address them. These sections are most useful when the reasoning behind them is visible. Those who read these sections should be able to understand what capability or behavior the specification introduces, what risks follow from it, how the specification addresses them, and which assumptions or responsibilities remain elsewhere: with implementers, deployers, users, or other parts of the ecosystem.
+The [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include Security Considerations and Privacy Considerations sections so that implementers and web developers can understand the risks a feature presents and the mitigations that address them. These sections are most useful when the reasoning behind them is visible. Those who read these sections should be able to understand what capability or behavior the specification introduces, what risks follow from it, how the specification addresses them, and which assumptions or responsibilities remain elsewhere: with implementers, deployers, users, or other parts of the ecosystem.
 
-Threat modeling helps tell that story. It is not only a list of threats, but a way to explain the security and privacy trade-offs of a specification so that editors, Working Groups, implementers, reviewers, and the broader Web community can understand the decisions being made.
+Because W3C specifications are implemented in different products and deployed in different environments, a threat model should also make visible the assumptions and responsibilities that remain outside the specification itself. Some threats arise from implementation choices, deployment choices, ecosystem behavior, or dependencies on other technologies. A specification might not be able to address those threats directly, but it can identify them, explain the assumptions being made, and help implementers and reviewers understand the remaining risks.
+
+Threat modeling helps tell that story. It is not only a list of threats, but also a way to explain the security and privacy trade-offs of a specification so that editors, Working Groups, implementers, reviewers, and the broader Web community can understand the decisions being made.
 
 This Guide is primarily for specification developers, Working Groups, chairs, and editors. It also helps implementers understand the risks they need to manage, helps reviewers evaluate a specification with more context, and helps the wider community understand what was considered, what was addressed, and what remains out of scope.
 
-In that sense, threat modeling helps a group answer a small set of questions inspired by the \[\[threat-modeling-manifesto\]\]:
+In that sense, threat modeling helps a group answer a small set of questions inspired by the [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org/):
 
-1. What is being specified?  
-2. Who is impacted?  
-3. What can go wrong?  
-4. How does the specification address those threats?  
+1. What is being specified?
+2. Who can be harmed or otherwise impacted?
+3. What can go wrong?
+4. How are those threats addressed, and where is the response documented?
 5. Is the analysis sufficient for the current stage of work?
 
 This means making clear what is in scope and what is out of scope, which assumptions are being made, which threats are relevant, and where the response is documented. The response may be a normative requirement, informative guidance, an implementation responsibility, a deployment assumption, a user-agent behavior, a transfer of responsibility, or an explicit out-of-scope rationale.
 
 A security threat model should inform the Security Considerations section of a specification. The same approach can also support Privacy Considerations, where a Working Group develops a privacy threat model or other privacy analysis. The analysis may be included directly in the specification, or published separately when it is large, or when several related specifications share common assumptions and threats.
 
-Because W3C specifications undergo a [Wide Review](https://www.w3.org/2023/Process-20231103/#wide-review), including [horizontal review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review), this mapping also makes review easier. It helps reviewers find the relevant threats, assumptions, responses, limitations, and residual risks.
+Because W3C specifications undergo [wide review](https://www.w3.org/2023/Process-20231103/#wide-review), including [horizontal review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review), this mapping also makes review easier. Reviewers need enough information to understand the system, the relevant threats, and how the specification responds to them, without having to reconstruct that reasoning from scratch. A threat model helps reviewers find the relevant threats, assumptions, responses, limitations, and residual risks.
 
-It is a goal of this work to update the way W3C identifies, captures, and communicates the security and privacy risks of its technologies, and to develop reusable, shareable, and extensible threat models for specifications.
+The goal of this Guide is to help W3C identify, capture, and communicate the security and privacy risks of its technologies, and to develop reusable, shareable, and extensible threat models for specifications. Over time, these threat models can form a coherent set of related documents that help describe threats to the Web as deployed, making threats and responses easier to understand across specifications.
+
+Note: This Guide does not require a specific threat modeling framework; what matters is that the group can explain the system, the relevant threats, and the responses.
 
 ## What a Threat Model Should Capture
 
 A threat model for a specification should capture enough information for readers to understand:
 
-1. what is being specified;  
-2. what threats are relevant, including who can be harmed;  
-3. how those threats are addressed, including any remaining responsibilities, assumptions, out-of-scope decisions, and residual risks.
+1. What is being specified, including the relevant system, actors, capabilities, boundaries, data flows, and assumptions.
+2. What threats are relevant, including who can be harmed or otherwise impacted.
+3. How those threats are addressed, where the responses are documented, and which responsibilities, assumptions, out-of-scope decisions, or residual risks remain.
 
-Threats often come from examining use cases and user journeys: each step in the flow is an opportunity to ask what can go wrong, who can be harmed, and which actor is responsible for preventing or responding to that harm.
+These questions do not need to appear as separate sections in the final threat model. In practice, they are usually captured through three kinds of information: the system under analysis, the relevant threats, and the responses to those threats.
 
-A useful threat model maps each important threat to the place where the response appears: a normative requirement, a security consideration, a privacy consideration, an implementation note, an assumption, or an out-of-scope rationale.
+For a W3C specification, the system under analysis is the relevant thing being specified: a capability, API, protocol, behavior, data flow, ecosystem interaction, or deployment pattern introduced, enabled, constrained, or assumed by the specification.
 
-Consider a payment-confirmation capability that allows a user to confirm a transaction with cryptographic evidence.
+The description of what is being specified will usually include one or more diagrams or other visual representations, together with enough prose to explain the relevant actors, components, boundaries, data flows, and assumptions.
 
-A use case might say that a user is shown a payment request for 10 USD to a merchant, and confirms that transaction in the user agent. That capability is useful because it can give the issuer or bank stronger evidence that the user approved the transaction.
+Threats often come from examining use cases and user journeys: each step in the flow is an opportunity to ask what can go wrong, who can be harmed, and which actor is responsible for preventing or responding to that threat.
 
-The same capability also creates abuse potential. For example, a merchant or another actor might try to show the user one amount, such as 10 USD, while later attempting to claim that the user approved a different amount, such as 100 USD.
+Threats may also arise from implementation choices, deployment assumptions, ecosystem behavior, or dependencies on other technologies. In these cases, a specification might not be able to address all of those threats directly, but the threat model should document them, together with the relevant assumptions, responsibilities, and residual risks.
 
-In this example, the threat model should explicitly describe:
+<div class="example">
 
-* **System under analysis:** the payment-confirmation flow between the user, user agent, merchant, and issuer or bank.  
-* **Threat:** the user confirms one transaction, but the confirmation is later bound to different transaction details.  
-* **Response:** The signed data needs to include the relevant transaction details, such as the amount, payee, and context. The issuer or bank needs to validate what was actually signed before authorizing the transaction (and where this response is described in the specification).  
-* **Implementation responsibility:** implementers need to ensure that the details displayed to the user match the details included in the signed payload.  
-* **Residual risk:** if the displayed details and the signed payload can diverge, the confirmation can still be bound to the wrong transaction.
+  <p>Consider a payment-confirmation capability that allows a user to confirm a transaction with cryptographic evidence.</p>
 
-This example shows a small iteration of threat modeling. Starting with a use case, you define the capabilities, then figure out what can go wrong, think about what you can do about it, documenting the response and the residual risk.
+  <p>A use case might say that a user is shown a payment request for 10 USD to a merchant, and confirms that transaction in the user agent. That capability is useful because it can give the issuer or bank stronger evidence that the user approved the transaction.</p>
+
+  <p>The same capability also creates abuse potential. For example, a merchant or another actor might try to show the user one amount, such as 10 USD, while later attempting to claim that the user approved a different amount, such as 100 USD.</p>
+
+  <p>In this use case, the threat model should explicitly describe:</p>
+
+  <ul>
+    <li><strong>System under analysis:</strong> the payment-confirmation flow between the user, user agent, merchant, and issuer or bank.</li>
+    <li><strong>Threat:</strong> the user confirms one transaction, but the confirmation is later bound to different transaction details.</li>
+    <li><strong>Response:</strong> The data being signed must contain all relevant transaction details (e.g., amount, the payee, the transaction context). Then, before authorizing the transaction, the issuer or bank needs to validate what was actually signed.</li>
+    <li><strong>Implementation responsibility:</strong> implementers need to ensure that the details displayed to the user match the details included in the signed payload.</li>
+    <li><strong>Residual risk:</strong> if the displayed details and the signed payload can diverge, the confirmation can still be bound to the wrong transaction.</li>
+  </ul>
+
+  <p>This example describes a simple threat modeling process: starting with a use case, potential issues are identified, relevant threats and countermeasures are documented, and any assumptions, responsibilities, and residual risks are made clear to implementers and reviewers.</p>
+
+</div>
 
 A threat model does not need to be exhaustive to be useful. In practice, trying to enumerate every possible threat can make the analysis harder to read, harder to review, and harder to maintain. The goal is to capture enough of the important threats to explain the security and privacy reasoning that shaped the specification.
 
@@ -538,27 +554,37 @@ This does not mean that other threats are irrelevant. Rather, the threat model p
 
 A useful threat model maps each important threat to the place where the response appears: a normative requirement, a security consideration, a privacy consideration, an implementation note, an assumption, or an out-of-scope rationale.
 
+Note: A threat model may use risk-based language, but it does not need to score every threat quantitatively.
+
 ## When to Threat Model
 
 Threat modeling can be performed throughout the entire lifecycle of a specification, but the sooner you start, the better, because the sooner you understand the risks, the more cost-effective it is to implement mitigations and make adjustments. Just like a specification, a threat model is an iterative, incremental process, and its maturity and level of detail are directly related to the specification.
 
-* **Explainer**: At this stage the use cases and user journeys are identified, so it's possible to figure out what features or capabilities you're working on, then what can go wrong on an high-level (e.g., the potential for abuse) and assumptions you make.  
-* **Working Draft and before Candidate Recommendation**: At this stage it is important to keep the threat model aligned with the specification, continue mapping threats and responses with the text of the specification, and then share this with the horizontal groups for review.  
-* **Recommendation and later updates**: At this stage, the threat model should be kept updated as implementation experience accumulates and as new threats emerge or existing threats evolve
+Threat models should be developed collaboratively by the Working Group, with support from the W3C Team and horizontal groups where appropriate.
 
-If you begin working on the threat model at an advanced stage of the specification, it is advisable to start by reverse-engineering the security-related decisions contained in the specification itself.
+Significant threats known at the time of chartering should be captured in the charter when they help clarify the scope of the work. For example, a group working on digital credentials may already know that tampering, spoofing, and information disclosure are important concerns, even before a complete threat model has been developed.
 
-## Where to publish the Threat Model
+* **Explainer:** at this stage, use cases and user journeys are identified, so it is possible to understand which features or capabilities are being developed, what can go wrong at a high level, such as the potential for abuse, and which assumptions are being made.
+* **Working Draft and before Candidate Recommendation:** at this stage, it is important to keep the threat model aligned with the specification, continue mapping threats and responses to the text of the specification, and share the threat model with horizontal groups for review. A sufficiently complete version should be available before formal horizontal review.
+* **Recommendation and later updates:** at this stage, the threat model should be kept updated as implementation experience accumulates and as new threats emerge or existing threats evolve.
+
+Note: If the group begins working on the threat model at an advanced stage of the specification, it is advisable to start by reverse-engineering the security-related decisions contained in the specification itself.
+
+## Where to Publish the Threat Model
 
 The threat model serves as the foundation for the Security Considerations section of a specification. If the threat model is small, it can be included directly in the Security Considerations section. Otherwise, it can be published separately, for example, as a Group Note, and referenced from the Security Considerations section.
 
-From an open-standards perspective, we believe the threat model should be developed and published openly unless there is a clear reason not to, as it is an important tool for both implementers and users.
+Even when the threat model is published separately, each specification should still include Security Considerations and Privacy Considerations sections that summarize the relevant threats, explain where the responses are documented, and link to the threat model.
+
+If a threat model covers a family of related specifications and becomes too broad, it can be split by specification or layer, provided that the related threat models and the relevant Security and Privacy Considerations sections are clearly cross-linked.
+
+Note: From an open-standards perspective, the threat model should be developed and published openly unless there is a clear reason not to, as it is an important tool for both implementers and users.
 
 ## Terminology
 
 The following terms are used to describe concepts in this Guide.
 
-This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with NIST SP 800-30 Rev. 1. Where the W3C context requires it, the terms are adapted to specifications, implementers, deployers, users, and the wider Web ecosystem. This is especially important for harms, because some concerns are not only about systems failing, but about systems affecting people, communities, and society, sometimes even when the system works as designed. [[NIST-SP800-30R1]]
+This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with [[NIST-SP800-30R1]]. Where the W3C context requires it, the terms are adapted to specifications, implementers, deployers, users, and the wider Web ecosystem. This is especially important for harms, because some concerns are not only about systems failing, but about systems affecting people, communities, and society, sometimes even when the system works as designed.
 
 <dl dfn-type="dfn">
 
@@ -584,7 +610,7 @@ The part of the system, ecosystem, or specification behavior considered by the [
 
 <dt><dfn>Security Considerations</dfn></dt>
 <dd>
-The section of a specification that documents security-relevant issues that implementers, deployers, reviewers, and other stakeholders should consider. In this Guide, the Security Considerations section should be informed by the [=threat model=], including the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=residual risks=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]]
+The section of a specification that documents security-relevant issues that implementers, deployers, reviewers, and other stakeholders should consider. In this Guide, the Security Considerations section should be informed by the [=threat model=], including the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=residual risks=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]].
 </dd>
 
 <dt><dfn>Privacy Considerations</dfn></dt>
@@ -634,7 +660,7 @@ A security-relevant issue in a specification design, implementation, configurati
 
 <dt><dfn>impact</dfn></dt>
 <dd>
-The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this guide, as we consider [=threats=], we are focusing of adverse - or negative - impact [[NIST-SP800-30R1]].
+The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>harm</dfn></dt>
@@ -644,7 +670,7 @@ The harm is the negative [=impact=] produced by a [=threat=], and can be also de
 
 <dt><dfn>risk</dfn></dt>
 <dd>
-Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively. [[NIST-SP800-30R1]] [[PRINCE2-RISK]]
+Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively [[NIST-SP800-30R1]] [[PRINCE2-RISK]].
 </dd>
 
 <dt><dfn>response</dfn></dt>
@@ -654,7 +680,7 @@ What the specification, Working Group, implementer, deployer, user agent, user, 
 
 <dt><dfn>response strategy</dfn></dt>
 <dd>
-A classification of [=responses=] to a [=threat=], [=impact=], [=harm=], or [=risk=]. This Guide uses four common response strategies with the ERTA mnemonic: Eliminate the threat or the condition that enables it, also known as Avoid; Reduce the likelihood or impact through [=controls=] or [=mitigations=], also known as Mitigation; Transfer responsibility to another actor, layer, dependency, or the user; or Accept the threat and document the rationale. When responsibility is transferred to the user, the relevant usability and accessibility safeguards should be considered. When a threat is reduced through mitigation, the threat is not eliminated; rather, a [=residual threat=] or [=residual risk=] remains and should be accepted or otherwise addressed.
+A classification of [=responses=] to a [=threat=], [=impact=], [=harm=], or [=risk=]. This Guide uses four common response strategies with the ERTA mnemonic: Eliminate the threat or the condition that enables it, also known as Avoid; Reduce the likelihood or impact through [=controls=] or [=mitigations=], also known as Mitigation; Transfer responsibility to another actor, layer, dependency, or the user; or Accept the threat and document the rationale. When responsibility is transferred to the user, the relevant usability and accessibility safeguards should be considered. When a threat is reduced through mitigation, the threat is not eliminated; rather, a [=residual risk=] remains and should be accepted or otherwise addressed.
 </dd>
 
 <dt><dfn>mitigation</dfn></dt>
@@ -749,190 +775,6 @@ A [=threat=] that arises from reliance on another technology, service, component
 
 </dl>
 
-# What is Threat Modeling at W3C
-
-Threat modeling is a family of structured, repeatable processes that
-together allow you to make rational decisions to secure applications,
-software, and systems [[SHOSTACK2014]]. During threat modeling, potential
-threats, such as vulnerabilities or the absence of appropriate safeguards,
-are identified and enumerated, and countermeasures prioritized (OWASP). In
-general terms, threat modeling is a form of risk assessment that models
-aspects of the attack and defense sides of an entity (NIST SP 800-53 Rev.
-5, NIST SP 800-154).
-
-As a practice, threat modeling has inspired several alternative methods for
-evaluating threats across various system types. Three worth highlighting
-are the Security Development Lifecycle (SDL) from Microsoft, Shostack's 4
-Questions from Adam Shostack, and the Auditor's Trifecta from the Open
-Source Security Testing Methodology Manual (OSSTMM).
-
-Threat modeling is similar to risk modeling with a slightly different
-focus. In particular, threat modeling anchors to a particular system under
-consideration, using a diagram of that system to identify components that
-are, in turn, evaluated for specific threats. Risk modeling, in contrast,
-does not require a visual diagram and may identify risks that are,
-therefore, not necessarily related to any specific component of a proposed
-system. For example, evaluating the risks associated with an upcoming
-wedding can be useful without explicitly modeling the different elements
-coming together to realize the wedding, such as planning software,
-registries and invitation management systems, vendors, venues,
-participants, etc. So while risk modeling and risk analysis is often more
-widespread in its considerations, threat modeling is always anchored to
-components of a specific system under consideration. The centrality of the
-diagram aligns well with the central importance of the specifications for
-which threat modeling is done.
-
-The authors of this guide have found that the diagram itself is often the
-most critical element in the threat model. Diagramming the system with the
-intent to identify threats yields a diagram that is itself a better
-representation for security analysis than those created for other purposes.
-As such we encourage specification developers to create diagrams
-specifically for threat modeling.
-
-That difference between threats and risks is less important than their
-similarity. Any coherent analytical framework of concern may yield quality
-threats to the secure operation of the system. Our approach at the W3C
-embraces any analytical framework that specification developers find
-illustrative, treating risks and threats both as valid concerns. For the
-sake of simplicity, we simply call these concerns "threats" as our approach
-is more aligned with threat modeling as championed by Shostack and others,
-than risk modeling as advocated by PMI and Prince2. This guide provides a
-common strategy for performing threat modeling using any analytical
-framework that enables evaluating components for threats and identifying
-suitable responses.
-
-At the W3C, we ask specification developers to develop a formal threat
-model to capture known threats and responses of their specification. This
-guide provides detailed examples and advice for developing an effective
-threat model, tailored specifically to threat modeling for specifications.
-
-Groups are free to innovate in their approach to threat modeling, as long
-as three key elements exist:
-
-1. A **clear description of the system** under analysis, including a
-   **visual representation**(s) of the components of the system and data
-   flows between them, and a **dictionary** describing each component and
-   flow. This can be a simplified *Data Flow Diagram (DFD)* as described in
-   Shostack's approach, a *UML Sequence Diagram* that shows the core
-   information flow between components, swimlanes, or any other visual
-   representation that provides adequate context for threat analysis. The
-   point of the description is to introduce terminology for referring to
-   system elements when discussing threats and responses.  
-2. A discussion of the **threats** identified by specification developers.
-   Four types of threats should be considered:   
-    1. **target threats** the specification was designed to address,   
-    2. **implementation threats** that implementers should consider but
-       which are not covered by the specification,    
-    3. **external threats** whose resolution is beyond the scope of the
-       specification but that are nevertheless considered worthy of
-       consideration by implementers and  
-    4. **dependency threats** are external threats that arise from specific
-       pre-requisites or dependencies in the system, such as reliance on
-       CSS or HTTP in a specification that relies on those technologies but
-       does not control them.  
-3. A discussion of **responses** to the identified threats, describing how
-   implementers could address them. Responses may include actions or
-   controls outside the technology described by the specification itself.
-   For example, a specification that relies on TLS encryption to avoid
-   network surveillance might identify the threat and acknowledge that a
-   working TLS subsystem is an expected response for implementers; it need
-   not directly describe *how* the TLS subsystem does so.
-
-# Why Threat Model
-
-We threat model to make the Web better.
-
-Threat models are a medium for technology evaluation and communication.
-They provide a concrete and coherent perspective on the threats related to
-a set of technologies. By creating, discussing, and documenting specific
-threat models, stakeholders can better understand the engineering
-trade-offs involved in deploying innovative technologies. Often the detail
-and granularity of specific threats makes it easier for users and
-stakeholders to understand if their particular concerns are addressed.
-
-At the W3C, Working Groups develop threat models to capture and document
-threats related to a specification as it is expected to be deployed.
-
-Threats listed in W3C threat models should include:
-
-1. **Target Threats** which are explicitly addressed by specification
-   developers,
-2. **Implementation Threats** likely to impact implementations, but for
-   which normative constraints are deemed too restrictive,
-3. **External Threats** Known real-world or systemic risks that exist for
-   common use cases, but are recognized as out of scope for the modeled
-   version of the specification, and
-4. **Dependency Threats** inherited from other elements of the ecosystem,
-   and relevant to the specific use-cases.
-
-Specifications that define the Web offer significant extensibility and
-optionality, allowing implementers to make a wide range of choices that
-affect security, even when 100% conformant to the specification. Often spec
-developers know about implementation-specific details that pose security or
-privacy challenges worth considering. Implementation threats describe these
-kinds of unavoidable decisions.
-
-Dependency threats are particularly important because of the complex
-landscape of technologies that come together to realize the Web. W3C
-specifications are necessarily deployed alongside a large family of
-interdependent specifications maintained by other organizations, such as
-Ethernet, Wi-Fi, TCP/IP, HTML, ECMAScript, DNS, and TLS. Threat modeling of
-W3C specifications must appropriately identify threats arising from this
-complex interplay of independently developed technologies. We cannot "fix"
-threats arising from these externalities&mdash;they are outside the scope
-of the specification&mdash;but we can identify the harms that may result
-from reliance on certain technologies.
-
-Over time, it is our hope that the constellation of threat models developed
-for W3C specifications will form a broad-based, coherent set of
-inter-related documents that together comprise an extensible threat model
-for the World Wide Web.
-
-By better understanding how W3C specifications address threats of the World
-Wide Web as deployed, we help make the Web more secure and
-privacy-respecting for everyone.
-
-# When to Threat Model at the W3C
-
-Threat models, as described in this guide, should be developed
-collaboratively by the Working Groups writing specifications, with support
-from the W3C team and the horizontal groups (e.g., security and privacy
-groups at W3C), to identify threats.
-
-The threat model should start in parallel with the specification itself,
-particularly when evaluating use cases and writing introductory explainers.
-Consider the security implications of the system as described, identifying
-potential threats as you develop the rest of the story that explains the
-specification. These threats may be identified when evaluating the system
-from a use-case perspective, drafting an explainer, or teasing out the
-trade-offs of specific design choices. Whenever a threat is implicitly
-involved, threat modellers should capture it. Just as your discussion of
-relevant use cases evolves as your specification moves from inspiration to
-recommendation, a discussion of threats should start at the beginning of
-the process and be updated as discussions and specification text evolve. 
-
-Significant threats known at the time of chartering SHOULD be listed in the
-charter. For security-minded technology, specific threats can be identified
-early. For example, digital credentials are known to have threats from
-tampering and information disclosure. If such threats help clarify the
-scope of the work, they should be included in the charter even through a
-formal threat model has not been fully developed.
-
-Once the work gets underway, share an updated threat model with horizontal
-review groups and liaisons as the work develops. As you write the explainer
-and develop the first public working draft, make sure your threat model
-work is also under way. The best threat models are living documents that
-require continuous updates, such as when functionality is modified or new
-functionality is added (Swiderski & Snyder, 2004, p. 26).
-
-A completed threat model must be prepared before formal horizontal review.
-A threat model SHOULD serve as the foundation for the security
-considerations section of the Working Group's specifications.
-
-If the threat model is small, it can be included directly in the Security
-Considerations section. Otherwise, it can be published separately (e.g., as
-a Group Note) and included in the Security Considerations section as an
-external security note [[SHOSTACK2014]].
 
 # How to Threat Model
 
@@ -1485,7 +1327,7 @@ servants of various kinds have both legitimate interests in making sure
 everything is running according to the law and public policy (E6 Public
 Sector Officials).
 
-note:We do NOT model potential attackers, as over-characterizing attackers
+Note: We do NOT model potential attackers, as over-characterizing attackers
 can lead to analysis bias that is better avoided.
 
 It is understood that the browser process (P1) is likely realized as
