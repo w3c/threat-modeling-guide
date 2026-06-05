@@ -562,7 +562,7 @@ Threat modeling can be performed throughout the entire lifecycle of a specificat
 
 Threat models should be developed collaboratively by the Working Group, with support from the W3C Team and horizontal groups, and iteratively at different times during the lifecycle of a group and specification:
 
-Significant threats known at the time of chartering should be captured in the charter when they help clarify the scope of the work. For example, a group working on digital credentials may already know that tampering, spoofing, and information disclosure are important concerns, even before a complete threat model has been developed.
+* **Charter:** Significant threats known at the time of chartering should be captured in the charter when they help clarify the scope of the work. For example, a group working on digital credentials may already know that tampering, spoofing, and information disclosure are important concerns, even before a complete threat model has been developed.
 
 * **Explainer:** at this stage, use cases and user journeys are identified, so it is possible to understand which features or capabilities are being developed, what can go wrong at a high level, such as the potential for abuse, and which assumptions are being made.
 * **Working Draft and before Candidate Recommendation:** at this stage, it is important to keep the threat model aligned with the specification, continue mapping threats and responses to the text of the specification, and share the threat model with horizontal groups for review. A sufficiently complete version should be available before formal horizontal review.
