@@ -476,7 +476,7 @@ table.threat td.analysis-framework {
 
 # Introduction
 
-W3C specifications are developed in the context of the [[ethical-web-principles]]: the Web should work for people, including accessibility, internationalization, privacy, and security as part of platform design.
+The capabilities defined in W3C specifications are developed in the context of the [[ethical-web-principles]]: the Web should work for people, by supporting accessibility, internationalization, privacy, and security as part of platform design.
 
 Any capability that exists can be used, misused, or abused, and it can also become part of an attack surface. A capability that enables useful behavior can also create new ways for people, systems, or organizations to cause harm, intentionally or not. This Guide helps W3C Groups reason systematically about the risk and abuse potential of those capabilities while the specification is still being designed, when decisions can still be changed with minimal effort.
 
