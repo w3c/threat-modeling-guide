@@ -713,22 +713,22 @@ A simplified visual model of the [=system under analysis=], used to identify and
 Any item represented in a [=threat model=] diagram or otherwise referenced by the threat model. Elements may include external entities, [=processes=], [=flows=], [=data stores=], [=data objects=], boundaries, [=trust domains=], or containers.
 </dd>
 
-<dt><dfn>process</dfn></dt>
+<dt><dfn id="dfn-process">process</dfn></dt>
 <dd>
 In the context of a [=threat model=] diagram, an active [=element=] that receives, transforms, stores, sends, validates, authorizes, or otherwise acts on data. A process may represent a feature, component, application, service, protocol step, user agent behavior, operating system process, or other active part of the [=system under analysis=].
 </dd>
 
-<dt><dfn>flow</dfn> / <dfn>data flow</dfn></dt>
+<dt><dfn id="dfn-flow">flow</dfn> / <dfn id="dfn-data-flow">data flow</dfn></dt>
 <dd>
 The path, mechanism, or interaction by which data moves between [=elements=]. A flow may be uni-directional or bi-directional, and may connect external entities, [=processes=], [=data stores=], [=data objects=], or other elements.
 </dd>
 
-<dt><dfn>data store</dfn> / <dfn>data object</dfn></dt>
+<dt><dfn id="dfn-data-store">data store</dfn> / <dfn id="dfn-data-object">data object</dfn></dt>
 <dd>
 Describes data either where it is retained, or as an object that moves through the system. A data store is an [=element=] that retains information, such as a filesystem, database, cache, archive, configuration table, local storage, log, wallet, or other storage mechanism. A data object is a self-contained unit of data that can be shared over a [=flow=], retained in a data store, or acted on by a [=process=]. Data stores and data objects are related, but they are not always equivalent for threat analysis. A data object in transit may be analyzed like a [=data flow=]. A data object at rest may be analyzed like a data store. If the data object carries evidence, logs, credentials, proofs, signatures, or other security-relevant state, then repudiation, spoofing, tampering, information disclosure, denial of service, and elevation of privilege concerns may need to be considered according to the context in which the object is used.
 </dd>
 
-<dt><dfn>threat boundary</dfn> / <dfn>trust boundary</dfn> / <dfn>threat container</dfn></dt>
+<dt><dfn id="dfn-threat-boundary">threat boundary</dfn> / <dfn id="dfn-trust-boundary">trust boundary</dfn> / <dfn id="dfn-threat-container">threat container</dfn></dt>
 <dd>
 Describes where different authorities, [=trust domains=], privilege levels, operational responsibilities, or [=assumptions=] meet. This Guide treats “threat boundary” and “trust boundary” as closely related terms. A threat container is a collection of [=elements=] treated as being within the same boundary because they are secured, controlled, operated, or trusted under a common [=authority=] or set of assumptions. Communications crossing a threat or trust boundary usually deserve particular attention during threat analysis.
 </dd>
