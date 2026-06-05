@@ -583,22 +583,22 @@ The concrete way in which a [=threat=] is realized or attempted. It describes ho
 
 <dt><dfn>vulnerability</dfn></dt>
 <dd>
-A security-relevant issue in a specification design, implementation, configuration, [=control=], procedure, [=assumption=], or dependency that can make a [=threat=] possible, easier, more likely, or more harmful. Not every issue is a vulnerability. An issue becomes a vulnerability when it creates a practical path for compromise, abuse, misuse, failure, or other adverse [=impact=]. In this Guide, a vulnerability may be a specification ambiguity, an unsafe default, an underspecified responsibility, an overbroad capability, a weak assumption, or a dependency that makes the system behave in a way the specification did not intend or did not adequately address. [[NIST-SP800-30R1]] [[ONOFRI-ONOFRI2023]]
+A security-relevant issue in a specification design, implementation, configuration, [=control=], procedure, [=assumption=], or dependency that can make a [=threat=] possible. Not every issue is a vulnerability. An issue becomes a vulnerability when it creates a practical path for compromise, abuse, misuse, failure, or other adverse [=impact=]. In this Guide, a vulnerability may be a specification ambiguity, an unsafe default, an underspecified responsibility, an overbroad capability, a weak assumption, or a dependency that makes the system behave in a way the specification did not intend or did not adequately address. [[NIST-SP800-30R1]] [[ONOFRI-ONOFRI2023]]
 </dd>
 
 <dt><dfn>impact</dfn></dt>
 <dd>
-The adverse consequence produced by an [=attack=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. [[NIST-SP800-30R1]]
+The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this guide, as we consider [=threats=], we are focusing of adverse - or negative - impact [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>harm</dfn></dt>
 <dd>
-Used in this Guide primarily for adverse [=impacts=] experienced by people, groups, communities, or society as a result of the [=system under analysis=]. This includes harms that arise from [=attacks=], failures, misuse, or abuse, but also harms that arise when the system works as designed, for example through exclusion, loss of autonomy, discrimination, surveillance pressure, chilling effects, psychological distress, denial of meaningful access, or erosion of social structures. More generally, harm can also be understood as the negative [=impact=] produced by an attack. In that broader sense, the [=threat=] or the [=threat source=] is not itself the harm. The harm is the adverse outcome experienced by affected [=stakeholders=]. [[MICROSOFT-HARMS-MODELING]] [[SOCIETAL-IMPACT-QUESTIONNAIRE]] [[PRIVACY-PRINCIPLES]]
+The harm is the negative [=impact=] produced by a [=threat=], and can be also defined as the [=threat=] with its [=impact=]. In this Guide, the term harm is used specifically to describe the adverse [=impact=] experienced by [=stakeholders=] (e.g., people, groups, communities, or society) as a result of the [=system under analysis=]. This includes harms that arise from [=attacks=], failures, misuse, or abuse, but also harms that arise when the system works as designed, for example through exclusion, loss of autonomy, discrimination, surveillance pressure, chilling effects, psychological distress, denial of meaningful access, or erosion of social structures [[SOCIETAL-IMPACT-QUESTIONNAIRE]] [[PRIVACY-PRINCIPLES]] [[MICROSOFT-HARMS-MODELING]].
 </dd>
 
 <dt><dfn>risk</dfn></dt>
 <dd>
-Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=], [=impacts=], and [=harms=] that may affect the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively. [[NIST-SP800-30R1]] [[PRINCE2-RISK]]
+Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively. [[NIST-SP800-30R1]] [[PRINCE2-RISK]]
 </dd>
 
 <dt><dfn>response</dfn></dt>
