@@ -554,7 +554,7 @@ This does not mean that other threats are irrelevant. Rather, the threat model p
 
 A useful threat model maps each important threat to the place where the response appears: a normative requirement, a security consideration, a privacy consideration, an implementation note, an assumption, or an out-of-scope rationale.
 
-Note: A threat model may use risk-based language, but it does not need to score every threat quantitatively.
+Note: A threat model may use risk-based language, but it does not need to score every threat quantitatively or qualitatively.
 
 ## When to Threat Model
 
