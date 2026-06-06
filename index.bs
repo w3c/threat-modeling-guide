@@ -494,7 +494,7 @@ table.threat td.analysis-framework {
 
 # Introduction
 
-The capabilities defined in W3C specifications are developed in the context of the [[ethical-web-principles]]: the Web should work for people, by supporting accessibility, internationalization, privacy, and security as part of platform design. Once defined, any capability can be used, misused, or abused, and it can also become part of an attack surface.
+The capabilities defined in W3C specifications are developed in the context of the W3C Ethical Web Principles [[ethical-web-principles]]: the Web should work for people, by supporting accessibility, internationalization, privacy, and security as part of platform design. Once defined, any capability can be used, misused, or abused, and it can also become part of an attack surface.
 
 Some concerns are [=security threat|security threats=], [=privacy threat|privacy threats=], or [=socio-technical threat|socio-technical threats=]. [=security threat|Security threats=] concern security properties of the [=system under analysis=]. [=privacy threat|Privacy threats=] concern privacy properties and expectations. [=socio-technical threat|Socio-technical threats=] start from the [=system under analysis=] and reach users, non-users, or other affected [=stakeholders=]. In this Guide, [=harms=] are the adverse [=impacts=] that may result from those [=threats=].
 
@@ -502,7 +502,7 @@ These categories are prompts for analysis, not mutually exclusive classification
 
 Even when a capability enables useful behavior, it can also create new ways for people, systems, or organizations to cause [=harm=], intentionally or not. This Guide helps W3C Groups reason systematically about the [=risk=] and abuse potential of Web capabilities during the design phase, when specifications can still be changed with minimal effort.
 
-The [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include [=Security Considerations=] and [=Privacy Considerations=] sections so that implementers and web developers can understand the [=risks=] a capability may present and potential [=mitigations=]. These sections are most useful when they effectively communicate rationale; this is the heart of [=threat modeling=].
+The W3C Self-Review Questionnaire: Security and Privacy [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include [=Security Considerations=] and [=Privacy Considerations=] sections so that implementers and web developers can understand the [=risks=] a capability may present and potential [=mitigations=]. These sections are most useful when they effectively communicate rationale; this is the heart of [=threat modeling=].
 
 Those who read these sections should be able to understand what capability or behavior the specification introduces, what [=risks=] follow from it, how the specification addresses them, and which [=assumptions=] or responsibilities remain elsewhere: with implementers, deployers, users, or other parts of the ecosystem.
 
@@ -564,7 +564,7 @@ This question is important because not all relevant [=threats=] are only [=threa
 
 In other words, the analysis should not only ask what can go wrong inside the [=system under analysis=]. It should also ask who pays the cost when something goes wrong.
 
-Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; [[web-sustainability-guidelines]] includes the wider frame of planet, people, and prosperity; [[societal-impact-questionnaire]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental [=impact=].
+Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[societal-impact-questionnaire]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental [=impact=].
 
 ### What can go wrong, and what harms may result?
 
@@ -652,7 +652,7 @@ Note: From an open-standards perspective, the [=threat model=] should be develop
 
 The following terms are used to describe concepts in this Guide.
 
-This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with [[NIST-SP800-30R1]]. Where the W3C context requires it, the terms are adapted to specifications, implementers, users, and the wider Web ecosystem.
+This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with NIST risk assessment guidance [[NIST-SP800-30R1]]. Where the W3C context requires it, the terms are adapted to specifications, implementers, users, and the wider Web ecosystem.
 
 The terms are grouped thematically to help readers find the part of the vocabulary they need.
 
@@ -715,7 +715,7 @@ The consequence produced by an [=risk=]. Impact may affect systems, data, organi
 <dd>
 A negative or adverse [=impact=]. This is the canonical meaning used in this Guide.
 
-Microsoft's harms modeling guidance uses the term "harm" more broadly [[MICROSOFT-HARMS-MODELING]]. It may refer not only to the adverse impact, but also to the way in which a system can create, enable, amplify, or fail to prevent that impact. Shostack describes this distinction in terms of threats to the system and threats via the system [[SHOSTACK-C2PA]]; and privacy-harm taxonomies, such as Solove's [[SOLOVE-PRIVACY]], have also used "harm" to organize privacy problems in a way that can mix causes, [=threats=], and [=impacts=].
+Microsoft's Foundations of Assessing Harm guidance [[MICROSOFT-HARMS-MODELING]] uses the term "harm" more broadly. It may refer not only to the adverse impact, but also to the way in which a system can create, enable, amplify, or fail to prevent that impact. Shostack's C2PA Threat Modeling post [[SHOSTACK-C2PA]] describes this distinction in terms of threats to the system and threats via the system; and privacy-harm taxonomies, such as Solove's A Taxonomy of Privacy [[SOLOVE-PRIVACY]], have also used "harm" to organize privacy problems in a way that can mix causes, [=threats=], and [=impacts=].
 
 In this Guide, the terms are separated for clarity. A [=socio-technical threat=] describes the pathway from the [=system under analysis=] to affected [=stakeholders=]. A [=harm=] describes the negative or adverse impact that may result. For example, a capability that enables correlation across contexts may create a [=socio-technical threat=]; the resulting [=harms=] may include surveillance pressure, chilling effects, loss of anonymity, exclusion, or discrimination.
 </dd>
