@@ -491,9 +491,9 @@ This Guide is primarily for specification developers, Working Groups, chairs, an
 In that sense, threat modeling helps a group answer a small set of questions inspired by the [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org/):
 
 1. What is being specified?
-2. Who can be harmed or otherwise impacted?
-3. What can go wrong?
-4. How are those threats addressed, and where is the response documented?
+2. Who may use or be affected by it?
+3. What can go wrong, including threats and harms?
+4. How are those threats and harms addressed, and where is the response documented?
 5. Is the analysis sufficient for the current stage of work?
 
 A number of techniques can help a group answer these questions, including:
