@@ -496,7 +496,16 @@ In that sense, threat modeling helps a group answer a small set of questions ins
 4. How are those threats addressed, and where is the response documented?
 5. Is the analysis sufficient for the current stage of work?
 
-This means making clear what is in scope and what is out of scope, which assumptions are being made, which threats are relevant, and where the response is documented. The response may be a normative requirement, informative guidance, an implementation responsibility, a deployment assumption, a user-agent behavior, a transfer of responsibility, or an explicit out-of-scope rationale.
+A number of techniques can help a group answer these questions, including:
+
+* Describing use cases
+* Describing user journeys
+* Describing information exchange via flow diagrams
+* Defining scope clearly, with rationale for anything explicitly deemed out of scope
+* Documenting assumptions related to different ecosystem roles and responsibilities (e.g., implementers, the operating system, regulators, etc.)
+* Identifying relevant threats and mitigations, and making those easy to find
+* Clearly distinguishing normative statements from informative guidance
+* Clearly identifying responsibilities of implementers
 
 A security threat model should inform the Security Considerations section of a specification. The same approach can also support Privacy Considerations, where a Working Group develops a privacy threat model or other privacy analysis. The analysis may be included directly in the specification, or published separately when it is large, or when several related specifications share common assumptions and threats.
 
