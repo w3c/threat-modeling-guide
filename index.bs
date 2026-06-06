@@ -623,9 +623,14 @@ Note: From an open-standards perspective, the threat model should be developed a
 
 ## Terminology
 
+
 The following terms are used to describe concepts in this Guide.
 
 This Guide uses the terms below in a practical way. The intent is not to create a new taxonomy, or to replace existing security terminology. Where possible, the definitions are aligned with [[NIST-SP800-30R1]]. Where the W3C context requires it, the terms are adapted to specifications, implementers, deployers, users, and the wider Web ecosystem. This is especially important for harms, because some concerns are not only about systems failing, but about systems affecting people, communities, and society, sometimes even when the system works as designed.
+
+The terms are grouped thematically to help readers find the part of the vocabulary they need.
+
+### Core threat modeling concepts
 
 <dl dfn-type="dfn">
 
@@ -659,6 +664,12 @@ The section of a specification that documents security-relevant issues that impl
 The section, or related analysis, that documents privacy-relevant issues associated with a specification. In this Guide, the Privacy Considerations section may be informed by the same [=threat model=], or by a related privacy analysis, and should describe relevant privacy [=threats=], [=assumptions=], [=impacts=], [=harms=], [=responses=], and [=residual risks=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC6973]]
 </dd>
 
+</dl>
+
+### Stakeholders, value, and consequences
+
+<dl dfn-type="dfn">
+
 <dt><dfn>stakeholder</dfn></dt>
 <dd>
 A person, group, organization, implementer, deployer, user, user agent, service provider, reviewer, or other party that can affect or be affected by the [=system under analysis=].
@@ -668,6 +679,27 @@ A person, group, organization, implementer, deployer, user, user agent, service 
 <dd>
 Something of value to one or more [=stakeholders=]. Assets may include data, credentials, keys, capabilities, services, infrastructure, availability, integrity, confidentiality, privacy, user agency, safety, reputation, or other properties that stakeholders value. In this Guide, assets are useful for understanding [=impact=] and prioritization, but [=threat modeling=] should not depend only on enumerating assets.
 </dd>
+
+<dt><dfn>impact</dfn></dt>
+<dd>
+The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
+</dd>
+
+<dt><dfn>harm</dfn></dt>
+<dd>
+The harm is the negative [=impact=] produced by a [=threat=], and can be also defined as the [=threat=] with its [=impact=]. In this Guide, the term harm is used specifically to describe the adverse [=impact=] experienced by [=stakeholders=] (e.g., people, groups, communities, or society) as a result of the [=system under analysis=]. This includes harms that arise from [=attacks=], failures, misuse, or abuse, but also harms that arise when the system works as designed, for example through exclusion, loss of autonomy, discrimination, surveillance pressure, chilling effects, psychological distress, denial of meaningful access, or erosion of social structures [[SOCIETAL-IMPACT-QUESTIONNAIRE]] [[PRIVACY-PRINCIPLES]] [[MICROSOFT-HARMS-MODELING]].
+</dd>
+
+<dt><dfn>risk</dfn></dt>
+<dd>
+Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively [[NIST-SP800-30R1]] [[PRINCE2-RISK]].
+</dd>
+
+</dl>
+
+### Threats and Attacks
+
+<dl dfn-type="dfn">
 
 <dt><dfn>threat source</dfn></dt>
 <dd>
@@ -699,20 +731,11 @@ The concrete way in which a [=threat=] is realized or attempted. It describes ho
 A security-relevant issue in a specification design, implementation, configuration, [=control=], procedure, [=assumption=], or dependency that can make a [=threat=] possible. Not every issue is a vulnerability. An issue becomes a vulnerability when it creates a practical path for compromise, abuse, misuse, failure, or other adverse [=impact=]. In this Guide, a vulnerability may be a specification ambiguity, an unsafe default, an underspecified responsibility, an overbroad capability, a weak assumption, or a dependency that makes the system behave in a way the specification did not intend or did not adequately address. [[NIST-SP800-30R1]] [[ONOFRI-ONOFRI2023]]
 </dd>
 
-<dt><dfn>impact</dfn></dt>
-<dd>
-The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
-</dd>
+</dl>
 
-<dt><dfn>harm</dfn></dt>
-<dd>
-The harm is the negative [=impact=] produced by a [=threat=], and can be also defined as the [=threat=] with its [=impact=]. In this Guide, the term harm is used specifically to describe the adverse [=impact=] experienced by [=stakeholders=] (e.g., people, groups, communities, or society) as a result of the [=system under analysis=]. This includes harms that arise from [=attacks=], failures, misuse, or abuse, but also harms that arise when the system works as designed, for example through exclusion, loss of autonomy, discrimination, surveillance pressure, chilling effects, psychological distress, denial of meaningful access, or erosion of social structures [[SOCIETAL-IMPACT-QUESTIONNAIRE]] [[PRIVACY-PRINCIPLES]] [[MICROSOFT-HARMS-MODELING]].
-</dd>
+### Responses and residual risk
 
-<dt><dfn>risk</dfn></dt>
-<dd>
-Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively [[NIST-SP800-30R1]] [[PRINCE2-RISK]].
-</dd>
+<dl dfn-type="dfn">
 
 <dt><dfn>response</dfn></dt>
 <dd>
@@ -731,7 +754,7 @@ A [=response=] that reduces the likelihood or [=impact=] of a [=threat=], [=risk
 
 <dt><dfn>control</dfn></dt>
 <dd>
-A safeguard, requirement, mechanism, process, or practice that modifies [=risk=] by preventing, detecting, limiting, or recovering from an [=attack=] or its adverse consequences. [[NIST-SP800-30R1]]
+A safeguard, requirement, mechanism, process, or practice that modifies [=risk=] by preventing, detecting, limiting, or recovering from an [=attack=] or its adverse consequences [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>assumption</dfn></dt>
@@ -739,10 +762,16 @@ A safeguard, requirement, mechanism, process, or practice that modifies [=risk=]
 A condition believed to be true for the [=threat model=] to hold. Assumptions should be explicit, especially when responsibility is left to implementers, deployers, users, operating systems, browsers, infrastructure providers, or other parts of the ecosystem.
 </dd>
 
-<dt><dfn>residual risk</dfn> / <dfn>residual threat</dfn></dt>
+<dt><dfn>residual risk</dfn></dt>
 <dd>
 The [=risk=] or [=threat=] that remains after [=responses=] have been applied, after responsibility has been transferred, or after the Working Group has decided that no further response is appropriate within the specification. Residual risks and residual threats should be documented when they are relevant to implementers, deployers, reviewers, users, or other [=stakeholders=]. [[NIST-SP800-30R1]]
 </dd>
+
+</dl>
+
+### Diagram and system-modeling
+
+<dl dfn-type="dfn">
 
 <dt><dfn>visual representation</dfn> / <dfn>diagram</dfn></dt>
 <dd>
@@ -781,13 +810,19 @@ A set of [=elements=] that share a common [=authority=], privilege model, operat
 
 <dt><dfn>authority</dfn></dt>
 <dd>
-The entity that controls, operates, authorizes, or is responsible for a [=trust domain=], [=element=], [=data object=], security decision, or capability. On the Web, authority is often related to origins and origin-based security boundaries: for example, Same Origin Policy and CORS use origins to decide when one resource may read from, send to, or otherwise interact with another resource. Authority in this Guide should be understood in the security sense, not merely as the syntactic URL authority component. [[RFC6454]] [[FETCH]] [[CORS-FOR-DEVELOPERS]]
+The entity that controls, operates, authorizes, or is responsible for a [=trust domain=], [=element=], [=data object=], security decision, or capability. On the Web, authority is often related to origins and origin-based security boundaries: for example, Same Origin Policy and CORS use origins to decide when one resource may read from, send to, or otherwise interact with another resource. Authority in this Guide should be understood in the security sense, not merely as the syntactic URL authority component [[RFC6454]] [[FETCH]] [[CORS-FOR-DEVELOPERS]].
 </dd>
 
 <dt><dfn>analysis framework</dfn></dt>
 <dd>
-A structured way to analyze a model, in particular to understand what can go wrong from a specific point of view. Different frameworks help with different questions: for example, STRIDE, OSSTMM, and RFC 3552 can support security analysis; LINDDUN and RFC 6973 can support privacy analysis; harms modeling, human-rights due diligence, societal-impact analysis, and RFC 9620 can support broader socio-technical analysis. This Guide does not treat any framework as mandatory. What matters is whether the framework helps the group turn a broad concern into something that can be discussed, documented, and answered: a concrete [=threat=], [=assumption=], [=impact=], [=harm=], or [=response=]. [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]] [[RFC6973]] [[RFC9620]] [[OSSTMM3]] [[LINDDUN]] [[MICROSOFT-HARMS-MODELING]]
+A structured way to analyze a model, in particular to understand what can go wrong from a specific point of view. Different frameworks help with different questions: for example, STRIDE, OSSTMM, and RFC 3552 can support security analysis; LINDDUN and RFC 6973 can support privacy analysis; harms modeling, human-rights due diligence, societal-impact analysis, and RFC 9620 can support broader socio-technical analysis. This Guide does not treat any framework as mandatory. What matters is whether the framework helps the group turn a broad concern into something that can be discussed, documented, and answered: a concrete [=threat=], [=assumption=], [=impact=], [=harm=], or [=response=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]] [[RFC6973]] [[RFC9620]] [[OSSTMM3]] [[LINDDUN]] [[MICROSOFT-HARMS-MODELING]].
 </dd>
+
+</dl>
+
+### Kinds of threats
+
+<dl dfn-type="dfn">
 
 <dt><dfn>target threat</dfn></dt>
 <dd>
