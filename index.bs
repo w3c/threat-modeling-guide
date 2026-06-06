@@ -513,7 +513,7 @@ One side benefit of the threat modeling approach is that it simplifies other typ
 
 The goal of this Guide is to help W3C identify, capture, and communicate the security and privacy risks of its technologies, and to develop reusable, shareable, and extensible threat models for specifications. Over time, these threat models can form a coherent set of related documents that help describe threats to the Web as deployed, making threats and responses easier to understand across specifications.
 
-Note: This Guide does not require a specific threat modeling framework; what matters is that the group can explain the system, the relevant threats, and the responses.
+Note: This Guide does not require a specific threat modeling framework; what matters is that the group can explain the system, the relevant threats, and the responses. Nevertheless, the framework and process used must be specified in the threat model. For example, a Group might specify whether it analyzed the system by component, by interaction, by threat category, using a particular framework, or through another documented process
 
 ## What a Threat Model Should Capture
 
