@@ -633,6 +633,8 @@ Note: A [=threat model=] may use risk-based language, but it does not need to sc
 
 * **Explainer:** at this stage, use cases and user journeys are identified, so it is possible to understand which features or capabilities are being developed, what can go wrong at a high level, such as the potential for abuse, and which [=assumptions=] are being made.
 * **Working Draft and before Candidate Recommendation:** at this stage, it is important to keep the [=threat model=] aligned with the specification, continue mapping [=threats=] and [=responses=] to the text of the specification, and share the [=threat model=] with horizontal groups for review. A sufficiently complete version should be available before formal horizontal review.
+
+Note: During horizontal review, the threat model is the artifact that helps reviewers answer the review version of the fourth threat modeling question: has the Group done a sufficiently good job for this stage of the specification? Horizontal groups should not need to reconstruct the model from scratch. They should be able to read the threat model, understand what was considered, what was addressed, what assumptions remain, and then respond to the Group with any missing threats, unclear responsibilities, the need for more responses, or residual risks that need to be documented or addressed.
 * **Recommendation and later updates:** at this stage, the [=threat model=] should be kept updated as implementation experience accumulates and as new [=threats=] emerge or existing [=threats=] evolve.
 
 Note: If the group begins working on the [=threat model=] at an advanced stage of the specification, it is advisable to start by reverse-engineering the security-related decisions contained in the specification itself.
