@@ -858,7 +858,10 @@ The entity that controls, operates, authorizes, or is responsible for a [=trust 
 </dl>
 
 ### Threat categories and analysis frameworks
-
+<dt><dfn>analysis framework</dfn></dt>
+<dd>
+A structured way to analyze a model, in particular to understand what can go wrong from a specific point of view. Different frameworks help with different questions: for example, STRIDE, OSSTMM, and RFC 3552 can support security analysis; LINDDUN and RFC 6973 can support privacy analysis; harms modeling, human-rights due diligence, societal-impact questionnaire, and RFC 9620 can support broader socio-technical analysis [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]] [[RFC6973]] [[RFC9620]] [[OSSTMM3]] [[LINDDUN]] [[MICROSOFT-HARMS-MODELING]].
+</dd>
 <dl dfn-type="dfn">
 
 <dt><dfn>security threat</dfn></dt>
