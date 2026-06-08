@@ -842,7 +842,18 @@ A set of [=elements=] that share a common [=authority=], privilege model, operat
 <dd>
 The entity that controls, operates, authorizes, or is responsible for a [=trust domain=], [=element=], [=data object=], security decision, or capability. On the Web, authority is often related to origins and origin-based security boundaries: for example, Same Origin Policy and CORS use origins to decide when one resource may read from, send to, or otherwise interact with another resource. Authority in this Guide should be understood in the security sense, not merely as the syntactic URL authority component [[RFC6454]] [[FETCH]] [[CORS-FOR-DEVELOPERS]].
 </dd>
-
+<dt><dfn>out of scope</dfn></dt>
+<dd>
+  <p>
+    A documented scoping decision that a [=threat=], [=harm=], [=risk=],
+    actor, deployment condition, or scenario is not addressed within the
+    current [=threat model=] or specification. An out-of-scope decision
+    is not a [=response strategy=], but a modeling decision. If the issue remains
+    relevant to implementers, deployers, users, or other [=stakeholders=],
+    the [=threat model=] should explain whether the [=risk=] is
+    transferred, accepted, or recorded as [=residual risk=].
+  </p>
+</dd>
 <dt><dfn>analysis framework</dfn></dt>
 <dd>
 A structured way to analyze a model, in particular to understand what can go wrong from a specific point of view. Different frameworks help with different questions: for example, STRIDE, OSSTMM, and RFC 3552 can support security analysis; LINDDUN and RFC 6973 can support privacy analysis; harms modeling, human-rights due diligence, societal-impact questionnaire, and RFC 9620 can support broader socio-technical analysis [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]] [[RFC6973]] [[RFC9620]] [[OSSTMM3]] [[LINDDUN]] [[MICROSOFT-HARMS-MODELING]].
