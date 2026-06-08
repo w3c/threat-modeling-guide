@@ -857,7 +857,7 @@ The entity that controls, operates, authorizes, or is responsible for a [=trust 
 
 </dl>
 
-### Threat categories
+### Threat categories and analysis frameworks
 
 <dl dfn-type="dfn">
 
