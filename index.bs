@@ -12,7 +12,7 @@ Issue Tracking: GitHub https://github.com/w3c/threat-modeling-guide/issues
 Mailing List: public-security@w3.org
 Mailing List Archives: https://lists.w3.org/Archives/Public/public-security/
 Indent: 2
-Editor: Simone Onofri, w3cid 38211, W3C, simone@w3.org
+Editor: Simone Onofri, w3cid 38211, W3C https://w3.org, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements https://legreq.com, joe@legreq.com
 Abstract:
   This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help specification developers understand threats and countermeasures from the beginning of collaboration and to document the model in the security considerations section.  
@@ -1386,7 +1386,7 @@ necessarily supports their money-making agenda, as well as mission-driven
 public-sector and non-profit organizations for whom the website may serve a
 social benefit other than profit generation.
 
-The goal of website application providers is to be reliably accessible to
+The goal of website application providers is to be reliably available to
 their constituents and to realize their intended functional goals, such as
 selling products or managing conversations. Focused on just their own
 applications, these providers rely on the Web as a medium for interacting
@@ -1407,7 +1407,7 @@ invisible.
 The goal of Internet service providers is for users on both ends of the
 network (end-users and services) to be able to reach the other end, as
 designed and implemented by application providers. Hosting providers want
-their clients' websites to stay up and be accessible in a reliable way;
+their clients' websites to stay up and be available in a reliable way;
 connectivity providers want their clients to have reliable, uninterrupted,
 and unfettered access to the services (or users) they want to reach online.
 
