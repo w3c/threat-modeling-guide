@@ -552,7 +552,8 @@ For a W3C specification, the [=system under analysis=] is the relevant thing bei
 
 The description of what is being specified will usually include one or more [=diagrams=] or other [=visual representations=], together with enough prose to explain the relevant actors, components, boundaries, [=data flows=], and [=assumptions=].
 
-The important point is to make clear what is in [=scope=] and what is not. A [=threat model=] does not need to model every implementation detail. It needs to describe enough of the [=system under analysis=] so that the relevant security and privacy reasoning can be followed.
+A [=threat model=] does not need to model every  detail. It needs to describe enough of the [=system under analysis=] so that the relevant security and privacy reasoning can be followed. A [=diagram=] does not need to be complete to be useful: it needs to be useful for the analysis the group is trying to perform.
+Is it also important to make clear what is in [=scope=] and what is not.
 
 Note: A useful way to start is to draw the high-level [=flow=] first, and only then add [=trust boundaries=]. [=Trust boundaries=] help show where different actors, principals, privileges, or responsibilities meet. They are especially useful because [=threats=] often appear where something crosses those boundaries. If no boundary is visible, the group should ask whether everything in the model really has the same level of privilege, access, and responsibility, or whether the [=diagram=] is missing an [=element=], a boundary, or both.
 
@@ -613,11 +614,11 @@ Note: When documenting how a [=threat=] is addressed, it is useful to record the
 
 ### Is the analysis sufficient for the current stage of work?
 
-A [=threat model=] does not need to be exhaustive to be useful. In practice, trying to enumerate every possible [=threat=] can make the analysis harder to read, harder to review, and harder to maintain. The goal is to capture enough of the important [=threats=] to explain the security and privacy reasoning that shaped the specification.
+A [=threat model=] does not need to be exhaustive to be useful. In practice, trying to enumerate every possible [=threat=] can make the analysis harder to write, review, and maintain. The goal is to capture enough of the important [=threats=] to explain the security and privacy reasoning that shaped the specification. 
 
-Groups should therefore focus on the main [=threats=] that affect the design: the [=threats=] that led to normative requirements, important [=mitigations=], [=Security Considerations=] or [=Privacy Considerations=], implementation responsibilities, deployment [=assumptions=], or explicit out-of-scope decisions. A manageable set of high-quality [=threats=] is more useful than a very large list of highly detailed [=threats=] that readers cannot reasonably absorb or act on.
+This starts from the [=diagram=]. The test for a [=diagram=] is usefulness: a [=diagram=] that is too sparse can hide important [=threats=] by omission, a [=diagram=] that is too detailed can hide important [=threats=] in noise. The question is not whether the [=diagram=] is complete, but whether it helps the group reason about what can go wrong. 
 
-This does not mean that other [=threats=] are irrelevant. Rather, the [=threat model=] provides a framework for evaluation. It makes the Group’s reasoning visible, and gives reviewers a concrete basis for asking whether important [=threats=] are missing, whether [=responses=] are adequate, or whether additional text is needed in the specification.
+Groups should therefore focus on the main [=threats=] that affect the design: the [=threats=] that led to normative requirements, important [=mitigations=], [=Security Considerations=] or [=Privacy Considerations=], implementation responsibilities, [=assumptions=], or explicit [=out-of-scope=] decisions. A manageable set of high-quality [=threats=] is more useful than a very large list of highly detailed [=threats=] that cannot be reasonably workable. This does not mean that other [=threats=] are irrelevant. Rather, the [=threat model=] provides a framework for evaluation. It makes the Group’s reasoning visible, and gives reviewers a concrete basis for asking whether important [=threats=] are missing, whether [=responses=] are adequate, or whether additional text is needed in the specification.
 
 A useful [=threat model=] maps each important [=threat=] to the place where the [=response=] appears: a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], or an out-of-scope rationale.
 
