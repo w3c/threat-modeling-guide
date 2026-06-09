@@ -622,7 +622,7 @@ A [=threat model=] does not need to be exhaustive to be useful. In practice, try
 
 *Responses*: A useful [=threat model=] maps each important [=threat=] to the place where the [=response=] appears: a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], or an out-of-scope rationale.
 
-Note: A [=threat model=] may use risk-based language, but it does not need to score every [=threat=] quantitatively or qualitatively.
+Note: A [=threat model=] can inform risk decisions, but it is not a risk-scoring exercise. Groups should first identify the relevant [=threats=] and resulting [=harms=], then decide how to address them and document the basis for any prioritization, acceptance, transfer, or [=residual risk=]. Quantitative or qualitative scores are optional, and should be used only where they help that decision.
 
 ## When to Threat Model
 
