@@ -496,25 +496,17 @@ table.threat td.analysis-framework {
 
 The capabilities defined in W3C specifications are developed in the context of the W3C Ethical Web Principles [[ethical-web-principles]]: the Web should work for people, by supporting accessibility, internationalization, privacy, and security as part of platform design. Once defined, any capability can be used, misused, or abused, and it can also become part of an attack surface.
 
-Some concerns are [=security threat|security threats=], [=privacy threat|privacy threats=], or [=socio-technical threat|socio-technical threats=]. [=security threat|Security threats=] concern security properties of the [=system under analysis=]. [=privacy threat|Privacy threats=] concern privacy properties and expectations. [=socio-technical threat|Socio-technical threats=] start from the [=system under analysis=] and reach users, non-users, or other affected [=stakeholders=]. In this Guide, [=harms=] are the adverse [=impacts=] that may result from those [=threats=].
+Threat modeling helps a Group build and record a useful model of that capability: what is being specified, who or what is involved, what can go wrong, what the specification does about it, and what assumptions or responsibilities remain elsewhere. The goal is not to produce an exhaustive list of every possible problem. The goal is to make the security, privacy, and socio-technical reasoning behind the specification visible while the design can still be changed.
 
-These categories are prompts for analysis, not mutually exclusive classifications. A single issue may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time.
+The W3C Self-Review Questionnaire: Security and Privacy [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include [=Security Considerations=] and [=Privacy Considerations=] sections so that implementers and web developers can understand the [=risks=] a capability may present and potential [=mitigations=]. A [=threat model=] is the analysis that helps those sections communicate more than conclusions: it records the model, the important [=threats=], the selected [=responses=], the relevant [=assumptions=], and any [=remaining threats=].
 
-Even when a capability enables useful behavior, it can also create new ways for people, systems, or organizations to cause [=harm=], intentionally or not. This Guide helps W3C Groups reason systematically about the [=risk=] and abuse potential of Web capabilities during the design phase, when specifications can still be changed with minimal effort.
+Some concerns are [=security threat|security threats=], [=privacy threat|privacy threats=], or [=socio-technical threat|socio-technical threats=]. [=security threat|Security threats=] concern security properties of the [=system under analysis=]. [=privacy threat|Privacy threats=] concern privacy properties and expectations. [=socio-technical threat|Socio-technical threats=] start from the [=system under analysis=] and reach users, non-users, or other affected [=stakeholders=]. In this Guide, [=harms=] are the adverse [=impacts=] that may result from those [=threats=]. These categories are prompts for analysis, not mutually exclusive classifications. A single issue may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time.
 
-The W3C Self-Review Questionnaire: Security and Privacy [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include [=Security Considerations=] and [=Privacy Considerations=] sections so that implementers and web developers can understand the [=risks=] a capability may present and potential [=mitigations=]. These sections are most useful when they effectively communicate rationale; this is the heart of [=threat modeling=].
+Because W3C specifications are implemented in different products and deployed in different environments, a [=threat model=] should make visible the [=assumptions=] and responsibilities that remain outside the specification itself. Some [=threats=] arise from implementation choices, deployment choices, ecosystem behavior, or dependencies on other technologies. A specification might not be able to address those [=threats=] directly, but it can identify them, explain the [=assumptions=] being made, and help implementers and reviewers understand which issues are addressed (mitigated, transferred, accepted), and what is left as [=remaining threats=]. [=Threat modeling=] helps tell that story.
 
-Those who read these sections should be able to understand what capability or behavior the specification introduces, what [=risks=] follow from it, how the specification addresses them, and which [=assumptions=] or responsibilities remain elsewhere: with implementers, deployers, users, or other parts of the ecosystem.
+This Guide is primarily for specification developers, Groups, chairs, and editors. It also helps implementers understand the [=threats=] and [=assumptions=] they need to account for, helps reviewers evaluate a specification with more context, and helps the wider community understand what was considered, what was addressed, and what remains out of scope.
 
-Because W3C specifications are implemented in different products and deployed in different environments, a [=threat model=] should also make visible the [=assumptions=] and responsibilities that remain outside the specification itself. Some [=threats=] arise from implementation choices, deployment choices, ecosystem behavior, or dependencies on other technologies.
-
-A specification might not be able to address those [=threats=] directly, but it can identify them, explain the [=assumptions=] being made, and help implementers and reviewers understand the remaining [=risks=]. [=Threat modeling=] helps tell that story.
-
-It is not only a list of [=threats=], but also a way to explain the security, privacy, and socio-technical trade-offs of different choices, so that editors, Groups, implementers, reviewers, and the broader Web community can understand and justify the decisions that shape the specification.
-
-This Guide is primarily for specification developers, Groups, chairs, and editors. It also helps implementers understand the [=risks=] they need to manage, helps reviewers evaluate a specification with more context, and helps the wider community understand what was considered, what was addressed, and what remains out of scope.
-
-In that sense, [=threat modeling=] helps a group answer a small set of questions inspired by the [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org/):
+In that sense, [=threat modeling=] helps a group answer a small set of questions adapted from Shostack's Four Question Framework [[SHOSTACK2014]] and the [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org/) for W3C specifications. The second question makes affected [=stakeholders=] explicit; the fifth keeps the analysis stage-appropriate:
 
 1. What is being specified?
 2. Who may use or be affected by it?
@@ -522,22 +514,21 @@ In that sense, [=threat modeling=] helps a group answer a small set of questions
 4. How are those [=threats=] and resulting [=harms=] addressed, and where is the [=response=] documented?
 5. Is the analysis good enough for the current stage of the specification?
 
-A number of techniques can help a group answer these questions, including:
+A useful [=threat model=] usually records:
 
-* Describing use cases
-* Describing user journeys
-* Describing information exchange via flow [=diagrams=]
-* Defining [=scope=] clearly, with rationale for anything explicitly deemed out of scope
-* Documenting [=assumptions=] related to different ecosystem roles and responsibilities (e.g., implementers, the operating system, regulators, etc.)
-* Identifying relevant [=threats=] and [=mitigations=], and making those easy to find
-* Clearly distinguishing normative statements from informative guidance
-* Clearly identifying responsibilities of implementers
+* the [=system under analysis=], including relevant actors, components, [=flows=], [=trust boundaries=], and [=assumptions=];
+* the [=scope=] of the analysis, with rationale for anything explicitly deemed out of scope;
+* relevant [=stakeholders=], including people or groups who may be indirectly affected;
+* important [=threats=] and resulting [=harms=], identified from use cases, user journeys, [=diagrams=], or another documented [=analysis framework=];
+* the selected [=responses=], including where each response appears in the specification or supporting document;
+* responsibilities left to implementers, deployers, user agents, users, operating systems, regulators, or other parts of the ecosystem;
+* relevant [=remaining threats=], including the basis for any acceptance or transfer of responsibility.
 
 A security [=threat model=] should inform the [=Security Considerations=] section of a specification. The same approach can also support [=Privacy Considerations=], where a Group develops a privacy [=threat model=] or other privacy analysis. The analysis may be included directly in the specification, or published separately when it is large, or when several related specifications share common [=assumptions=] and [=threats=].
 
-One side benefit of the [=threat modeling=] approach is that it simplifies other types of review, notably the [wide review](https://www.w3.org/2023/Process-20231103/#wide-review) (including [horizontal review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review)) that is core to the W3C Process. Reviewers need enough information to understand the [=system under analysis=], the relevant [=threats=], and how the specification responds to them, without having to reconstruct that reasoning from scratch. A [=threat model=] helps reviewers find the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=residual risks=].
+One side benefit of the [=threat modeling=] approach is that it simplifies other types of review, notably the [wide review](https://www.w3.org/2023/Process-20231103/#wide-review) (including [horizontal review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review)) that is core to the W3C Process. Reviewers need enough information to understand the [=system under analysis=], the relevant [=threats=], and how the specification responds to them, without having to reconstruct that reasoning from scratch. A [=threat model=] helps reviewers find the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=remaining threats=].
 
-The goal of this Guide is to help W3C identify, capture, and communicate the security and privacy [=risks=] of its technologies, and to develop reusable, shareable, and extensible [=threat models=] for specifications. Over time, these [=threat models=] can form a coherent set of related documents that help describe [=threats=] to the Web as deployed, making [=threats=] and [=responses=] easier to understand across specifications.
+The goal of this Guide is to help W3C identify, capture, and communicate the security, privacy, and socio-technical [=threats=] associated with its technologies, and to develop reusable, shareable, and extensible [=threat models=] for specifications. Over time, these [=threat models=] can form a coherent set of related documents that help describe [=threats=] to the Web as deployed, making [=assumptions=], [=responses=], responsibilities, and [=remaining threats=] easier to understand across specifications.
 
 Note: This Guide does not require a specific [=threat modeling=] framework; what matters is that the group can explain the [=system under analysis=], the relevant [=threats=], and the [=responses=]. Nevertheless, the framework and process used must be specified in the [=threat model=]. For example, a Group might specify whether it analyzed the [=system under analysis=] by component, by interaction, by threat category, using a particular framework, or through another documented process.
 
@@ -552,8 +543,8 @@ For a W3C specification, the [=system under analysis=] is the relevant thing bei
 
 The description of what is being specified will usually include one or more [=diagrams=] or other [=visual representations=], together with enough prose to explain the relevant actors, components, boundaries, [=data flows=], and [=assumptions=].
 
-A [=threat model=] does not need to model every  detail. It needs to describe enough of the [=system under analysis=] so that the relevant security and privacy reasoning can be followed. A [=diagram=] does not need to be complete to be useful: it needs to be useful for the analysis the group is trying to perform.
-Is it also important to make clear what is in [=scope=] and what is not.
+A [=threat model=] does not need to model every detail. It needs to describe enough of the [=system under analysis=] so that the relevant security and privacy reasoning can be followed. A [=diagram=] does not need to be complete to be useful: it needs to be useful for the analysis the group is trying to perform.
+It is also important to make clear what is in [=scope=], what is out of scope, and why.
 
 Note: A useful way to start is to draw the high-level [=flow=] first, and only then add [=trust boundaries=]. [=Trust boundaries=] help show where different actors, principals, privileges, or responsibilities meet. They are especially useful because [=threats=] often appear where something crosses those boundaries. If no boundary is visible, the group should ask whether everything in the model really has the same level of privilege, access, and responsibility, or whether the [=diagram=] is missing an [=element=], a boundary, or both.
 
@@ -571,9 +562,9 @@ Note: Other W3C work gives useful examples of how to think about [=stakeholders=
 
 Where useful, a group should distinguish [=threats=] to the capability or [=system under analysis|system=] from [=threats=] that may occur through the capability or [=system under analysis|system=]. [=Security threat|Security threats=] explain how security properties can be violated. [=Privacy threat|Privacy threats=] explain how privacy properties or expectations can be violated. [=Socio-technical threat|Socio-technical threats=] explain how a specified capability, implementation choice, deployment pattern, incentive, governance decision, or user interaction can create the conditions for adverse [=impacts=] on [=stakeholders=]. In this Guide, those adverse [=impacts=] are [=harms=].
 
-These categories are prompts for analysis, not mutually exclusive classifications. A single issue may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time. The point is not to classify perfectly, but to find and document the important things that can go wrong.
+These categories are prompts for analysis. A single [=threat=] may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time. The point is not to classify perfectly, as they are not mutually exclusive classifications.
 
-[=Threats=] and resulting [=harms=] often come from examining use cases and user journeys. Each step in the [=flow=] is an opportunity to ask what can go wrong, who may be affected, what [=harm=] may result, and which actor is responsible for preventing or responding to it. A specification may not be able to address all of these [=threats=] or [=harms=] directly. But even when the [=response=] is outside the specification, the [=threat model=] can still document the issue, the relevant [=assumptions=], the expected responsibilities, and the [=residual risk=].
+[=Threats=] and resulting [=harms=] often come from examining use cases and user journeys. Each step in the [=flow=] is an opportunity to ask what can go wrong, who may be affected, what [=harm=] may result, and which actor is responsible for preventing or responding to it. A specification may not be able to address all of these [=threats=] or [=harms=] directly. But even when the [=response=] is outside the specification, the [=threat model=] can still document the issue, the relevant [=assumptions=], the expected responsibilities, and the [=remaining threat=].
 
 [=Assumptions=] should also be checked as potential sources of [=threats=]. If a [=threat model=] assumes that an implementation, deployment, user agent, relying party, regulator, or another part of the ecosystem behaves in a particular way, the group should ask what [=threat=] appears if that [=assumption=] is violated.
 
@@ -583,9 +574,9 @@ This gives the group a concrete way to move from the [=diagram=] to the list of 
 
 ### How are those threats and resulting harms addressed, and where is the response documented?
 
-A useful [=threat model=] connects important [=threats=], resulting [=harms=], and [=responses=] to the places where the specification addresses them. The [=response=] might be a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], an out-of-scope rationale, or a [=residual risk=].
+A useful [=threat model=] connects important [=threats=], resulting [=harms=], and [=responses=] to the places where the specification addresses them. The documented outcome might be a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], a transfer of responsibility, an acceptance rationale. Issues that are outside the current [=scope=] should be recorded as scoping decisions, not as [=responses=].
 
-In addition, even when a [=threat=] is mitigated, there is always a [=residual risk=] that must be documented and accepted. The mapping shows that the group not only identifies a [=threat=], but also reasons about what to do with it. It also helps reviewers and implementers find the relevant text in the specification.
+When a [=threat=] is reduced rather than eliminated, or when responsibility is transferred outside the specification, relevant [=remaining threats=] should be documented. The mapping shows that the group not only identifies a [=threat=], but also reasons about what to do with it. It also helps reviewers and implementers find the relevant text in the specification.
 
 Note: When documenting how a [=threat=] is addressed, it is useful to record the exact place where the [=response=] appears in the specification. For example, if the [=threat=] is a network attacker modifying a request before it reaches the user agent, the [=response=] might be to expose the API only in a `SecureContext`. The [=threat model=] and [=Security Considerations=] section should therefore link that [=threat=] to the corresponding requirement in the specification, rather than only saying that the [=threat=] is “mitigated”.
 
@@ -604,10 +595,10 @@ Note: When documenting how a [=threat=] is addressed, it is useful to record the
     <li><strong>[=Threat=]:</strong> the user confirms one transaction, but the confirmation is later bound to different transaction details.</li>
     <li><strong>[=Response=]:</strong> The data being signed must contain all relevant transaction details (e.g., amount, the payee, the transaction context). Then, before authorizing the transaction, the issuer or bank needs to validate what was actually signed.</li>
     <li><strong>Implementation responsibility:</strong> implementers need to ensure that the details displayed to the user match the details included in the signed payload.</li>
-    <li><strong>[=Residual risk=]:</strong> if the displayed details and the signed payload can diverge, the confirmation can still be bound to the wrong transaction.</li>
+    <li><strong>[=Remaining threat=]:</strong> if the displayed details and the signed payload can diverge, the confirmation can still be bound to the wrong transaction.</li>
   </ul>
 
-  <p>This example describes a simple [=threat modeling=] process: starting with a use case, relevant [=threats=] are identified, and [=mitigations=], [=residual risks=], [=assumptions=], and responsibilities are documented.</p>
+  <p>This example describes a simple [=threat modeling=] process: starting with a use case, relevant [=threats=] are identified, and [=mitigations=], [=remaining threats=], [=assumptions=], and responsibilities are documented.</p>
 
 </div>
 
@@ -616,33 +607,34 @@ Note: When documenting how a [=threat=] is addressed, it is useful to record the
 
 A [=threat model=] does not need to be exhaustive to be useful. In practice, trying to enumerate every possible [=threat=] can make the analysis harder to write, review, and maintain. The goal is to capture enough of the important [=threats=] to explain the security and privacy reasoning that shaped the specification. 
 
-*Diagram*: This starts from the [=diagram=]. A useful [=diagram=] is detailed enough to let the group tell the story of the [=system under analysis=], identify the relevant actors, [=data flows=], [=trust boundaries=], and security or privacy decisions, and walk through the model to ask what can go wrong. If the group needs to explain important behavior that is not visible in the [=diagram=], the [=diagram=] is probably missing something. If the group cannot traverse the [=diagram=] because it contains too much detail, the [=diagram=] is probably trying to do too much and should be split into a high-level [=diagram=] and focused sub-diagrams.
+*Diagram*: This starts from the [=diagram=]. A useful [=diagram=] is detailed enough to let the group tell the story of the [=system under analysis=], identify the relevant [=stakeholders=], [=data flows=], [=trust boundaries=], and security or privacy decisions, and walk through the model to ask what can go wrong. If the group needs to explain important behavior that is not visible in the [=diagram=], the [=diagram=] is probably missing something. If the group cannot traverse the [=diagram=] because it contains too much detail, the [=diagram=] is probably trying to do too much and should be split into a high-level [=diagram=] and focused sub-diagrams. The [=diagram=] should identify what is [=out of scope=].
 
-*Threats*: Groups should therefore focus on the main [=threats=] that affect the design: the [=threats=] that led to normative requirements, important [=mitigations=], [=Security Considerations=] or [=Privacy Considerations=], implementation responsibilities, [=assumptions=], or explicit [=out of scope=] decisions. A manageable set of high-quality [=threats=] is more useful than a very large list of highly detailed [=threats=] that cannot be reasonably workable. This does not mean that other [=threats=] are irrelevant. Rather, the [=threat model=] provides a framework for evaluation. It makes the Group’s reasoning visible, and gives reviewers a concrete basis for asking whether important [=threats=] are missing, whether [=responses=] are adequate, or whether additional text is needed in the specification.
+*Threats*: Groups should therefore focus on the main [=threats=] that affect the design: the [=threats=] that led to normative requirements, [=mitigations=], [=Security Considerations=] or [=Privacy Considerations=], implementation requirements, or [=assumptions=]. A manageable set of high-quality [=threats=] is more useful than a very large list of highly detailed [=threats=] that cannot be worked through or maintained. This does not mean that other [=threats=] are irrelevant. Rather, the [=threat model=] provides a framework for evaluation. It makes the Group’s reasoning visible, and gives reviewers a concrete basis for asking whether important [=threats=] are missing, whether [=responses=] are adequate, or whether additional text is needed in the specification.
 
-*Responses*: A useful [=threat model=] maps each important [=threat=] to the place where the [=response=] appears: a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], or an out-of-scope rationale.
+*Responses*: Groups should map each [=threat=] to one or more documented outcomes: a normative requirement in the specification, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation requirement, an [=assumption=], a transfer of responsibility, an acceptance rationale, or a documented [=remaining threat=].
 
-Note: A [=threat model=] can inform risk decisions, but it is not a risk-scoring exercise. Groups should first identify the relevant [=threats=] and resulting [=harms=], then decide how to address them and document the basis for any prioritization, acceptance, transfer, or [=residual risk=]. Quantitative or qualitative scores are optional, and should be used only where they help that decision.
+Note: A [=threat model=] can inform risk decisions, but it is not a risk-scoring exercise. Groups should first identify the relevant [=threats=] and resulting [=harms=], then decide how to address them and document the basis for any prioritization, acceptance, transfer, or [=remaining threat=]. Quantitative or qualitative scores are optional, and should be used only where they help that decision.
 
 ## When to Threat Model
 
-[=Threat modeling=] can be performed throughout the entire lifecycle of a specification, but the sooner you start, the better, because the sooner you understand the [=risks=], the more cost-effective it is to implement [=mitigations=] and make adjustments. Just like a specification, a [=threat model=] is an iterative, incremental process, and its maturity and level of detail are directly related to the specification.
+[=Threat modeling=] can be performed throughout the entire lifecycle of a specification, but the sooner you start, the better, because the sooner you understand what can go wrong, the more cost-effective it is to implement [=mitigations=] and make adjustments. Just like a specification, a [=threat model=] is an iterative, incremental process, and its maturity and level of detail are directly related to the specification.
 
 [=Threat models=] should be developed collaboratively by the Group, with support from the W3C Team and horizontal groups, and iteratively at different times during the lifecycle of a Group and specification:
 
 * **Charter:** Significant [=threats=] known at the time of chartering should be captured in the charter when they help clarify the [=scope=] of the work. For example, a group working on digital credentials may already know that tampering, spoofing, and information disclosure are important concerns, even before a complete [=threat model=] has been developed.
 
 * **Explainer:** at this stage, use cases and user journeys are identified, so it is possible to understand which features or capabilities are being developed, what can go wrong at a high level, such as the potential for abuse, and which [=assumptions=] are being made.
-* **Working Draft and before Candidate Recommendation:** at this stage, it is important to keep the [=threat model=] aligned with the specification, continue mapping [=threats=] and [=responses=] to the text of the specification, and share the [=threat model=] with horizontal groups for review. A sufficiently complete version should be available before formal horizontal review.
+* **Working Draft and before Candidate Recommendation:** at this stage, the [=threat model=] should be aligned with the specification, with the mapping between [=threats=] and [=responses=] to the text of the specification. A sufficiently complete version should be available for horizontal review.
 
-Note: During horizontal review, the threat model is the artifact that helps reviewers answer the review version of the fourth threat modeling question: has the Group done a good enough job for this stage of the specification? Horizontal groups should not need to reconstruct the model from scratch. They should be able to read the threat model, understand what was considered, what was addressed, what assumptions remain, and then respond to the Group with any missing threats, unclear responsibilities, the need for more responses, or residual risks that need to be documented or addressed.
-* **Recommendation and later updates:** at this stage, the [=threat model=] should be kept updated as implementation experience accumulates and as new [=threats=] emerge or existing [=threats=] evolve.
+Note: During horizontal review, the threat model is the artifact that helps reviewers answer the review version of the fourth threat modeling question: has the Group done a good enough job for this stage of the specification? Horizontal groups should not need to reconstruct the model from scratch. They should be able to read the threat model, understand what was considered, what was addressed, what assumptions remain, and then respond to the Group with any missing threats, unclear responsibilities, the need for more responses, or remaining threats that need to be documented or addressed.
+
+* **Recommendation and later updates:** at this stage, the [=threat model=] should be kept updated. Implementation experience can signal new [=threats=] or evolution of existing [=threats=].
 
 Note: If the group begins working on the [=threat model=] at an advanced stage of the specification, it is advisable to start by reverse-engineering the security-related decisions contained in the specification itself.
 
 ## Where to Publish the Threat Model
 
-The [=threat model=] serves as the foundation for the [=Security Considerations=] section of a specification. If the [=threat model=] is small, it can be included directly in the [=Security Considerations=] section. Otherwise, it can be published separately, for example, as a Group Note, and referenced from the [=Security Considerations=] section.
+The [=threat model=] serves as the foundation for the [=Security Considerations=] section of a specification. If the [=threat model=] is small, it can be included directly in the [=Security Considerations=] section. Otherwise, it can be published separately, for example, as a Group Note, and referenced from the [=Security Considerations=] or [=Privacy Considerations=] section.
 
 Even when the [=threat model=] is published separately, each specification should still include [=Security Considerations=] and [=Privacy Considerations=] sections that summarize the relevant [=threats=], explain where the [=responses=] are documented, and link to the [=threat model=].
 
@@ -685,12 +677,12 @@ The part of the system, ecosystem, or specification behavior considered by the [
 
 <dt><dfn>Security Considerations</dfn></dt>
 <dd>
-The section of a specification that documents security-relevant issues that implementers, deployers, reviewers, and other stakeholders should consider. In this Guide, the Security Considerations section should be informed by the [=threat model=], including the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=residual risks=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]].
+The section of a specification that documents security-relevant issues that implementers, deployers, reviewers, and other stakeholders should consider. In this Guide, the Security Considerations section should be informed by the [=threat model=], including the relevant [=threats=], [=assumptions=], [=responses=], limitations, and [=remaining threats=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC3552]].
 </dd>
 
 <dt><dfn>Privacy Considerations</dfn></dt>
 <dd>
-The section, or related analysis, that documents privacy-relevant issues associated with a specification. In this Guide, the Privacy Considerations section may be informed by the same [=threat model=], or by a related privacy analysis, and should describe relevant privacy [=threats=], [=assumptions=], [=impacts=], [=harms=], [=responses=], and [=residual risks=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC6973]].
+The section, or related analysis, that documents privacy-relevant issues associated with a specification. In this Guide, the Privacy Considerations section may be informed by the same [=threat model=], or by a related privacy analysis, and should describe relevant privacy [=threats=], [=assumptions=], [=impacts=], [=harms=], [=responses=], and [=remaining threats=] [[SECURITY-PRIVACY-QUESTIONNAIRE]] [[RFC6973]].
 </dd>
 
 </dl>
@@ -711,7 +703,7 @@ Something of value to one or more [=stakeholders=]. Assets may include data, cre
 
 <dt><dfn>impact</dfn></dt>
 <dd>
-The consequence produced by an [=risk=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
+The consequence produced by a [=threat=], [=risk=], event, design choice, implementation choice, deployment condition, or use of the [=system under analysis=]. Impact may affect systems, data, organizations, operations, implementers, deployers, users, other [=stakeholders=], or the Web ecosystem. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>harm</dfn></dt>
@@ -725,7 +717,7 @@ In this Guide, the terms are separated for clarity. A [=socio-technical threat=]
 
 <dt><dfn>risk</dfn></dt>
 <dd>
-Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=residual risk=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively [[NIST-SP800-30R1]] [[PRINCE2-RISK]].
+Something uncertain that may happen and that, if it happens, has an [=impact=]. In this Guide, we focus on the part of risk that has a negative impact: [=threats=] that may affect the [=system under analysis=], and  [=harms=] that may affect the [=stakeholders=], or the broader Web ecosystem. This does not make the Guide a risk assessment method. It only means that, when useful, the Guide uses risk-based language, for example, likelihood, impact, prioritization, [=remaining threat=], and acceptance. A [=threat model=] can use this language, but it does not need to score every threat quantitatively [[NIST-SP800-30R1]] [[PRINCE2-RISK]].
 </dd>
 
 </dl>
@@ -751,7 +743,7 @@ A [=threat actor=] that intentionally attempts to cause, exploit, or benefit fro
 
 <dt><dfn>threat</dfn></dt>
 <dd>
-Something that may happen and that, if it happens, can produce an adverse [=impact=]. In this Guide, threats are the negative side of [=risk=]: the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]].
+Something that may happen and that, if it happens, can produce an adverse [=impact=]. In this Guide, threats are the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>attack</dfn></dt>
@@ -766,18 +758,18 @@ A security-relevant issue in a specification design, implementation, configurati
 
 </dl>
 
-### Responses and residual risk
+### Responses and remaining threat
 
 <dl dfn-type="dfn">
 
 <dt><dfn>response</dfn></dt>
 <dd>
-What the specification, Group, implementer, deployer, user agent, user, or another actor is expected to do about a [=threat=], [=impact=], [=harm=], or [=risk=]. A response may be a requirement, a [=mitigation=], an implementation note, an [=assumption=], a transfer of responsibility, an acceptance of [=residual risk=], or an explicit statement that something is out of scope.
+What the specification is expected to do about a [=threat=], an [=impact=], a [=harm=], or a [=risk=]. There are different [=response strategy|response strategies=].
 </dd>
 
 <dt><dfn>response strategy</dfn></dt>
 <dd>
-A classification of [=responses=] to a [=threat=], [=impact=], [=harm=], or [=risk=]. This Guide uses four common response strategies with the ERTA mnemonic: Eliminate the threat or the condition that enables it, also known as Avoid; Reduce the likelihood or impact through [=controls=] or [=mitigations=], also known as Mitigation; Transfer to another actor, layer, dependency, or the user; or Accept the threat and document the rationale. When a threat is transferred, this depends  on an [=assumption=] that another actor, layer, dependency, or the user can address the [=risk=], and can be in the form of implementation responsibilities or deployment [=assumptions=] . When a threat is transferred to the user, the relevant usability and accessibility safeguards should be considered. When a threat is reduced through mitigation, the threat is not eliminated; rather, a [=residual risk=] remains and should be accepted or otherwise addressed.
+A classification of [=responses=] to a [=threat=], [=impact=], [=harm=], or [=risk=]. This Guide uses four common response strategies with the ERTA mnemonic: Eliminate the threat or the condition that enables it, also known as Avoid; Reduce the likelihood or impact through [=controls=] or [=mitigations=], also known as Mitigation; Transfer to another actor, layer, dependency, or the user; or Accept the threat and document the rationale. When a threat is transferred, this depends on an [=assumption=] that another actor, layer, dependency, or the user can address the [=risk=], and can be in the form of implementation responsibilities or deployment [=assumptions=]. When a threat is transferred to the user, the relevant usability and accessibility safeguards should be considered. When a threat is reduced through mitigation, the threat is not eliminated; rather, any remaining [=remaining threat=] should be documented and either accepted, transferred, or addressed by further work.
 </dd>
 
 <dt><dfn>mitigation</dfn></dt>
@@ -795,9 +787,15 @@ A safeguard, requirement, mechanism, process, or practice that modifies [=risk=]
 A condition believed to be true for the [=threat model=] to hold. Assumptions should be explicit, especially when responsibility is left to implementers, deployers, users, operating systems, browsers, infrastructure providers, or other parts of the ecosystem.
 </dd>
 
-<dt><dfn>residual risk</dfn></dt>
+<dt><dfn>remaining threat</dfn></dt>
 <dd>
-The [=risk=] or [=threat=] that remains after [=responses=] have been applied, after responsibility has been transferred, or after the Group has decided that no further response is appropriate within the specification [[NIST-SP800-30R1]]. Residual risks and residual threats should be documented when they are relevant to implementers, deployers, reviewers, users, or other [=stakeholders=].
+    A [=threat=] that remains possible after [=responses=] have been
+    applied, after responsibility has been transferred, or after the
+    Group has decided that no further response is appropriate within the
+    current [=scope=]. A remaining threat should be documented when it is
+    relevant to implementers, deployers, reviewers, users, or other
+    [=stakeholders=]. The risk associated with a remaining threat may be
+    documented as residual risk [[NIST-SP800-30R1]].
 </dd>
 
 </dl>
@@ -846,16 +844,11 @@ A set of [=elements=] that share a common [=authority=], privilege model, operat
 The entity that controls, operates, authorizes, or is responsible for a [=trust domain=], [=element=], [=data object=], security decision, or capability. On the Web, authority is often related to origins and origin-based security boundaries: for example, Same Origin Policy and CORS use origins to decide when one resource may read from, send to, or otherwise interact with another resource. Authority in this Guide should be understood in the security sense, not merely as the syntactic URL authority component [[RFC6454]] [[FETCH]] [[CORS-FOR-DEVELOPERS]].
 </dd>
 <dt><dfn>out of scope</dfn></dt>
+
 <dd>
-  <p>
-    A documented scoping decision that a [=threat=], [=harm=], [=risk=],
-    actor, deployment condition, or scenario is not addressed within the
-    current [=threat model=] or specification. An out-of-scope decision
-    is not a [=response strategy=], but a modeling decision. If the issue remains
-    relevant to implementers, deployers, users, or other [=stakeholders=],
-    the [=threat model=] should explain whether the [=risk=] is
-    transferred, accepted, or recorded as [=residual risk=].
-  </p>
+documented scoping decision that an actor, component, data flow, dependency, deployment condition, use case, misuse case, scenario, [=threat=], [=harm=], or [=risk=] is outside the system, context, or stage of work being modeled. An out-of-scope decision helps define what the current [=threat model=] is about; it is not a [=response strategy=] and should not be counted as addressing a [=threat=].
+
+If the issue remains relevant to implementers, deployers, users, reviewers, or other [=stakeholders=], the [=threat model=] should record the boundary being drawn and, where known, identify where the issue is expected to be analyzed or addressed.
 </dd>
 
 </dl>
@@ -881,9 +874,9 @@ A [=threat=] to a privacy property, privacy expectation, or privacy-relevant sta
 
 <dt><dfn>socio-technical threat</dfn></dt>
 <dd>
-A [=threat=] that starts from the [=system under analysis=] and reaches [=stakeholders=], including users, non-users, groups, communities, institutions, society, the Web ecosystem, or the environment. A socio-technical threat describes how a specified capability, implementation choice, deployment pattern, incentive, governance decision, user interaction, or ecosystem behavior can create, enable, amplify, or fail to prevent conditions that may lead to [=harm=].
+A [=threat=] that starts from the [=system under analysis=] and reaches [=stakeholders=], including users, non-users, groups, communities, institutions, society, the Web ecosystem, or the environment. A socio-technical threat describes how the specified capability, implementation choice, deployment pattern, incentive, governance decision, user interaction, or ecosystem behavior can create, enable, amplify, or fail to prevent conditions that may lead to [=harm=].
 
-Socio-technical threats are not the same as harms. Socio-technical threats describe the pathway through which the system can generate adverse impacts on people, society, the ecosystem, or the environment. Harms describe the adverse impacts themselves.
+Socio-technical threats are not the same as harms. Socio-technical threats describe the pathway through which the system can generate adverse impacts on people, society, the ecosystem, or the environment, while the [=harm=] describe the adverse impacts themselves. Although the line between a [=threat=] and a [=harm=] can often be difficult to draw, a [=threat=] focuses more on the cause, while a [=harm=] focuses more on the impact.
 </dd>
 
 </dl>
