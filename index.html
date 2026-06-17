@@ -4,9 +4,9 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Threat Modeling Guide</title>
   <meta content="ED" name="w3c-status">
-  <meta content="Bikeshed version cfb78d9c0, updated Tue Jun 2 16:21:00 2026 -0700" name="generator">
+  <meta content="Bikeshed version d113b2e81, updated Tue Jun 9 14:57:55 2026 -0700" name="generator">
   <link href="https://www.w3.org/TR/threat-modeling-guide/" rel="canonical">
-  <meta content="f54982404cbd6d3fc24b0573479eca09328f7641" name="revision">
+  <meta content="3b03c245d71817c1da045b0b950ca69ad7d286cf" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
 table.visual-terminology,
@@ -555,7 +555,7 @@ dfn > a.self-link::before      { content: "#"; }
 </p>
    <h1 class="no-ref p-name" id="title">Threat Modeling Guide</h1>
    <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>,
-    <time class="dt-updated" datetime="2026-06-04">4 June 2026</time></p>
+    <time class="dt-updated" datetime="2026-06-17">17 June 2026</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -733,22 +733,36 @@ attack.</p>
      <p><strong>Attacks</strong>: An attack is a realization of a threat; a particular
 instance of a threat manifesting in an operational system.</p>
     <li data-md>
+     <p><strong>Harms</strong>: In general, harms can be viewed as the negative impact of a
+threat, which is the cause. In the case of Harms Modeling, however, 
+the term specifically refers to the negative impact on people 
+<a data-link-type="biblio" href="#biblio-microsoft-harms-modeling" title="Foundations of Assessing Harm (Harms modeling)">[MICROSOFT-HARMS-MODELING]</a>.</p>
+    <li data-md>
+     <p><strong>Bug</strong>: a bug is an issue in the code, design, or configuration that
+generates a unusual behavior that could be abused or misused.</p>
+    <li data-md>
+     <p><strong>*Exploit</strong>: an exploit is a code or a procedure that allows someone
+ to take advantage of one or more vulnerabilities, and exploitation is the
+ term used to describe this process.</p>
+    <li data-md>
      <p><strong>Responses</strong>: Controls or mitigations that can be (or have been) put in
 place for specific threats, including the limitations of such responses
 and accepting threats outside the scope of the specification.</p>
+    <li data-md>
+     <p><strong>Security</strong>: Security is considered a function of separation between
+what we are protecting and the threats. This separation occurs through 
+the application of response strategies (e.g., controls or mitigations) 
+that create a distance between the assets and the threat. This definition
+is tied to the OSSTMM v3 <a data-link-type="biblio" href="#biblio-osstmm3" title="Open Source Security Testing Methodology Manual v3">[OSSTMM3]</a>.</p>
     <li data-md>
      <p><strong>System</strong>: a collection of functionality that can span one or more
 components (functional areas). A system exposes certain functionality to
 external entities (interactors outside the system’s control) and must
 protect one or more assets. <a data-link-type="biblio" href="#biblio-swiderski-snyder2004" title="Threat Modeling">[SWIDERSKI-SNYDER2004]</a>.</p>
     <li data-md>
-     <p><strong>Threats</strong>: something that, if it happens, has a negative impact. In the
-<a href="https://www.isecom.org/OSSTMM.3.pdf">Open Source Security Testing Methodology Manual v3
-(OSSTMM)</a> Security is considered a
-function of separation between what we are protecting and the threats.
-This separation occurs through the application of response strategies
-(e.g., controls or mitigations) that create a distance between the asset
-and the threat.</p>
+     <p><strong>Threat</strong>: something that, if it happens, has a negative impact.</p>
+    <li data-md>
+     <p><strong>Vulnerability</strong>: it is a bug that is potentially exploitable.</p>
    </ul>
    <h3 class="heading settled" data-level="1.2" id="goals-of-this-guide"><span class="secno">1.2. </span><span class="content">Goals of This Guide</span><a class="self-link" href="#goals-of-this-guide"></a></h3>
    <p>This guide helps specification developers and implementers document and
@@ -2161,6 +2175,8 @@ Privacy)</p>
    <dd>Cathy O'Neil. <a href="https://www.penguinrandomhouse.ca/books/241363/weapons-of-math-destruction-by-cathy-oneil/9780553418835/excerpt"><cite>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy (excerpt)</cite></a>. 2016. Book. URL: <a href="https://www.penguinrandomhouse.ca/books/241363/weapons-of-math-destruction-by-cathy-oneil/9780553418835/excerpt">https://www.penguinrandomhouse.ca/books/241363/weapons-of-math-destruction-by-cathy-oneil/9780553418835/excerpt</a>
    <dt id="biblio-onofri2024-inclusion">[ONOFRI2024-INCLUSION]
    <dd>Simone Onofri. <a href="https://w3.org/2024/Talks/inclusion-simone.pdf"><cite>Threat Modeling (W3C Inclusion 2024 slides)</cite></a>. 6 September 2024. Slides. URL: <a href="https://w3.org/2024/Talks/inclusion-simone.pdf">https://w3.org/2024/Talks/inclusion-simone.pdf</a>
+   <dt id="biblio-osstmm3">[OSSTMM3]
+   <dd>Pete Herzog. <a href="https://www.isecom.org/OSSTMM.3.pdf"><cite>Open Source Security Testing Methodology Manual v3</cite></a>. 2010. Blog post. URL: <a href="https://www.isecom.org/OSSTMM.3.pdf">https://www.isecom.org/OSSTMM.3.pdf</a>
    <dt id="biblio-osterman2006">[OSTERMAN2006]
    <dd>Larry Osterman. <a href="https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/july/security-briefs-reinvigorate-your-threat-modeling-process"><cite>Security Briefs: Reinvigorate your Threat Modeling Process (used as a proxy source for the cited guidance)</cite></a>. 2006. Article. URL: <a href="https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/july/security-briefs-reinvigorate-your-threat-modeling-process">https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/july/security-briefs-reinvigorate-your-threat-modeling-process</a>
    <dt id="biblio-osterman2007">[OSTERMAN2007]
