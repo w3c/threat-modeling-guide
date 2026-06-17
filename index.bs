@@ -15,8 +15,7 @@ Indent: 2
 Editor: Simone Onofri, w3cid 38211, W3C https://w3.org, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements https://legreq.com, joe@legreq.com
 Abstract:
-  This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help specification developers understand threats and countermeasures from the beginning of collaboration and to document the model in the security considerations section.
-
+  This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help specification developers understand threats and countermeasures from the beginning of collaboration and to document the model in the security considerations section.  
   This document is intended for threat modeling with the broadest definition of threat.
 Status text:
   <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C standards and drafts index</a>.</em></p>
@@ -1019,7 +1018,7 @@ many of which are independently developed and maintained. This makes threat
 modeling for the Web a complex challenge (See [The Web is
 Unversioned](https://www.w3.org/2001/tag/doc/the-web-is-unversioned/)).
 
-For this threat model, we think about the World Wide Web as just nince
+For this threat model, we think about the World Wide Web as just nine
 independent components: three human (user, website admin, and network
 operator), three in software (a browser, a DNS server, and a web server),
 and three legal persons (Website Application Providers, Internet Service
