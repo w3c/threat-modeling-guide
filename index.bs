@@ -549,18 +549,6 @@ stakeholders to understand if their particular concerns are addressed.
 At the W3C, Working Groups develop threat models to capture and document
 threats related to a specification as it is expected to be deployed.
 
-Threats listed in W3C threat models should include:
-
-1. **Target Threats** which are explicitly addressed by specification
-   developers,
-2. **Implementation Threats** likely to impact implementations, but for
-   which normative constraints are deemed too restrictive,
-3. **External Threats** Known real-world or systemic risks that exist for
-   common use cases, but are recognized as out of scope for the modeled
-   version of the specification, and
-4. **Dependency Threats** inherited from other elements of the ecosystem,
-   and relevant to the specific use-cases.
-
 Specifications that define the Web offer significant extensibility and
 optionality, allowing implementers to make a wide range of choices that
 affect security, even when 100% conformant to the specification. Often spec
