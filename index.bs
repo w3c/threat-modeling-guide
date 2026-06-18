@@ -658,7 +658,7 @@ The [=threat model=] serves as the foundation for the [=Security Considerations=
 
 Even when the [=threat model=] is published separately, each specification should still include [=Security Considerations=] and [=Privacy Considerations=] sections that summarize the relevant [=threats=], explain where the [=responses=] are documented, and link to the [=threat model=].
 
-When publishing externally, groups are encouraged to list the [=threats=] by
+When publishing separately, groups are encouraged to list the [=threats=] by
 name and identifier, without further description, as an index in the
 relevant considerations section. This makes it easier for readers to see at
 a glance which [=threats=] may matter to them, and where the full analysis
