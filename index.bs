@@ -837,8 +837,7 @@ A security-relevant issue in a specification design, implementation, configurati
 
 # How to Threat Model
 
-Issue: This section is incomplete and needs to be aligned with the
-introduction.
+Issue: This section is a work in progress.
 
 1. Paint a picture
 2. Capture threats
