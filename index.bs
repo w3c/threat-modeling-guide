@@ -15,8 +15,10 @@ Indent: 2
 Editor: Simone Onofri, w3cid 38211, W3C https://w3.org, simone@w3.org
 Editor: Joe Andrieu, w3cid 97261, Legendary Requirements https://legreq.com, joe@legreq.com
 Abstract:
-  This document describes when, why, and how to perform threat modeling during the development of a specification at the World Wide Web Consortium (W3C). This is designed to help specification developers understand threats and countermeasures from the beginning of collaboration and to document the model in the security considerations section.
-  This document is intended for threat modeling with the broadest definition of threat.
+  This document explains how W3C Groups can use threat modeling during specification development to make explicit what is being specified, what can go wrong, who may be impacted, and how the specification addresses those threats.
+  It provides a practical structure for making this reasoning visible, helping specification developers, editors, and reviewers document the system under analysis, the relevant threats and harms, the assumptions being made, the responsibilities left to other actors, the responses chosen, and any residual risk.
+  This analysis can then be used to inform Security Considerations, horizontal review, or a separate threat model referenced by the specification. In this Guide, “threat” is used broadly, including security and privacy threats, misuse or abuse of intended functionality, implementation and deployment threats, dependency and ecosystem threats, and harms to people or to the Web ecosystem.
+
 Status text:
   <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C standards and drafts index</a>.</em></p>
   <p>This Group Note Draft is endorsed by the Security Interest Group, but is not endorsed by W3C itself nor its Members.</p>
