@@ -931,6 +931,11 @@ deployment, showing how the specification fits into real-world systems.
 These system boundaries illustrate flows and elements from which threats
 might arise.
 
+Note: A [=trust boundary=] should make the relevant change in authority,
+privilege, responsibility, or [=assumption=] visible. If a boundary appears to
+cut through an [=element=], split the element or use a focused sub-diagram so
+the model shows what crosses the boundary and how that crossing is protected.
+
 This is similar to geographical maps. Not only can it be useful to have
 various levels of zoom, it can be useful to have different information
 (e.g., satellite images, street map, topographic map) presented in
