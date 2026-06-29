@@ -329,6 +329,33 @@ table.threat td.analysis-framework {
     "status": "Web guidance",
     "title": "Foundations of Assessing Harm (Harms modeling)"
   },
+  "W3C-LSP-THREAT-MODELING": {
+    "authors": ["Simone Onofri", "Giovanni Corti"],
+    "date": "20 October 2025",
+    "href": "https://www.w3.org/blog/2025/threat-modeling-with-lego-serious-play-building-your-digital-identity-threat/",
+    "id": "W3C-LSP-THREAT-MODELING",
+    "publisher": "W3C",
+    "status": "Blog post",
+    "title": "Threat Modeling with LEGO SERIOUS PLAY: Building your Digital Identity threat"
+  },
+  "THREAT-MODEL-DECENTRALIZED-CREDENTIALS": {
+    "authors": ["W3C"],
+    "date": "22 June 2026",
+    "href": "https://www.w3.org/TR/threat-model-decentralized-credentials/#harms",
+    "id": "THREAT-MODEL-DECENTRALIZED-CREDENTIALS",
+    "publisher": "W3C",
+    "status": "Group Draft Note",
+    "title": "Threat Model for Decentralized Credentials"
+  },
+  "INSTAR-HUMAN-RIGHTS-ICT-REPORT": {
+    "authors": ["Emilio Dávila González", "Paul Killeen", "Silvana Muscella", "et al."],
+    "date": "9 June 2026",
+    "href": "https://doi.org/10.5281/zenodo.20614147",
+    "id": "INSTAR-HUMAN-RIGHTS-ICT-REPORT",
+    "publisher": "Zenodo",
+    "status": "Post-event report",
+    "title": "Seminar on Human Rights and ICT Standardisation post-event report"
+  },
   "SOLOVE-PRIVACY": {
     "authors": ["Daniel J. Solove"],
     "date": "2006",
@@ -2376,6 +2403,23 @@ Starting from a harm does not make the harm itself a threat. For example,
 exclusion from a service is a harm. A socio-technical threat explains how a
 specified capability, implementation choice, deployment choice, or ecosystem
 practice can create the conditions for that exclusion.
+
+Note: Moving from harms to threats can be difficult when a harm is expressed in
+rights-related or socio-technical terms, for example dignity, fairness,
+transparency, non-discrimination, exclusion, or surveillance. The <cite>Seminar
+on Human Rights and ICT Standardisation post-event report</cite> identifies this
+translation gap between human-rights concepts and engineering requirements as a
+challenge for ICT standardization [[INSTAR-HUMAN-RIGHTS-ICT-REPORT]]. In W3C
+digital identity work, facilitated workshops have used the LEGO® SERIOUS PLAY®
+method in threat-modeling activities that considered security and human-rights
+threats, including harms-to-threat pathways
+[[W3C-LSP-THREAT-MODELING]]
+[[THREAT-MODEL-DECENTRALIZED-CREDENTIALS]]. The same facilitation technique can
+be used more generally when it helps participants make a model, assumption,
+threat, or harm concrete enough to discuss. The output of such a workshop still
+needs to be recorded as threat-model material: affected stakeholders, harms,
+system conditions or assumptions, threat pathways, and any responses, transfers,
+acceptances, or remaining threats.
 
 Use harms modeling, RFC 9620, and the W3C Self-Review Questionnaire:
 Societal Impact to identify relevant harms. Then map backward from those
