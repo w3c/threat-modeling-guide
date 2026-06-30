@@ -519,7 +519,7 @@ Threat modeling helps a Group build and record a useful model of that capability
 
 The W3C Self-Review Questionnaire: Security and Privacy [[SECURITY-PRIVACY-QUESTIONNAIRE]] explains that specifications should include [=Security Considerations=] and [=Privacy Considerations=] sections so that implementers and web developers can understand the [=risks=] a capability may present and potential [=mitigations=]. A [=threat model=] is the analysis that helps those sections communicate more than conclusions: it records the model, the important [=threats=], the selected [=responses=], the relevant [=assumptions=], and any [=remaining threats=].
 
-Some concerns are [=security threat|security threats=], [=privacy threat|privacy threats=], or [=socio-technical threat|socio-technical threats=]. [=security threat|Security threats=] concern security properties of the [=system under analysis=]. [=privacy threat|Privacy threats=] concern privacy properties and expectations. [=socio-technical threat|Socio-technical threats=] start from the [=system under analysis=] and reach users, non-users, or other affected [=stakeholders=]. In this Guide, [=harms=] are the adverse [=impacts=] that may result from those [=threats=]. These categories are prompts for analysis, not mutually exclusive classifications. A single issue may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time.
+Some concerns are [=security threat|security threats=], [=privacy threat|privacy threats=], or [=socio-technical threat|socio-technical threats=]. [=security threat|Security threats=] concern security properties of the [=system under analysis=]. [=privacy threat|Privacy threats=] concern privacy properties and expectations. [=socio-technical threat|Socio-technical threats=] start from the [=system under analysis=] and reach users, non-users, or other affected [=stakeholders=]. In this Guide, [=harms=] are the [=adverse impacts=] that may result from those [=threats=]. These categories are prompts for analysis, not mutually exclusive classifications. A single issue may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time.
 
 Because W3C specifications are implemented in different products and deployed in different environments, a [=threat model=] should make visible the [=assumptions=] and responsibilities that remain outside the specification itself. Some [=threats=] arise from implementation choices, deployment choices, ecosystem behavior, or dependencies on other technologies. A specification might not be able to address those [=threats=] directly, but it can identify them, explain the [=assumptions=] being made, and help implementers and reviewers understand which issues are addressed (mitigated, transferred, accepted), and what is left as [=remaining threats=]. [=Threat modeling=] helps tell that story.
 
@@ -575,21 +575,21 @@ This question is important because not all relevant [=threats=] are only [=threa
 
 In other words, the analysis should not only ask what can go wrong inside the [=system under analysis=]. It should also ask who pays the cost when something goes wrong.
 
-Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[SOCIETAL-IMPACT-QUESTIONNAIRE]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental [=impact=].
+Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[SOCIETAL-IMPACT-QUESTIONNAIRE]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental impact.
 
 ### What can go wrong, and what harms may result?
 
-Where useful, a group should distinguish [=threats=] to the capability or [=system under analysis|system=] from [=threats=] that may occur through the capability or [=system under analysis|system=]. [=Security threat|Security threats=] explain how security properties can be violated. [=Privacy threat|Privacy threats=] explain how privacy properties or expectations can be violated. [=Socio-technical threat|Socio-technical threats=] explain how a specified capability, implementation choice, deployment pattern, incentive, governance decision, or user interaction can create the conditions for adverse [=impacts=] on [=stakeholders=]. In this Guide, those adverse [=impacts=] are [=harms=].
+Where useful, a group should distinguish [=threats=] to the capability or [=system under analysis|system=] from [=threats=] that may occur through the capability or [=system under analysis|system=]. [=Security threat|Security threats=] explain how security properties can be violated. [=Privacy threat|Privacy threats=] explain how privacy properties or expectations can be violated. [=Socio-technical threat|Socio-technical threats=] explain how a specified capability, implementation choice, deployment pattern, incentive, governance decision, or user interaction can create the conditions for [=adverse impacts=] on [=stakeholders=]. In this Guide, those [=adverse impacts=] are [=harms=].
 
 These categories are prompts for analysis. A single [=threat=] may involve [=security threat|security threats=], [=privacy threat|privacy threats=], and [=socio-technical threat|socio-technical threats=] at the same time. The point is not to classify perfectly, as they are not mutually exclusive classifications.
 
-Some frameworks use "harm" broadly to describe both the adverse impact and the pathway that enables it [[MICROSOFT-HARMS-MODELING]] [[SOLOVE-PRIVACY]]. Shostack describes a related distinction between [=threats=] to the [=system under analysis|system=] and [=threats=] via the [=system under analysis|system=] [[SHOSTACK-C2PA]] [[SHOSTACK2014]]. This Guide separates those ideas: a [=harm=] is the adverse impact, while a [=socio-technical threat=] describes how the [=system under analysis=], implementation choice, deployment pattern, incentive, governance decision, user interaction, or ecosystem behavior can create the conditions for that impact.
+Some frameworks use "harm" broadly to describe both the [=adverse impact=] and the pathway that enables it [[MICROSOFT-HARMS-MODELING]] [[SOLOVE-PRIVACY]]. Shostack describes a related distinction between [=threats=] to the [=system under analysis|system=] and [=threats=] via the [=system under analysis|system=] [[SHOSTACK-C2PA]] [[SHOSTACK2014]]. This Guide separates those ideas: a [=harm=] is the [=adverse impact=], while a [=socio-technical threat=] describes how the [=system under analysis=], implementation choice, deployment pattern, incentive, governance decision, user interaction, or ecosystem behavior can create the conditions for that impact.
 
 [=Threats=] and resulting [=harms=] often come from examining use cases and user journeys. Each step in the [=flow=] is an opportunity to ask what can go wrong, who may be affected, what [=harm=] may result, and which actor is responsible for preventing or responding to it. A specification may not be able to address all of these [=threats=] or [=harms=] directly. But even when the [=response=] is outside the specification, the [=threat model=] can still document the issue, the relevant [=assumptions=], the expected responsibilities, and the [=remaining threat=].
 
 [=Assumptions=] should also be checked as potential sources of [=threats=]. If a [=threat model=] assumes that an implementation, deployment, user agent, relying party, regulator, or another part of the ecosystem behaves in a particular way, the group should ask what [=threat=] appears if that [=assumption=] is violated.
 
-Note: One practical way to make this step systematic is to iterate through the relevant [=elements=] of the [=diagram=]. For each [=element=], such as a [=process=], a [=data flow=], a [=data store=], or a [=trust boundary=], ask which property is expected to hold, what stakeholder interest is at stake, and what could threaten it. Identity can be spoofed, data can be modified, information can be disclosed, [=authority=] can be exceeded, a privacy expectation can be broken, or a capability can create conditions for adverse [=impacts=] on [=stakeholders=]. The table can then record the [=element=], the property or stakeholder interest at stake, the [=threat=], and the [=harm=] that may result.
+Note: One practical way to make this step systematic is to iterate through the relevant [=elements=] of the [=diagram=]. For each [=element=], such as a [=process=], a [=data flow=], a [=data store=], or a [=trust boundary=], ask which property is expected to hold, what stakeholder interest is at stake, and what could threaten it. Identity can be spoofed, data can be modified, information can be disclosed, [=authority=] can be exceeded, a privacy expectation can be broken, or a capability can create conditions for [=adverse impacts=] on [=stakeholders=]. The table can then record the [=element=], the property or stakeholder interest at stake, the [=threat=], and the [=harm=] that may result.
 
 This gives the group a concrete way to move from the [=diagram=] to the list of [=threats=]. As support, groups can also use lists or [=analysis framework|threat analysis frameworks=].
 
@@ -730,12 +730,13 @@ The path, mechanism, or interaction by which data moves between [=elements=]. A 
 
 <dt><dfn>harm</dfn></dt>
 <dd>
-A negative or adverse [=impact=] generated by a [=threat=].
+An [=adverse impact=]. This Guide mainly uses "harm" when referring to
+harms modeling or to external frameworks that use that term.
 </dd>
 
-<dt><dfn>impact</dfn></dt>
+<dt><dfn>impact</dfn> / <dfn data-lt="adverse impact|adverse impacts">adverse impact</dfn></dt>
 <dd>
-The consequence produced by a [=threat=], [=risk=], event, design choice, implementation choice, deployment condition, or use of the [=system under analysis=]. In this Guide, when considering [=threats=], we focus on adverse, or negative, impacts [[NIST-SP800-30R1]].
+An impact is a consequence produced by a [=threat=], [=risk=], event, design choice, implementation choice, deployment condition, or use of the [=system under analysis=]. When the consequence is negative and relevant to threat modeling, this Guide calls it an adverse impact. This Guide uses the more general term "impact" when the consequence is not necessarily adverse, or when it is following the terminology of another source [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>out of scope</dfn></dt>
@@ -810,7 +811,7 @@ The specification feature, protocol, API, behavior, data flow, ecosystem interac
 
 <dt><dfn>threat</dfn></dt>
 <dd>
-Something that may happen and that, if it happens, can produce an adverse [=impact=]. In this Guide, threats are the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]].
+Something that may happen and that, if it happens, can produce an [=adverse impact=]. In this Guide, threats are the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>threat model</dfn></dt>
@@ -2337,11 +2338,11 @@ specified capability, implementation choice, deployment pattern, incentive,
 governance decision, user interaction, or ecosystem behavior can create
 conditions that lead to [=harm=].
 
-A [=harm=] is different from a [=threat=]. A harm describes the adverse
-impact. A [=socio-technical threat=] describes the pathway through which the
+A [=harm=] is different from a [=threat=]. A harm describes the [=adverse impact=].
+A [=socio-technical threat=] describes the pathway through which the
 system, implementation choice, deployment pattern, incentive, governance
 decision, user interaction, or ecosystem behavior can create conditions for
-adverse impact.
+[=adverse impact=].
 
 Web specifications often allow extensibility, optionality, and implementation
 choice. Those choices can affect security, privacy, or socio-technical
@@ -2353,7 +2354,7 @@ implementation threats, assumptions, transfers of responsibility, or
 
 ### Identifying socio-technical threats from harms ### {#from-harms-to-socio-technical-threats}
 
-A group can start from a possible adverse impact and work backward to the
+A group can start from a possible [=adverse impact=] and work backward to the
 [=threat=]. The question is what [=harm=] could occur, and what path from
 the [=system under analysis=] could create, enable, or amplify it.
 
@@ -2383,7 +2384,7 @@ harms to the threat pathways that may create, enable, or amplify them.
 
 ### Harms modeling
 
-Harms modeling helps groups reason from system behavior to adverse impacts on
+Harms modeling helps groups reason from system behavior to [=adverse impacts=] on
 people, groups, institutions, the Web ecosystem, or the environment
 [[MICROSOFT-HARMS-MODELING]].
 
@@ -2404,7 +2405,7 @@ rights, participation, exclusion, surveillance, or power imbalances.
 
 The W3C Self-Review Questionnaire: Societal Impact helps groups consider
 broader consequences, diverse use cases, exclusion, power dynamics,
-surveillance, psychological well-being, environmental [=impact=], and related
+surveillance, psychological well-being, environmental impact, and related
 concerns [[SOCIETAL-IMPACT-QUESTIONNAIRE]].
 
 # Appendix 3: ERTA Threat Response Framework # {#erta-threat-response-framework}
@@ -2420,7 +2421,7 @@ For this Guide, threat responses are summarized with the <dfn>ERTA mnemonic</dfn
 * **Eliminate** the threat or the condition that enables it.
 * **Reduce** the threat by applying <dfn data-lt="control|controls">control</dfn>,
   <dfn data-lt="mitigation|mitigations">mitigation</dfn>, or other design
-  changes that lower likelihood, impact, exploitability, or exposure.
+  changes that lower likelihood, [=adverse impact=], exploitability, or exposure.
 * **Transfer** responsibility to another actor, layer, dependency, deployment
   context, or the user.
 * **Accept** the threat and document why no further response is appropriate
@@ -2429,8 +2430,8 @@ For this Guide, threat responses are summarized with the <dfn>ERTA mnemonic</dfn
 A control is a safeguard, requirement, mechanism, process, or practice that
 modifies [=risk=] by preventing, detecting, limiting, or recovering from an
 [=attack=] or its adverse consequences [[NIST-SP800-30R1]]. A mitigation is
-a [=response=] that reduces the likelihood or [=impact=] of a [=threat=],
-[=risk=], or [=harm=].
+a [=response=] that reduces the likelihood of a [=threat=] or [=risk=], or
+reduces the [=adverse impact=] that may result.
 
 These four map directly to the four risk responses embraced by the Project
 Management Institute's Guide to the Project Management Body of Knowledge:
