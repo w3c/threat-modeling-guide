@@ -575,7 +575,7 @@ This question is important because not all relevant [=threats=] are only [=threa
 
 In other words, the analysis should not only ask what can go wrong inside the [=system under analysis=]. It should also ask who pays the cost when something goes wrong.
 
-Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[SOCIETAL-IMPACT-QUESTIONNAIRE]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental [=impact=].
+Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[SOCIETAL-IMPACT-QUESTIONNAIRE]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental impact.
 
 ### What can go wrong, and what harms may result?
 
@@ -736,7 +736,7 @@ harms modeling or to external frameworks that use that term.
 
 <dt><dfn>impact</dfn> / <dfn data-lt="adverse impact|adverse impacts">adverse impact</dfn></dt>
 <dd>
-An impact is a consequence produced by a [=threat=], [=risk=], event, design choice, implementation choice, deployment condition, or use of the [=system under analysis=]. When the consequence is negative and relevant to threat modeling, this Guide calls it an adverse impact [[NIST-SP800-30R1]].
+An impact is a consequence produced by a [=threat=], [=risk=], event, design choice, implementation choice, deployment condition, or use of the [=system under analysis=]. When the consequence is negative and relevant to threat modeling, this Guide calls it an adverse impact. This Guide uses the more general term "impact" when the consequence is not necessarily adverse, or when it is following the terminology of another source [[NIST-SP800-30R1]].
 </dd>
 
 <dt><dfn>out of scope</dfn></dt>
@@ -2405,7 +2405,7 @@ rights, participation, exclusion, surveillance, or power imbalances.
 
 The W3C Self-Review Questionnaire: Societal Impact helps groups consider
 broader consequences, diverse use cases, exclusion, power dynamics,
-surveillance, psychological well-being, environmental [=impact=], and related
+surveillance, psychological well-being, environmental impact, and related
 concerns [[SOCIETAL-IMPACT-QUESTIONNAIRE]].
 
 # Appendix 3: ERTA Threat Response Framework # {#erta-threat-response-framework}
@@ -2421,7 +2421,7 @@ For this Guide, threat responses are summarized with the <dfn>ERTA mnemonic</dfn
 * **Eliminate** the threat or the condition that enables it.
 * **Reduce** the threat by applying <dfn data-lt="control|controls">control</dfn>,
   <dfn data-lt="mitigation|mitigations">mitigation</dfn>, or other design
-  changes that lower likelihood, impact, exploitability, or exposure.
+  changes that lower likelihood, [=adverse impact=], exploitability, or exposure.
 * **Transfer** responsibility to another actor, layer, dependency, deployment
   context, or the user.
 * **Accept** the threat and document why no further response is appropriate
@@ -2430,8 +2430,8 @@ For this Guide, threat responses are summarized with the <dfn>ERTA mnemonic</dfn
 A control is a safeguard, requirement, mechanism, process, or practice that
 modifies [=risk=] by preventing, detecting, limiting, or recovering from an
 [=attack=] or its adverse consequences [[NIST-SP800-30R1]]. A mitigation is
-a [=response=] that reduces the likelihood or [=impact=] of a [=threat=],
-[=risk=], or [=harm=].
+a [=response=] that reduces the likelihood of a [=threat=] or [=risk=], or
+reduces the [=adverse impact=] that may result.
 
 These four map directly to the four risk responses embraced by the Project
 Management Institute's Guide to the Project Management Body of Knowledge:
