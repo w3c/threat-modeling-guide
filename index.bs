@@ -1222,6 +1222,40 @@ of concern and what countermeasures have been, or can be, applied to defend
 against them.
 
 
+# Frequently Asked Questions # {#faq}
+
+## Does a threat model replace Security and Privacy Considerations? ## {#faq-threat-model-and-considerations}
+
+No. A threat model informs those sections. When the analysis is published separately, each specification should still summarize the relevant [=threats=], [=responses=], [=assumptions=], and [=remaining threats=] in its [=Security Considerations=] and [=Privacy Considerations=], as applicable, and link to the full model.
+
+## Do we need a separate threat model for every specification? ## {#faq-separate-threat-models}
+
+Not necessarily. Related specifications can share a base [=threat model=] when they rely on the same system model, assumptions, or common threats. Add specification- or layer-specific analysis where behavior or responsibility differs, and cross-link the shared model and the relevant considerations sections. Split a shared model when it becomes too broad to make the affected specification, layer, or responsibility clear.
+
+## How detailed should the diagram be? ## {#faq-diagram-detail}
+
+Detailed enough to make the system story and scope understandable and to locate the relevant [=stakeholders=], actors, [=data flows=], [=data stores=], [=trust boundaries=], assumptions, and security or privacy decisions. Add detail when an important [=threat=] cannot be represented or traced. If the [=diagram=] becomes difficult to traverse, split it into a high-level diagram and focused sub-diagrams.
+
+## Must the threat model be complete before horizontal review? ## {#faq-complete-before-review}
+
+It does not need to be exhaustive; it does need to be useful. It should be good enough for the current stage: the system model should be understandable, important threats and responses should be visible, and assumptions, responsibilities, remaining threats, and open questions should be documented. The model can then be refined through review. It should also include references to the specification, for example by linking a [=threat=] to its [=response=] and the [=response=] to the normative text where that response is specified.
+
+## How can we keep the effort manageable? ## {#faq-manageable-effort}
+
+Start with one representative use case and a high-level [=diagram=]. Reuse existing analysis and [=Security Considerations=] or [=Privacy Considerations=], go broad before deep, and split the work into focused sessions. Use coverage of the model and the questions asked, rather than the raw number of threats found, as the stopping heuristic.
+
+## Can AI create the threat model for us? ## {#faq-ai-threat-model}
+
+AI can help generate candidate questions and threats, challenge assumptions, or cluster findings. It does not define the scope or validate the analysis. People must review the system model and validate every threat, response, assumption, and reference to the specification before the result is relied upon or published.
+
+## Is identifying threats useful even if we do not yet have responses? ## {#faq-threat-only-pass}
+
+Yes. A threat-only first pass can establish a shared view of what can go wrong and support prioritization. It is not yet a complete threat model: important threats should later be connected to responses, responsibilities, assumptions, and remaining threats.
+
+## If I have limited time, where should I start? ## {#faq-limited-time}
+
+Start with a small as-is model of the most important use case, data flows, and trust boundaries. Use existing [=Security Considerations=], [=Privacy Considerations=], and relevant normative requirements as inputs. Record the clearest threats, where the current specification addresses them, and any assumptions or remaining threats, then expand the model iteratively.
+
 # Appendix 1: Minimalist Threat Model for the World Wide Web
 
 The World Wide Web ("the Web") is built on many different technologies,
