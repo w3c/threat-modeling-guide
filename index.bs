@@ -810,7 +810,7 @@ The specification feature, protocol, API, behavior, data flow, ecosystem interac
 
 <dt><dfn>threat</dfn></dt>
 <dd>
-Something that may happen and that, if it happens, can produce an adverse [=impact=]. In this Guide, threats are the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]].
+A circumstance or event with the potential to produce an adverse [=impact=]. In this Guide, threats are the things that can go wrong for the [=system under analysis=], its [=stakeholders=], or the broader Web ecosystem [[NIST-SP800-30R1]]. A [=threat source=] is what can cause, enable, or contribute to the realization of a threat.
 </dd>
 
 <dt><dfn>threat model</dfn></dt>
