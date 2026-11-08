@@ -1073,7 +1073,7 @@ the threats effectively.
 
 The next step in creating a threat model is to ask the question, "What are
 we going to do about it?". That is, how are we going to respond to the
-threats [[HOWARD-LEBLANC2002]] (p. 106).
+threats [[HOWARD-LEBLANC2002]].
 
 In the literature, there are several categories of responses, some specific
 to threat modeling and others derived from risk management, aimed at reducing
@@ -1081,6 +1081,26 @@ or eliminating the threat or its impact [[HOWARD-LIPNER2006]] (p. 124). For
 this Guide, those responses are summarized using the [=ERTA mnemonic=]:
 Eliminate, Reduce, Transfer, and Accept. See
 [[#erta-threat-response-framework]] for more detail.
+
+Start with the threat and the feature or condition that enables it. Then ask, in order: can I eliminate it, can I reduce it with a control, do I delegate protection, even partly, to another actor, and is the remaining threat acceptable? This is an explanatory order for Eliminate, Reduce, Transfer and Accept (ERTA). Responses can combine, especially Reduce and Transfer.
+
+- **Eliminate** removes the feature or enabling condition. Document the rationale and specification reference in Security Considerations or another appropriate section.
+- **Reduce** keeps the feature and adds a [=control=] that addresses the threat. The control is specified in normative text, in a requirement, or by reference to an existing requirement. The response names who applies the control, where enforcement occurs, and what happens on failure.
+- **Transfer** delegates responsibility, wholly or partly, to another part of the system, actor, or component, for example by assigning a requirement to it. If normative text specifies both the requirement and its enforcement, the response remains Transfer and combines with Reduce where the control reduces the threat. If the response documents the delegation without specifying enforcement, document the transfer and the assumption that the receiving actor or component addresses the threat through reduction or elimination.
+- **Accept** is an explicit decision on the original or residual threat, with a rationale and conditions for revisiting it. If it is unacceptable, iterate on the model and responses.
+
+Document responses and assumptions under each threat, in Security Considerations or another appropriate section, with traceable links.
+
+<div class="example" id="example-erta-reduce">
+<p><strong>Reduce.</strong> Threat: a site initiates credential requests without user interaction. In the Digital Credentials API, step 5 of <a href="https://w3c-fedid.github.io/digital-credentials/#prepare-credential-requests">Prepare credential requests</a> rejects the request if the global object lacks transient activation, and the user agent executes that check. This is Reduce because the specification lowers the threat through its own algorithm.</p>
+<p><strong>Transfer.</strong> Threat: verifier-issuer linkability across credential presentations. The <a href="https://w3c-fedid.github.io/digital-credentials/#unlinkable-presentations">Unlinkable presentations</a> section asks protocols to limit linkability and leaves the protection to the protocol and credential format participants. This is Transfer. The recipients are those participants, and the documented assumption is that they provide and apply unlinkability mechanisms.</p>
+<p><strong>Reduce + Transfer.</strong> Threat: disclosure of credential response contents in transit. In OpenID4VP over the DC API, when <a href="https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#appendix-A.2">response_mode dc_api.jwt</a> is used, the wallet includes an encrypted JWT containing the authorization response. Encryption reduces the threat and enforcement sits with the wallet, so this is Reduce + Transfer. The model documents reliance on the wallet applying this requirement in that mode.</p>
+</div>
+
+<figure id="erta-response-flow">
+<img src="images/erta-response-flow.svg" width="1100" height="1220" style="max-width:100%;height:auto" alt="A top-down flowchart that starts from a threat and asks four questions in order. First: can it be eliminated? If yes, the feature or condition is removed, with the rationale and specification reference documented, and that branch ends. If no, ask whether a control can reduce it. If yes, normative text or a reference states the control, the enforcing actor and the failure behavior. After reduction, or if reduction is not possible, ask whether protection is delegated, even partly, to another actor. If yes, document the transfer by naming the recipient and the assigned responsibility, noting that the text may be non-normative, then document the assumption that the recipient applies the assigned protection with its rationale, and the flow continues to the remaining threat, original or residual. If not delegated, the flow goes directly to the remaining threat. Last: is the remaining threat acceptable? If yes, the accepted threat is documented with rationale and review conditions. If no, the Group iterates on the model and responses, and a dashed arrow returns to the start.">
+<figcaption>Threat responses in order: eliminate, reduce, transfer, accept. Outputs are documented in Security Considerations or another appropriate specification section, with traceable links.</figcaption>
+</figure>
 
 ### Publish for consideration
 
