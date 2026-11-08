@@ -1200,27 +1200,48 @@ with extraneous details.
 
 # How to Write the Security Considerations Section
 
-Issue: This section is incomplete.
+The Security Considerations section (the “external security notes” of threat modeling) explains the security issues relevant to its audiences: implementers writing code that implements the specification, adopters planning its deployment, Web authors and developers who need to understand the responsibilities that remain with them, and users who need to know what they are protected against and what they are not.
 
-The Security Considerations section should explain the security issues that
-implementers should consider when developing and deploying the
-specification.
+Note: The Self-Review Questionnaire: Security and Privacy [[SECURITY-PRIVACY-QUESTIONNAIRE]] asks for considerations specific to the specification and points to Guidelines for Writing RFC Text on Security Considerations [[RFC3552]], which covers scope, the threats addressed, assumptions, dependencies on lower layers, and residual risks. The same approach applies to [=Privacy Considerations=].
 
-This guide recommends that Security Considerations include a well structured
-and coherent threat model as described in this Guide. Specification
-developers may also include additional sections that explore related
-security issues. In some cases, a threat model, included directly in the
-specification, may be sufficient. In others, it may be more appropriate to
-publish a detailed threat model as a separate W3C Note, with the Security
-Considerations briefly summarizing and referring to that Note.
+The [=threat model=] documents the threat analysis, and the Security Considerations section describes and summarizes its conclusions, so that readers do not need to read the entire model. The full model can be included in the section. If it is too large or complex, it can be published separately, and the section then summarizes the relevant [=threats=] and responses and links to the applicable model or models.
 
-While it is not reasonable to expect that a standard be immune to all
-threats and attacks, it is invaluable for specification developers to
-consider as many legitimate threats as possible.  One purpose of the
-Security Considerations section is to explain which attacks are known to be
-of concern and what countermeasures have been, or can be, applied to defend
-against them.
+The format of the Security Considerations section is up to the Group, but it should cover the following:
 
+* For each in-scope [=threat=]:
+  * Describe the threat.
+  * Describe the [=response=], identify the response strategy (for example, one or more of the [=ERTA mnemonic=] strategies in [[#consider-responses]]), and link to where the response is documented in the threat model and to the supporting specification text, such as an algorithm or a normative requirement.
+  * Describe the assumptions on which the responses rely.
+  * If responsibility for addressing a threat is transferred, identify the receiving actor or component and where the transfer is documented.
+  * Describe the [=remaining threats=] and state whether each has been accepted, giving the rationale for any acceptance.
+  * If a threat has been identified but no response has been selected, say so and link to the issue or pull request where it is discussed, if available.
+* For each [=out of scope=] threat, identify it and explain why it is out of scope.
+
+<div class="example" id="example-security-considerations-reduce">
+
+<strong>Threat: Network tampering</strong>
+
+* <strong>Threat description:</strong> A network attacker can modify an insecure page before it uses the Web API.
+* <strong>Response (Reduce):</strong> To reduce this threat, the API is restricted to secure contexts.
+* <strong>Enforcement:</strong> The browser enforces this restriction when exposing the API; Digital Credentials uses <code>[SecureContext]</code> for this purpose.
+* <strong>Other limitation:</strong> This rule does not address misuse by a malicious page already running in a secure context.
+
+Source: <a href="https://www.w3.org/TR/2026/WD-digital-credentials-20261020/#x7-7-the-digitalcredential-interface">Digital Credentials, Section 7.7</a>
+
+</div>
+
+<div class="example" id="example-security-considerations-transfer">
+
+<strong>Threat: Authentication from an unexpected origin</strong>
+
+* <strong>Threat description:</strong> An attacker may try to authenticate using a credential response from an unexpected origin.
+* <strong>Response (Transfer + Reduce):</strong> The specification assigns the Relying Party responsibility for validating the origin in the client data and rejecting unexpected values.
+* <strong>Enforcement:</strong> The Relying Party enforces this check during registration and authentication, reducing the threat at that layer.
+* <strong>Residual threat:</strong> If the Relying Party omits this check, an unexpected origin may be accepted and the threat remains.
+
+Source: <a href="https://www.w3.org/TR/2026/REC-webauthn-3-20260825/#sctn-validating-origin">WebAuthn, Section 13.4.9</a>
+
+</div>
 
 # Appendix 1: Minimalist Threat Model for the World Wide Web
 
