@@ -527,11 +527,11 @@ This Guide is primarily for specification developers, Groups, chairs, and editor
 
 In that sense, [=threat modeling=] helps a group answer a small set of questions adapted from Shostack's Four Question Framework [[SHOSTACK2014]] and the [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org/) for W3C specifications. The second question makes affected [=stakeholders=] explicit; the fifth keeps the analysis stage-appropriate:
 
-1. What is being specified?
+1. What are we working on?
 2. Who may use or be affected by it?
-3. What can go wrong, and what [=harms=] may result?
-4. How are those [=threats=] and resulting [=harms=] addressed, and where is the [=response=] documented?
-5. Is the analysis good enough for the current stage of the specification?
+3. What can go wrong?
+4. What are we going to do about it?
+5. Did we do a good enough job?
 
 A useful [=threat model=] usually records:
 
@@ -556,7 +556,7 @@ Note: This Guide does not require a specific [=threat modeling=] framework; what
 
 A [=threat model=] for a specification should help readers understand the reasoning behind the specification. In practice, this means answering the five questions introduced above. These questions do not need to appear as separate sections in the final [=threat model=]. In practice, they are usually captured through three kinds of information: the [=system under analysis=], the relevant [=threats=], and the [=responses=] to those [=threats=].
 
-### What is being specified?
+### What are we working on? ### {#what-is-being-specified}
 
 For a W3C specification, the [=system under analysis=] is the relevant thing being specified: a capability, API, protocol, behavior, [=data flow=], ecosystem interaction, or deployment pattern introduced, enabled, constrained, or assumed by the specification.
 
@@ -577,7 +577,7 @@ In other words, the analysis should not only ask what can go wrong inside the [=
 
 Note: Other W3C work gives useful examples of how to think about [=stakeholders=]: the Web Content Accessibility Guidelines (WCAG) 2.2 specification [[WCAG22]] starts from the needs of people with disabilities, but also speaks to a wider ecosystem of designers, developers, policy makers, purchasing agents, teachers, and students; the W3C Internationalization Glossary [[i18n-glossary]] reminds us that people may be affected differently depending on language, region, or culture; the Web Sustainability Guidelines [[web-sustainability-guidelines]] include the wider frame of planet, people, and prosperity; and the Self-Review Questionnaire: Societal Impact [[SOCIETAL-IMPACT-QUESTIONNAIRE]] reminds us to consider broader consequences, diverse use cases, exclusion, power dynamics, surveillance, psychological well-being, and environmental [=impact=].
 
-### What can go wrong, and what harms may result?
+### What can go wrong? ### {#what-can-go-wrong-and-what-harms-may-result}
 
 Where useful, a group should distinguish [=threats=] to the capability or [=system under analysis|system=] from [=threats=] that may occur through the capability or [=system under analysis|system=]. [=Security threat|Security threats=] explain how security properties can be violated. [=Privacy threat|Privacy threats=] explain how privacy properties or expectations can be violated. [=Socio-technical threat|Socio-technical threats=] explain how a specified capability, implementation choice, deployment pattern, incentive, governance decision, or user interaction can create the conditions for adverse [=impacts=] on [=stakeholders=]. In this Guide, those adverse [=impacts=] are [=harms=].
 
@@ -593,7 +593,7 @@ Note: One practical way to make this step systematic is to iterate through the r
 
 This gives the group a concrete way to move from the [=diagram=] to the list of [=threats=]. As support, groups can also use lists or [=analysis framework|threat analysis frameworks=].
 
-### How are those threats and resulting harms addressed, and where is the response documented?
+### What are we going to do about it? ### {#how-are-those-threats-and-resulting-harms-addressed-and-where-is-the-response-documented}
 
 A useful [=threat model=] connects important [=threats=], resulting [=harms=], and [=responses=] to the places where the specification addresses them. The documented outcome might be a normative requirement, a [=Security Considerations=] section, a [=Privacy Considerations=] section, an implementation note, an [=assumption=], a transfer of responsibility, an acceptance rationale. Issues that are outside the current [=scope=] should be recorded as scoping decisions, not as [=responses=].
 
@@ -624,7 +624,7 @@ Note: When documenting how a [=threat=] is addressed, it is useful to record the
 </div>
 
 
-### Is the analysis good enough for the current stage of the specification?
+### Did we do a good enough job? ### {#is-the-analysis-good-enough-for-the-current-stage-of-the-specification}
 
 A [=threat model=] does not need to be exhaustive to be useful. In practice, trying to enumerate every possible [=threat=] can make the analysis harder to write, review, and maintain. The goal is to capture enough of the important [=threats=] to explain the security and privacy reasoning that shaped the specification. 
 
