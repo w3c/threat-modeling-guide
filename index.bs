@@ -164,6 +164,11 @@ table.threat td.analysis-framework {
 </style>
 <pre class='biblio'>
 {
+  "openstand-principles": {
+    "href": "https://open-stand.org/about-us/principles/",
+    "publisher": "OpenStand",
+    "title": "The Modern Standards Paradigm - Five Key Principles"
+  },
   "SHOSTACK2014": {
     "authors": ["Adam Shostack"],
     "date": "April 2014",
@@ -657,19 +662,11 @@ Note: If the group begins working on the [=threat model=] at an advanced stage o
 
 The [=threat model=] serves as the foundation for the [=Security Considerations=] section of a specification. If the [=threat model=] is small, it can be included directly in the [=Security Considerations=] section. Otherwise, it can be published separately, for example, as a Group Note, and referenced from the [=Security Considerations=] or [=Privacy Considerations=] section.
 
-Even when the [=threat model=] is published separately, each specification should still include [=Security Considerations=] and [=Privacy Considerations=] sections that summarize the relevant [=threats=], explain where the [=responses=] are documented, and link to the [=threat model=].
+Even when the [=threat model=] is published separately, each specification should still include [=Security Considerations=] and [=Privacy Considerations=] sections that summarize the relevant [=threats=], the chosen [=responses=], the actors responsible for applying them, the [=assumptions=], and the [=remaining threats=]. These sections should link to the detailed [=threat model=] and to the specification text that supports each response. See [[#how-to-write-the-security-considerations-section]].
 
-When publishing externally groups are encouraged to list the threats by name and ID, without further description, as an index in the appropriate considerations section, making it easy for readers to see at a glance any threats they might care about.
+If a [=threat model=] covers a family of related specifications and becomes too broad, it can be split by specification, layer, or scenario, provided that the related [=threat models=] and the relevant [=Security Considerations=] and [=Privacy Considerations=] sections are clearly cross-linked.
 
-When publishing separately, groups are encouraged to list the [=threats=] by
-name and identifier, without further description, as an index in the
-relevant considerations section. This makes it easier for readers to see at
-a glance which [=threats=] may matter to them, and where the full analysis
-can be found.
-
-If a [=threat model=] covers a family of related specifications and becomes too broad, it can be split by specification or layer, provided that the related [=threat models=] and the relevant [=Security Considerations=] and [=Privacy Considerations=] sections are clearly cross-linked.
-
-Note: From an open-standards perspective, the [=threat model=] should be developed and published openly unless there is a clear reason not to, as it is an important tool for both implementers and users.
+Note: From an open-standards perspective [[openstand-principles]], the [=threat model=] should be developed and published openly unless there is a clear reason not to.
 
 ## Core Terminology
 
